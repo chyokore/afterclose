@@ -1,0 +1,26 @@
+{
+  "sharesMultiplier": "1.0017152487959898",
+  "symbol": "NVDAon",
+  "underlyingName": "NVIDIA Corporation Common Stock",
+  "ticker": "NVDA",
+  "supportedNetworks": [
+    {
+      "network": "ETHEREUM",
+      "chainId": 1,
+      "address": "0x2d1f7226bd1f780af6b9a49dcc0ae00e8df4bdee",
+      "decimals": 18
+    },
+    {
+      "network": "BSC",
+      "chainId": 56,
+      "address": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+      "decimals": 18
+    },
+    {
+      "network": "SOLANA",
+      "chainId": 101,
+      "address": "gEGtLTPNQ7jcg25zTetkbmF7teoDLcrfTnQfmn2ondo",
+      "decimals": 9
+    }
+  ]
+}

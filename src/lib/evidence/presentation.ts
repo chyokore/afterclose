@@ -14,8 +14,9 @@ export const evidenceProvenance = [
   { field: "Token price / update time", source: "Binance RWA price → tokenPrice / tokenPriceUpdatedAt", status: "Token market evidence only" },
   { field: "Per-share reference", source: "Binance RWA price and underlying-market → referencePrice", status: "Token-derived; not independent" },
   { field: "Shares per token", source: "Binance RWA tokens → tokenToShareRatio", status: "Reported value; current issuer validity unverified" },
-  { field: "Underlying session", source: "Binance statusInfo retained as raw provider status", status: "Authoritative calendar and security status unverified" },
+  { field: "Underlying session", source: "Reviewed Nasdaq schedule shown separately from Binance raw status", status: "Schedule-only; actual exchange and security status unverified" },
+  { field: "Issuer multiplier", source: "Official Ondo public asset page, when accessible", status: "Exact decimal retained; effective time and current validity unavailable" },
   { field: "Independent equity quote", source: "No independent provider connected", status: "Unavailable; no price or event timestamp" },
-  { field: "Contract corroboration", source: "Indexed BscScan metadata examined September 26, 2026", status: "Historical corroboration; fresh verification pending" },
+  { field: "Contract corroboration", source: "Indexed BscScan metadata examined September 26, 2026", status: "Historical explorer corroboration; separate current issuer check shown above" },
   { field: "AfterClose snapshot time", source: "Application time when the response bundle was assembled", status: "Observation time, not a market-price timestamp" },
 ] as const;

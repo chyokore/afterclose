@@ -2,7 +2,7 @@
 
 Initial date: **September 26, 2026**.
 
-Latest milestone: [Binance execution evidence research](binance-execution-evidence.md) confirms authenticated BSC chain-list access and documents the wallet requirement that prevents an NVDAon RFQ test in this scope. No quote or simulation was performed; the live engine remains WAIT. The [Evidence Dashboard v1](evidence-dashboard.md) remains unchanged.
+Latest milestone: [Issuer multiplier and session evidence](issuer-multiplier-and-session.md) adds undated issuer-reported NVDAon metadata and a bounded Nasdaq published-schedule display. Current multiplier applicability and authoritative live status remain unverified; the engine remains WAIT. Prior [execution research](binance-execution-evidence.md) still applies: no quote or simulation was performed.
 
 This diary separates user-reported milestones, direct observations, documentation findings and unverified work. It is not a claim of production readiness.
 

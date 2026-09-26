@@ -9,7 +9,7 @@ export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 export default async function Home() {
-  const { data, live, evaluatedAtMs, independent, evidence } = await loadDashboard();
+  const { data, live, evaluatedAtMs, independent, evidence, issuer, calendar } = await loadDashboard();
   const decision = evaluateReferenceTruth(evidence, evaluatedAtMs);
   return <main className="evidence-dashboard">
     <header className="nav"><Link className="brand" href="/"><span className="brand-icon">a/c</span>AfterClose<span className="beta">EVIDENCE DASHBOARD V1</span></Link><Link className="truth-link" href="/demo">Scenario lab ↗</Link></header>
@@ -19,15 +19,16 @@ export default async function Home() {
       <div className="connected-panel">
         <p>Underlying: {live ? `${live.token.underlyingName ?? "Company unavailable"} / ${live.token.underlyingTicker}` : "NVIDIA / NVDA — historical discovery metadata"}</p>
         <p className="contract">{live?.token.tokenContractAddress ?? "Current contract evidence unavailable. See prior discovery record below."}</p>
-        {live && <p className="fine">Issuer: {live.token.platformId} · Decimals: {live.token.decimals ?? "Unavailable"} · API-reported identity; no fresh independent contract verification.</p>}
+        {live && <p className="fine">Issuer: {live.token.platformId} · Decimals: {live.token.decimals ?? "Unavailable"} · Binance-reported identity. Separate issuer corroboration is shown below when available.</p>}
         {!live && <p className="connection-notice">{data.state === "setup" ? "Existing Binance server credentials are not available to this process." : "The current Binance evidence bundle could not be validated. Prices are withheld; no historical quote or synthetic substitute is loaded."} The engine below evaluates unavailable evidence.</p>}
         <div className="metrics dashboard-metrics">
           <div><small>Binance token price · USD*</small><strong>{live?.quote.tokenPrice ?? "Unavailable"}</strong><span>Per token · provider-reported</span></div>
           <div><small>Token price age at evaluation</small><strong>{ageLabel(live?.quote.tokenPriceUpdatedAt, evaluatedAtMs)}</strong><span>From tokenPriceUpdatedAt, not retrieval time</span></div>
           <div><small>Independent equity reference</small><strong>Unavailable</strong><span>{independent.reasons[0]}</span></div>
-          <div><small>Shares-per-token validity</small><strong>Unverified</strong><span>Current issuer applicability and validity interval missing</span></div>
+          <div><small>Shares-per-token validity</small><strong>Unverified</strong><span>{issuer.reason}</span></div>
         </div>
-        <div className="clock-grid"><div><h3>Provider token-price clock</h3><p>{timestampLabel(live?.quote.tokenPriceUpdatedAt)}</p><p>{timestampLabel(live?.quote.tokenPriceUpdatedAt, "America/New_York")}</p><small>Raw Unix ms: {live?.quote.tokenPriceUpdatedAt ?? "Unavailable"}. This dates only the token price.</small></div><div><h3>Underlying market session</h3><p>Unverified</p><small>Raw Binance status: {live?.market.statusInfo?.marketStatus ?? "Unavailable"}. No authoritative holiday, early-close or security-status evidence is connected. New York time is display context only.</small></div></div>
+        <div className="clock-grid"><div><h3>Provider token-price clock</h3><p>{timestampLabel(live?.quote.tokenPriceUpdatedAt)}</p><p>{timestampLabel(live?.quote.tokenPriceUpdatedAt, "America/New_York")}</p><small>Raw Unix ms: {live?.quote.tokenPriceUpdatedAt ?? "Unavailable"}. This dates only the token price.</small></div><div><h3>Authoritative market status</h3><p>Unverified authoritative session</p><small>Raw Binance status: {live?.market.statusInfo?.marketStatus ?? "Unavailable"}. A published calendar does not verify security halts, actual exchange status or quote availability.</small></div></div>
+        <div className="clock-grid"><div><h3>Ondo issuer evidence</h3><p>{issuer.evidence ? `${issuer.evidence.value} shares per token — issuer-reported, validity unverified` : "Unverified multiplier — issuer value unavailable"}</p><p>Effective time: unavailable · Valid until: unavailable</p><small>Observed: {timestampLabel(issuer.observedAtMs)}. {issuer.evidence ? "Official page corroborates NVDAon / NVDA and the BSC contract; observation time is not an effective time." : issuer.reason}</small><p><a href="https://app.ondo.finance/assets/nvdaon">Official Ondo asset source ↗</a></p></div><div><h3>Nasdaq published schedule</h3><p>{calendar.availability === "available" ? `${calendar.session} — scheduled, not live status` : "Unknown — schedule unavailable"}</p><p>{calendar.calendarDate ?? "Date unavailable"} · {calendar.timezone}</p><small>{calendar.reason} Source reviewed: {timestampLabel(calendar.observedAtMs)}. Coverage ends before {calendar.validUntilDate ?? "unknown"}; local review limit: seven days.</small><p><a href={calendar.source}>Official holiday calendar ↗</a> · <a href={calendar.hoursSource}>Trading hours ↗</a></p></div></div>
       </div>
     </section>
     <ReferenceComparison evidence={evidence} nowMs={evaluatedAtMs} />
