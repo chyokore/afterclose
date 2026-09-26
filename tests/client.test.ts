@@ -37,4 +37,14 @@ test("client safeguards (synthetic responses, not live API evidence)", async t =
   await assert.rejects(rwaGet("platforms", {}, z.array(z.unknown())), (e: ApiError) => e.kind === "schema");
   globalThis.fetch = async () => { throw new Error("private error"); };
   await assert.rejects(rwaGet("platforms", {}, z.array(z.unknown())), (e: ApiError) => e.kind === "network" && !e.message.includes("private"));
+  globalThis.fetch = async () => { throw new TypeError("sensitive transport text", { cause: { code: "UND_ERR_CONNECT_TIMEOUT" } }); };
+  await assert.rejects(rwaGet("platforms", {}, z.array(z.unknown())), (e: ApiError) => e.audit?.networkCode === "UND_ERR_CONNECT_TIMEOUT" && e.audit.latencyMs >= 0 && !JSON.stringify(e).includes("sensitive"));
+  globalThis.fetch = async () => Response.json({ code: 40102, msg: "test-secret", timestamp: 123 }, { status: 401 });
+  await assert.rejects(rwaGet("platforms", {}, z.array(z.unknown()), audit => {
+    assert.equal(audit.status, 401);
+    assert.equal(audit.code, "40102");
+    assert.equal(audit.responseTimestamp, 123);
+    assert.ok(audit.latencyMs >= 0);
+    assert.ok(!JSON.stringify(audit).includes("test-secret"));
+  }), (e: ApiError) => e.kind === "http" && e.audit?.code === "40102");
 });

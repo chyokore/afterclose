@@ -37,7 +37,7 @@ npm start
 - Server-only HMAC-SHA256 client with exact encoded wire-path signing, `/build` prefix, timeouts, no redirects and no caching.
 - Platforms, tokens, search, price and underlying-market read integrations; runtime validation of consumed fields.
 - Live selection is restricted to API-discovered Ondo or bStocks stock tokens on BSC, then cross-checked through search and returned quote identity.
-- No credentials were available during foundation development: real schemas and at least one actual BSC token remain unverified.
+- Credentials were absent during foundation development and configured for a subsequent live attempt. That attempt failed at DNS/transport; real schemas and at least one actual BSC token remain unverified. See [live verification evidence](docs/devex/live-verification.md).
 
 The documented `referencePrice` is token-derived per-share pricing, not an independent traditional-market quote. No genuine underlying-reference timestamp is documented. The application does not calculate a discovery signal or invent freshness. Provider market status is labeled as such. Liquidity, slippage, executable quotes and independent price feeds are future work.
 

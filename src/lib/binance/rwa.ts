@@ -1,7 +1,8 @@
 import "server-only";
 import { z } from "zod";
-import { ApiError, credentialsConfigured, rwaGet } from "./client";
+import { ApiError, credentialsConfigured, rwaGet, type ResponseAudit } from "./client";
 
+type AuditObserver = (audit: ResponseAudit) => void;
 const address = z.string().regex(/^0x[0-9a-fA-F]{40}$/);
 const identity = z.object({ binanceChainId: z.string(), tokenContractAddress: address, platformId: z.string() });
 const status = z.object({ marketStatus: z.string(), openState: z.boolean() });
@@ -9,11 +10,11 @@ const decimal = z.string().regex(/^\d+(\.\d+)?$/);
 export const tokenSchema = identity.extend({ tokenSymbol: z.string(), tokenName: z.string(), underlyingTicker: z.string(), assetType: z.number() });
 const priceSchema = identity.extend({ tokenPrice: decimal.nullish(), referencePrice: decimal.nullish(), tokenPriceUpdatedAt: z.number().nullish() });
 const marketSchema = identity.extend({ statusInfo: status.nullish(), marketData: z.object({ referencePrice: decimal.nullish() }).nullish() });
-export const platforms = () => rwaGet("platforms", {}, z.array(z.object({ platformId: z.string(), chainDistribution: z.array(z.object({ binanceChainId: z.string(), tokenCount: z.number() })) })));
-export const tokens = () => rwaGet("tokens", { binanceChainId: "56" }, z.array(tokenSchema));
-export const search = (keyword: string) => rwaGet("search", { keyword }, z.array(z.object({ ticker: z.string(), assets: z.array(identity.extend({ assetType: z.number(), tokenSymbol: z.string() })) })));
-export const prices = (contract: string) => rwaGet("price", { binanceChainId: "56", tokenContractAddresses: address.parse(contract) }, z.array(priceSchema));
-export const underlyingMarket = (contract: string) => rwaGet("underlying-market", { binanceChainId: "56", tokenContractAddress: address.parse(contract) }, marketSchema);
+export const platforms = (observe?: AuditObserver) => rwaGet("platforms", {}, z.array(z.object({ platformId: z.string(), chainDistribution: z.array(z.object({ binanceChainId: z.string(), tokenCount: z.number() })) })), observe);
+export const tokens = (observe?: AuditObserver) => rwaGet("tokens", { binanceChainId: "56" }, z.array(tokenSchema), observe);
+export const search = (keyword: string, observe?: AuditObserver) => rwaGet("search", { keyword }, z.array(z.object({ ticker: z.string(), assets: z.array(identity.extend({ assetType: z.number(), tokenSymbol: z.string() })) })), observe);
+export const prices = (contract: string, observe?: AuditObserver) => rwaGet("price", { binanceChainId: "56", tokenContractAddresses: address.parse(contract) }, z.array(priceSchema), observe);
+export const underlyingMarket = (contract: string, observe?: AuditObserver) => rwaGet("underlying-market", { binanceChainId: "56", tokenContractAddress: address.parse(contract) }, marketSchema, observe);
 
 export async function loadRwa() {
   if (!credentialsConfigured()) return { state: "setup" as const };

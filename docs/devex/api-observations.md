@@ -1,5 +1,7 @@
 # API observations — September 26, 2026
 
+Latest live attempt: platforms and search timed out; tokens failed DNS resolution. No HTTP response was received. Price and underlying-market remained skipped because discovery yielded no contract. See [measured results](live-verification.md). The earlier missing-credential table below records the foundation run, not current configuration.
+
 Official sources consulted:
 
 - [Authentication](https://web3.binance.com/en/dev-docs/authentication)

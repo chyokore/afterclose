@@ -1,5 +1,7 @@
 # Day 01 — September 26, 2026
 
+Follow-up: credentials were subsequently configured locally. The [live verification attempt](live-verification.md) failed at DNS/transport before authentication could be assessed. The original foundation observations below are historical.
+
 ## Milestones and evidence
 
 | Milestone | Evidence/status |

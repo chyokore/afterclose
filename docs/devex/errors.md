@@ -1,5 +1,11 @@
 # Errors and troubleshooting — September 26, 2026
 
+## Subsequent credentialed attempt
+
+With nonempty local credentials, platforms/search returned transport timeouts and tokens returned ENOTFOUND. Windows DNS lookup timed out; Node DNS also returned ENOTFOUND. No HTTP response or Binance authentication error was available. Added safe timing/error metadata instead of logging raw fetch errors. See [live verification](live-verification.md) for exact outcomes. A temporary platforms-only probe was consolidated into `npm run test:api -- --platforms-only`.
+
+## Foundation history
+
 Only observed errors are recorded here.
 
 | Observation | Action/outcome |
