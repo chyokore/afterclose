@@ -20,12 +20,12 @@ async function main() {
   }
   async function check<T>(endpoint: string, run: () => Promise<T>): Promise<T | undefined> {
     try { const result = await run(); console.log(JSON.stringify({ endpoint, result: "passed", schema: shape(result) })); return result; }
-    catch (e) { console.log(JSON.stringify({ endpoint, result: "failed", reason: e instanceof ApiError ? e.kind : "validation", audit: e instanceof ApiError ? e.audit : undefined })); process.exitCode = 1; }
+    catch (e) { console.log(JSON.stringify({ endpoint, result: "failed", reason: e instanceof ApiError ? e.kind : "validation", audit: e instanceof ApiError ? e.audit : undefined, issues: e instanceof ApiError ? e.issues : undefined })); process.exitCode = 1; }
   }
   await check("platforms", () => api.platforms(observe));
   if (process.argv.includes("--platforms-only")) return;
   const catalog = await check("tokens", () => api.tokens(observe));
-  const token = catalog?.find(t => t.binanceChainId === "56" && t.assetType === 1 && ["ondo", "bstock"].includes(t.platformId));
+  const token = catalog ? api.selectMvp(catalog) : undefined;
   // NVDA is only a discovery keyword when no catalog is available, never an assumed supported asset.
   await check("search", () => api.search(token?.tokenContractAddress ?? "NVDA", observe));
   if (!token) {

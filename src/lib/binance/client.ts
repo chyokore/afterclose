@@ -7,7 +7,7 @@ export const endpointNames = ["platforms", "tokens", "search", "price", "underly
 export type Endpoint = (typeof endpointNames)[number];
 export type ResponseAudit = { endpoint: Endpoint; status?: number; latencyMs: number; code?: string; responseTimestamp?: number; networkCode?: string };
 export class ApiError extends Error {
-  constructor(public readonly kind: "setup" | "configuration" | "network" | "http" | "schema" | "provider", public readonly status?: number, public readonly audit?: ResponseAudit) {
+  constructor(public readonly kind: "setup" | "configuration" | "network" | "http" | "schema" | "provider", public readonly status?: number, public readonly audit?: ResponseAudit, public readonly issues?: { path: string; code: string }[]) {
     super(`Binance Web3 request unavailable (${kind})`);
   }
 }
@@ -59,6 +59,6 @@ export async function rwaGet<T>(endpoint: Endpoint, params: Record<string, strin
   if (!envelope.success) throw new ApiError("schema", response.status, audit);
   if (envelope.data.code !== 0 || !envelope.data.success) throw new ApiError("provider", response.status, audit);
   const parsed = schema.safeParse(envelope.data.data);
-  if (!parsed.success) throw new ApiError("schema", response.status, audit);
+  if (!parsed.success) throw new ApiError("schema", response.status, audit, parsed.error.issues.map(i => ({ path: i.path.map(String).join("."), code: i.code })));
   return parsed.data;
 }

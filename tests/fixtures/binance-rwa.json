@@ -1,0 +1,228 @@
+{
+  "description": "Historical public Binance responses captured 2026-09-26; regression tests only, never a live fallback",
+  "platforms": [
+    {
+      "platformId": "ondo",
+      "tickerCount": 459,
+      "chainDistribution": [
+        {
+          "binanceChainId": "1",
+          "tokenCount": 457
+        },
+        {
+          "binanceChainId": "56",
+          "tokenCount": 458
+        },
+        {
+          "binanceChainId": "CT_501",
+          "tokenCount": 451
+        }
+      ],
+      "website": "https://ondo.finance",
+      "logoUrl": "https://public.bnbstatic.com/images/w3w/openapi/ondo.png"
+    },
+    {
+      "platformId": "bstock",
+      "tickerCount": 80,
+      "chainDistribution": [
+        {
+          "binanceChainId": "56",
+          "tokenCount": 80
+        }
+      ],
+      "website": "https://www.binance.com/zh-CN/bstocks-landing",
+      "logoUrl": "https://public.bnbstatic.com/images/w3w/openapi/bstocks.png"
+    }
+  ],
+  "tokens": [
+    {
+      "binanceChainId": "56",
+      "tokenContractAddress": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+      "platformId": "ondo",
+      "assetType": 1,
+      "tokenName": "NVIDIA (Ondo)",
+      "tokenSymbol": "NVDAon",
+      "tokenLogoUrl": "https://onchainos.bnbstatic.com/images/web3-data/public/token/logos/4357ecbcd49d4dea9bca1072cb0da0f6.png",
+      "decimals": "18",
+      "underlyingTicker": "NVDA",
+      "underlyingName": "Nvidia Corp",
+      "underlyingNameZh": "英伟达",
+      "tokenToShareRatio": "1.0017152487959898",
+      "tags": [
+        "alpha"
+      ],
+      "statusInfo": {
+        "openState": true,
+        "marketStatus": "offhours",
+        "reasonCode": "TRADING",
+        "reasonMsg": null,
+        "nextOpenTime": 1790553900000,
+        "nextCloseTime": 1790553300000
+      },
+      "tokenPrice": "225.576854405106905212014337138704",
+      "referencePrice": "225.19059650558248",
+      "volume24H": "20221595063.72708",
+      "marketCap": "5432687175033",
+      "peRatioTTM": "28.12"
+    },
+    {
+      "binanceChainId": "56",
+      "tokenContractAddress": "0xebe1408a7cce4f38de15467e5139c3d82e4641f8",
+      "platformId": "ondo",
+      "assetType": null,
+      "tokenName": "iShares Systematic Bond ETF (Ondo Tokenized)",
+      "tokenSymbol": "SYSBon",
+      "tokenLogoUrl": "https://onchainos.bnbstatic.com/images/web3-data/public/token/logos/BD540E99802DAA52B31A838D69037856.png",
+      "decimals": "18",
+      "underlyingTicker": "SYSB",
+      "underlyingName": null,
+      "underlyingNameZh": null,
+      "tokenToShareRatio": "1.007291348544276389",
+      "tags": null,
+      "statusInfo": {
+        "openState": false,
+        "marketStatus": "closed",
+        "reasonCode": "MARKET_CLOSED",
+        "reasonMsg": "Weekend or Holiday",
+        "nextOpenTime": 1790602260000,
+        "nextCloseTime": 1790625540000
+      },
+      "tokenPrice": "86.1709943904511266710353491772687",
+      "referencePrice": "85.5472396491683",
+      "volume24H": "7139827.923642432",
+      "marketCap": "1256945500",
+      "peRatioTTM": null
+    },
+    {
+      "binanceChainId": "56",
+      "tokenContractAddress": "0xb0d7d4b65a654d43f91272bb94e011ce6812a2ef",
+      "platformId": "ondo",
+      "assetType": null,
+      "tokenName": "iShares Securitized Income Active ETF (Ondo Tokenized)",
+      "tokenSymbol": "SECUon",
+      "tokenLogoUrl": "https://onchainos.bnbstatic.com/images/web3-data/public/token/logos/F79569F2E8899C9E9783F3EB1E78CF5A.png",
+      "decimals": "18",
+      "underlyingTicker": "SECU",
+      "underlyingName": null,
+      "underlyingNameZh": null,
+      "tokenToShareRatio": "1.007901531235421777",
+      "tags": null,
+      "statusInfo": {
+        "openState": false,
+        "marketStatus": "closed",
+        "reasonCode": "MARKET_CLOSED",
+        "reasonMsg": "Weekend or Holiday",
+        "nextOpenTime": 1790602260000,
+        "nextCloseTime": 1790625540000
+      },
+      "tokenPrice": "49.432015067802006747480762322143848",
+      "referencePrice": "49.044488509915624",
+      "volume24H": "1740491.896254",
+      "marketCap": "0",
+      "peRatioTTM": null
+    },
+    {
+      "binanceChainId": "56",
+      "tokenContractAddress": "0x85b53a9344884ae428e0e15f05a1819d280d4be7",
+      "platformId": "ondo",
+      "assetType": null,
+      "tokenName": "iShares High Yield Corporate Bond BuyWrite Strategy ETF (Ondo Tokenized)",
+      "tokenSymbol": "HYGWon",
+      "tokenLogoUrl": "https://onchainos.bnbstatic.com/images/web3-data/public/token/logos/991488B9FE2B6FC55C45D17FF681081B.png",
+      "decimals": "18",
+      "underlyingTicker": "HYGW",
+      "underlyingName": null,
+      "underlyingNameZh": null,
+      "tokenToShareRatio": "1.011520342885615455",
+      "tags": null,
+      "statusInfo": {
+        "openState": false,
+        "marketStatus": "closed",
+        "reasonCode": "MARKET_CLOSED",
+        "reasonMsg": "Weekend or Holiday",
+        "nextOpenTime": 1790602260000,
+        "nextCloseTime": 1790625540000
+      },
+      "tokenPrice": "29.143388784910182727841049423225075",
+      "referencePrice": "28.811470762685165",
+      "volume24H": "1339652.1889207184",
+      "marketCap": "110372915",
+      "peRatioTTM": null
+    }
+  ],
+  "search": [
+    {
+      "ticker": "NVDA",
+      "companyName": "Nvidia Corp",
+      "assets": [
+        {
+          "platformId": "ondo",
+          "binanceChainId": "56",
+          "tokenContractAddress": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+          "tokenSymbol": "NVDAon",
+          "assetType": 1
+        },
+        {
+          "platformId": "ondo",
+          "binanceChainId": "CT_501",
+          "tokenContractAddress": "gEGtLTPNQ7jcg25zTetkbmF7teoDLcrfTnQfmn2ondo",
+          "tokenSymbol": "NVDAon",
+          "assetType": 1
+        },
+        {
+          "platformId": "ondo",
+          "binanceChainId": "1",
+          "tokenContractAddress": "0x2d1f7226bd1f780af6b9a49dcc0ae00e8df4bdee",
+          "tokenSymbol": "NVDAon",
+          "assetType": 1
+        },
+        {
+          "platformId": "bstock",
+          "binanceChainId": "56",
+          "tokenContractAddress": "0x02fca66c1d1afb4e2a7884261eb00f63598a7436",
+          "tokenSymbol": "NVDAB",
+          "assetType": 1
+        }
+      ]
+    }
+  ],
+  "price": [
+    {
+      "binanceChainId": "56",
+      "tokenContractAddress": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+      "platformId": "ondo",
+      "tokenPrice": "225.220647963046366683",
+      "referencePrice": "224.835",
+      "tokenPriceUpdatedAt": 1790440344443
+    }
+  ],
+  "market": {
+    "binanceChainId": "56",
+    "tokenContractAddress": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+    "platformId": "ondo",
+    "assetType": 1,
+    "statusInfo": {
+      "openState": true,
+      "marketStatus": "offhours",
+      "reasonCode": "TRADING",
+      "reasonMsg": null,
+      "nextOpenTime": 1790553900000,
+      "nextCloseTime": 1790553300000
+    },
+    "marketData": {
+      "referencePrice": "224.420064",
+      "high52W": "236.54",
+      "low52W": "164.27",
+      "volumeShares24H": "89947712.847128",
+      "avgDailyVolume1Y": "162872803",
+      "totalShares": "24147000000",
+      "marketCap": "5432687175033",
+      "turnoverRate": "0.3725",
+      "amplitude": "0.408600",
+      "dividendYield": "0.12",
+      "latestDividend": "0.250000",
+      "peRatioTTM": "28.12",
+      "pbRatio": "23.68"
+    }
+  }
+}

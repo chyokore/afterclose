@@ -2,7 +2,7 @@
 
 Initial date: **September 26, 2026**.
 
-Latest milestone: [Reference Truth Engine v1](reference-truth-engine.md) evaluates typed evidence offline with explicitly synthetic scenarios. Live verification remains blocked by DNS/connectivity failures to Binance; see [live verification](live-verification.md). No real BSC contract or price has been verified.
+Latest milestone: live Binance RWA schemas reconciled; five authenticated endpoints pass. BSC NVDAon is API-reported with indexed explorer corroboration. The unchanged Reference Truth Engine remains WAIT because independent equity and execution evidence are unavailable. See [live verification](live-verification.md).
 
 This diary separates user-reported milestones, direct observations, documentation findings and unverified work. It is not a claim of production readiness.
 

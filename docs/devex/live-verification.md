@@ -143,3 +143,65 @@ Official reference: [Node.js 24 CLI system-CA support](https://r2.nodejs.org/doc
 AI assistance: Codex compared default and system trust, inspected the verified certificate chain, ran the existing read-only API diagnostic, and recorded actual results. No application code, engine rules, tests, credentials or trust-store settings changed. No Noctive resources or transactions were involved.
 
 Documentation validation: git diff --check passed and both modified documents were scanned against local credential values with zero matches. .env.local remains ignored. Tests, lint and build were not rerun because no code or configuration files changed; the live diagnostic and verified TLS comparison are the validation evidence for this documentation-only change.
+
+## 2026-09-26 — Live schema reconciliation and first BSC candidate
+
+Continued from `0ed038020f451501f8f8c56e92d3b3e996d1c9dc` in chyokore/afterclose. Node 24.21.0 used process-local `NODE_USE_SYSTEM_CA=1`; TLS verification remained enabled. X-VPN desktop connection was user-reported; no VPN, proxy, DNS or certificate settings were changed. Authenticated HTTPS requests succeeded, establishing connectivity for these requests rather than attributing it to the VPN alone.
+
+### Actual failures and structures
+
+The first platforms request returned HTTP 401/code 40103 in 5,297 ms. Binance documents that code as timestamp expired/replay. A fresh request succeeded; the precise cause of that one rejection is not established. Tokens and search returned HTTP 200/code 0 but the old schemas rejected public response data:
+
+- `tokens[297].assetType`, `[298].assetType`, `[307].assetType`: `invalid_type`, expected number, received null. Unknown types are retained as null and excluded from stock selection.
+- `search[0].assets[1].tokenContractAddress`: `invalid_format`, EVM pattern rejected a Solana address. The asset's `binanceChainId` was `CT_501`, address `gEGtLTPNQ7jcg25zTetkbmF7teoDLcrfTnQfmn2ondo`. Search spans chains as documented; our EVM-only assumption was wrong.
+- Observed `decimals` was string `"18"`; documentation calls it string but includes a numeric example. Both explicit forms are supported.
+- `underlyingName` can be null. `statusInfo.marketStatus` included `"offhours"` and null, beyond the documented status enumeration. Raw status is preserved; unknown statuses map to engine `unknown`.
+
+Successful envelopes contain numeric `code`, boolean `success`, server-response `timestamp`, and `data`. Platforms, tokens, search and price data are arrays; underlying-market data is an object. The BSC token array contained 488 rows. There was no pagination wrapper. Required chain, platform, contract and stock name/symbol/ticker identities remain required. Search uses explicit EVM (1/56) and Solana variants. Known nullable/missing nonidentity evidence is represented as unavailable; no unrestricted any schema was introduced. The client now reports sanitized Zod paths and error codes, never raw input or headers.
+
+Other observed fields: platform `tickerCount` and `chainDistribution[].tokenCount` are numbers; token prices, ratios, market statistics and decimals are strings; `tags` is array/null; `marketCap` and `peRatioTTM` can be string/null. Selected validated provider fields stay separate from normalized engine evidence. Historical public samples are isolated in `tests/fixtures/binance-rwa.json`, never imported by production adapters or shown as live fallback.
+
+### Discovery and price evidence
+
+The selected API-reported BSC candidate is Ondo **NVIDIA (Ondo)**, **NVDAon**, underlying **Nvidia Corp / NVDA**, chain **56**, contract `0xa9ee28c80f960b889dfbd1902055218cba016f75`, decimals **18**. Catalog, contract search, price and underlying-market identities agree. MVP selection requires this exact observed identity; no example contract is substituted.
+
+[BscScan token metadata](https://bscscan.com/token/0xa9ee28c80f960b889dfbd1902055218cba016f75) was corroborated in indexed search results (NVIDIA/Ondo, NVDAon, 18 decimals). Fresh direct explorer access returned HTTP 403. Therefore this is labeled **API-reported with indexed corroboration**, not freshly independently verified. Issuer-level contract confirmation remains outstanding.
+
+Historical authenticated capture, not a current quote:
+
+| Field | Actual value |
+| --- | --- |
+| tokens.tokenToShareRatio | `1.0017152487959898` |
+| price.tokenPrice | `225.220647963046366683` |
+| price.referencePrice | `224.835` |
+| price.tokenPriceUpdatedAt | `1790440344443` Unix ms |
+| price envelope timestamp | `1790440348266` Unix ms |
+| underlying-market.marketData.referencePrice | `224.420064` |
+| underlying-market envelope timestamp | `1790440349105` Unix ms |
+| statusInfo.marketStatus / openState | `offhours` / `true` |
+
+Currency is not a response field; USD is specified by [Binance's official RWA documentation](https://web3.binance.com/en/dev-docs/catalog/web3-wallet/api/rest-api/rwa-data). Its referencePrice is token-derived, not an independent traditional-equity quote. No independent underlying price timestamp was returned. The different endpoint reference values are not evidence of arbitrage. Session scheduling fields nextOpenTime/nextCloseTime were returned, but do not establish reference freshness. The ratio lacks effective/expiry timestamps. Reported volume is not executable liquidity.
+
+### Final live endpoint regression
+
+All requests used the existing signed, read-only client and documented base URL. Price and underlying-market used the discovered contract above.
+
+| Endpoint under /api/v1/dex/market/rwa/ | HTTP / code | Latency | Schema |
+| --- | --- | --- | --- |
+| platforms | 200 / 0 | 1,457 ms | Pass |
+| tokens?binanceChainId=56 | 200 / 0 | 1,314 ms | Pass; 488 tokens |
+| search (exact discovered contract) | 200 / 0 | 543 ms | Pass |
+| price (chain 56) | 200 / 0 | 437 ms | Pass |
+| underlying-market (chain 56) | 200 / 0 | 429 ms | Pass |
+
+Earlier keyword NVDA search returned four cross-chain assets; exact-contract search returned one asset. Both shapes are valid. Authentication and schema rejection are recorded separately.
+
+### Integration and limitations
+
+The typed adapter validates endpoint identity agreement, maps actual token metadata and token timestamp, and records AfterClose's assembled-snapshot observation separately. It does not invent exchange metadata, independent references, ratio validity, liquidity or executable quotes. Unmapped market statuses remain unknown. Engine rules and synthetic fixtures are unchanged; live evidence produces WAIT. The live page shows public metadata, separate provider reference values, timestamp provenance and missing evidence, while retaining unavailable/setup states on failed requests.
+
+AI assistance: Codex inspected sanitized live data, compared official docs, implemented runtime schemas/adapter/UI, added regression tests, and ran the recorded commands. No Binance trading, wallet or broadcast endpoints were called.
+
+Validation: the first sandboxed test launch failed before tests with `uv_os_get_passwd ENOMEM`; running the same npm test outside that restricted environment passed all 61 tests (original 54 plus seven regressions). `npm run lint` passed. Production build and final security/Git checks are recorded below after completion.
+
+Final validation: `npm test` passed 61/61; `npm run lint` passed; `npm run build` passed (dynamic live and demo routes). The production server on local port 3003 returned HTTP 200 with live-connected status, the selected contract, WAIT and the missing-independent-evidence notice; no synthetic banner appeared on the live page. This was an HTTP-rendered-content check, not a visual browser review. A credential-value scan of 48 project/browser-bundle files found zero matches; `.env.local` is Git-ignored. No Reference Truth Engine files or original tests changed. No permanent system configuration changed.
