@@ -11,8 +11,8 @@ export function toReferenceEvidence(input: unknown): TruthInput {
   const provenance = { mode: "live" as const, provider: { id: "binance-web3", name: "Binance Web3" }, source: "RWA API; USD units per Binance documentation" };
   const decimals = token.decimals == null ? NaN : Number(token.decimals);
   const price = Number(quote.tokenPrice);
-  const rawSession = market.statusInfo?.marketStatus;
-  const session = rawSession === "premarket" || rawSession === "regular" || rawSession === "postmarket" || rawSession === "overnight" || rawSession === "closed" ? rawSession : rawSession === "pause" ? "halted" : "unknown";
+  // Raw Binance status is displayed separately; authoritative equity session evidence is absent.
+  const session = "unknown";
   return truthInputSchema.parse({ mode: "live", available: true, observedAt,
     token: Number.isInteger(decimals) && decimals >= 0 && decimals <= 36 ? { id: tokenId, name: token.tokenName, symbol: token.tokenSymbol, chainId: 56, contract: token.tokenContractAddress, decimals, issuer: { id: token.platformId, name: token.platformId }, underlyingId, provenance } : null,
     underlying: null, // Exchange metadata is absent. Do not fill required identity fields by guessing.

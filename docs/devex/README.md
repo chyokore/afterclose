@@ -2,7 +2,7 @@
 
 Initial date: **September 26, 2026**.
 
-Latest milestone: [independent equity provider research](underlying-equity-research.md) selects Massive as primary and Twelve Data as conditional fallback, pending credentials and entitlements. No provider adapter was implemented. The prior [live Binance milestone](live-verification.md) remains intact and the engine remains WAIT.
+Latest milestone: [Evidence Dashboard v1](evidence-dashboard.md) presents real Binance evidence, provenance, timestamp semantics and the actual engine decision. The labeled scenario lab demonstrates incomplete and complete fictional evidence. Independent equity access remains unavailable and the live engine remains WAIT.
 
 This diary separates user-reported milestones, direct observations, documentation findings and unverified work. It is not a claim of production readiness.
 

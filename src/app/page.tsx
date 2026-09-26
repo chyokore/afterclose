@@ -1,44 +1,42 @@
 import Link from "next/link";
-import { toReferenceEvidence } from "@/lib/binance/reference-adapter";
+import { evaluateReferenceTruth } from "@/lib/reference-truth/engine";
 import { ReferenceComparison } from "@/components/reference-comparison";
-import { loadRwa } from "@/lib/binance/rwa";
+import { loadDashboard } from "@/lib/evidence/load-dashboard";
+import { RefreshEvidence } from "@/components/refresh-evidence";
+import { ageLabel, timestampLabel, evidenceProvenance } from "@/lib/evidence/presentation";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 export default async function Home() {
-  const data = await loadRwa();
-  const label = { setup: "Setup required", connected: "API verified this request", empty: "Connected · no eligible stock found", error: "Setup required · connection unavailable" }[data.state];
-  return (
-    <main>
-      <header className="nav"><Link className="brand" href="/" aria-label="AfterClose home"><span className="brand-icon">a/c</span>AfterClose<span className="beta">RESEARCH PREVIEW</span></Link><span className="network"><i /> BSC MAINNET <span>56</span></span></header>
-      <section className="hero">
-        <div className="eyebrow">AFTER THE BELL. BEFORE THE DECISION.</div>
-        <h1>Don&apos;t trade the gap.<br /><span>Understand it first.</span></h1>
-        <p className="intro">A different price doesn&apos;t tell the whole story. Explore tokenized stocks on BNB Smart Chain with the context behind the number.</p>
-        <a className="button" href="#workspace">Explore the research workspace <span>↗</span></a>
-        <div className="hero-note">Independent research tool · Spot markets only</div>
-      </section>
-      <section id="workspace" className="workspace">
-        <div className="section-top"><div><div className="eyebrow">01 / DATA WORKSPACE</div><h2>Start with what we know.</h2></div><span className={`status ${data.state === "connected" ? "verified" : ""}`} role="status">{label}</span></div>
-        {data.state === "connected" ? <div className="connected-panel">
-          <div className="asset-title"><h3>{data.token.tokenSymbol}</h3><span>{data.token.platformId} / BSC</span></div>
-          <p>{data.token.tokenName} · {data.token.underlyingName ?? "Company unavailable"} ({data.token.underlyingTicker})</p>
-          <p>Decimals: {data.token.decimals ?? "Unavailable"} · Provider-reported shares per token: {data.token.tokenToShareRatio ?? "Unavailable"}</p>
-          <p className="fine">Live Binance data. API-reported contract; indexed BscScan metadata corroborates it, but fresh independent verification was blocked (HTTP 403). <a href={`https://bscscan.com/token/${data.token.tokenContractAddress}`}>View BscScan</a></p><p className="contract">{data.token.tokenContractAddress}</p>
-          <div className="metrics"><div><small>Token price · USD</small><strong>{data.quote.tokenPrice ?? "Unavailable"}</strong></div><div><small>Token-derived per-share reference · USD</small><strong>{data.quote.referencePrice ?? "Unavailable"}</strong></div><div><small>Provider market status</small><strong>{data.market.statusInfo?.marketStatus ?? "Unknown"}</strong></div></div>
-          <p className="fine">Underlying-market endpoint reference: {data.market.marketData?.referencePrice ?? "Unavailable"} USD (token-derived). USD units come from Binance documentation, not a currency field. Independent equity quote and timestamp: unavailable. The reported ratio has no validity interval; it is not used for normalized gap calculations. Provider status “offhours” has no documented engine-session mapping and remains unknown.</p>
-          <p className="fine">Retrieved {data.fetchedAt}. Retrieval time is not the underlying quote time. Token price timestamp: {data.quote.tokenPriceUpdatedAt ?? "unavailable"} (Unix ms).</p>
-        </div> : <div className="setup-panel"><div className="setup-symbol">⌁</div><div><h3>{data.state === "setup" ? "Your data connection starts here." : data.state === "empty" ? "No eligible BSC stock returned." : "We couldn’t verify the data connection."}</h3><p>{data.state === "setup" ? "Add your Binance Web3 API credentials on the server to discover supported Ondo and bStocks assets. No market prices are shown until real responses are verified." : data.state === "empty" ? "The API responded, but no matching Ondo or bStocks stock token was found on chain 56. No substitute asset has been selected." : data.state === "error" && data.reason === "network" ? "The server could not reach Binance Web3. Authentication and BSC token support remain unverified. Check network connectivity and DNS, then rerun the API diagnostic. No market data is shown." : "Market data is withheld. Check the server configuration and run the API diagnostic again."}</p>{data.state === "setup" && <details><summary>Connection setup</summary><ol><li>Copy <code>.env.example</code> to <code>.env.local</code>.</li><li>Set <code>BINANCE_API_KEY</code> and <code>BINANCE_SECRET_KEY</code> locally. Keep both private.</li><li>Run <code>npm run test:api</code>, then restart the app.</li></ol></details>}</div></div>}
-        <div className="data-caveat"><span>REFERENCE FRESHNESS</span><p>Unknown. Binance&apos;s documented reference is derived from the token price; it is not an independent stock-market quote. No genuine underlying-price timestamp is documented. A price-discovery signal cannot be established from this data alone.</p></div>
-      </section>
-      {data.state === "connected" ? <ReferenceComparison evidence={toReferenceEvidence(data)} nowMs={Date.parse(data.fetchedAt)} /> : <ReferenceComparison />}
-      <section className="research"><div className="eyebrow">02 / THE QUESTIONS THAT MATTER</div><div className="cards">{[
-        ["01", "Is the reference current?", "A stale reference can make an ordinary move look like an opportunity. Source and timestamp come first."],
-        ["02", "Does the market agree?", "Market hours and differences between providers help explain the context behind a token price."],
-        ["03", "Can the price be executed?", "Liquidity, slippage, and executable quotes belong in the analysis. These checks are planned, not yet connected."],
-      ].map(([number, title, text]) => <article key={number}><span className="card-number">{number}</span><h3>{title}</h3><p>{text}</p></article>)}</div></section>
-      <footer><span className="brand">AfterClose</span><p>Built for clearer questions. No trading or transaction execution in this preview.</p><a href="https://github.com/chyokore/afterclose">Project & development diary ↗</a></footer>
-    </main>
-  );
+  const { data, live, evaluatedAtMs, independent, evidence } = await loadDashboard();
+  const decision = evaluateReferenceTruth(evidence, evaluatedAtMs);
+  return <main className="evidence-dashboard">
+    <header className="nav"><Link className="brand" href="/"><span className="brand-icon">a/c</span>AfterClose<span className="beta">EVIDENCE DASHBOARD V1</span></Link><Link className="truth-link" href="/demo">Scenario lab ↗</Link></header>
+    <section className="dashboard-intro"><div><div className="eyebrow">UNDERSTAND THE GAP BEFORE THE DECISION</div><h1>Evidence first.<br /><span>Confidence earned.</span></h1><p>Tokenized stock research with visible sources, separate clocks, and an explainable decision.</p></div><div className="snapshot-note"><a className="decision-summary" href="#truth-title"><small>ENGINE DECISION</small><strong>{decision.decision}</strong><span>{decision.findings.filter(f => f.severity === "blocking").length} blocking findings · inspect the evidence ↓</span></a><span className={`status ${live ? "verified" : ""}`}>{live ? "Live Binance response" : data.state === "setup" ? "Setup required" : "Connection / evidence unavailable"}</span><p>Snapshot: {timestampLabel(evaluatedAtMs)}<br />Ages are evaluated at this snapshot, not a ticking live feed.</p><RefreshEvidence /></div></section>
+    <section className="workspace" aria-labelledby="asset-title">
+      <div className="section-top"><div><div className="eyebrow">01 / ASSET UNDER EXAMINATION</div><h2 id="asset-title">{live ? live.token.tokenSymbol : "NVDAon · research candidate"}</h2><p>{live ? live.token.tokenName : "Previously API-reported Ondo NVIDIA token"}</p></div><span className="network">BNB SMART CHAIN · 56</span></div>
+      <div className="connected-panel">
+        <p>Underlying: {live ? `${live.token.underlyingName ?? "Company unavailable"} / ${live.token.underlyingTicker}` : "NVIDIA / NVDA — historical discovery metadata"}</p>
+        <p className="contract">{live?.token.tokenContractAddress ?? "Current contract evidence unavailable. See prior discovery record below."}</p>
+        {live && <p className="fine">Issuer: {live.token.platformId} · Decimals: {live.token.decimals ?? "Unavailable"} · API-reported identity; no fresh independent contract verification.</p>}
+        {!live && <p className="connection-notice">{data.state === "setup" ? "Existing Binance server credentials are not available to this process." : "The current Binance evidence bundle could not be validated. Prices are withheld; no historical quote or synthetic substitute is loaded."} The engine below evaluates unavailable evidence.</p>}
+        <div className="metrics dashboard-metrics">
+          <div><small>Binance token price · USD*</small><strong>{live?.quote.tokenPrice ?? "Unavailable"}</strong><span>Per token · provider-reported</span></div>
+          <div><small>Token price age at evaluation</small><strong>{ageLabel(live?.quote.tokenPriceUpdatedAt, evaluatedAtMs)}</strong><span>From tokenPriceUpdatedAt, not retrieval time</span></div>
+          <div><small>Independent equity reference</small><strong>Unavailable</strong><span>{independent.reasons[0]}</span></div>
+          <div><small>Shares-per-token validity</small><strong>Unverified</strong><span>Current issuer applicability and validity interval missing</span></div>
+        </div>
+        <div className="clock-grid"><div><h3>Provider token-price clock</h3><p>{timestampLabel(live?.quote.tokenPriceUpdatedAt)}</p><p>{timestampLabel(live?.quote.tokenPriceUpdatedAt, "America/New_York")}</p><small>Raw Unix ms: {live?.quote.tokenPriceUpdatedAt ?? "Unavailable"}. This dates only the token price.</small></div><div><h3>Underlying market session</h3><p>Unverified</p><small>Raw Binance status: {live?.market.statusInfo?.marketStatus ?? "Unavailable"}. No authoritative holiday, early-close or security-status evidence is connected. New York time is display context only.</small></div></div>
+      </div>
+    </section>
+    <ReferenceComparison evidence={evidence} nowMs={evaluatedAtMs} />
+    <section className="truth-panel" aria-labelledby="provenance-title"><div className="eyebrow">03 / TRACE THE EVIDENCE</div><h2 id="provenance-title">Every field has a source.</h2><p>Current response values remain separate from historical corroboration and unavailable independent evidence.</p>
+      <div className="comparison-table"><table><caption>Provenance and limitations · applies to this snapshot</caption><thead><tr><th>Evidence</th><th>Source</th><th>Qualification</th></tr></thead><tbody>{evidenceProvenance.map(row => <tr key={row.field}><th>{row.field}</th><td>{row.source}</td><td>{row.status}</td></tr>)}</tbody></table></div>
+      <details><summary>Inspect reported values and historical context</summary><dl className="truth-metrics"><div><dt>Price endpoint token-derived reference · USD*</dt><dd>{live?.quote.referencePrice ?? "Unavailable"}</dd></div><div><dt>Underlying-market token-derived reference · USD*</dt><dd>{live?.market.marketData?.referencePrice ?? "Unavailable"}</dd></div><div><dt>Current response ratio · validity unverified</dt><dd>{live?.token.tokenToShareRatio ?? "Unavailable"}</dd></div></dl><p className="fine">Historical discovery on September 26, 2026: contract 0xa9ee28c80f960b889dfbd1902055218cba016f75, ratio 1.0017152487959898. Neither historical record is used to fill a missing live value. Indexed explorer metadata corroborated the identity; fresh explorer access returned 403 in that milestone.</p><a className="truth-link" href="https://bscscan.com/token/0xa9ee28c80f960b889dfbd1902055218cba016f75">Inspect the explorer independently ↗</a></details>
+      <p className="fine">* USD units are specified by <a href="https://web3.binance.com/en/dev-docs/catalog/web3-wallet/api/rest-api/rwa-data">Binance documentation</a>, not a currency response field. Both referencePrice values are token-derived. They cannot establish independent equity price discovery.</p>
+    </section>
+    <section className="research"><div className="eyebrow">04 / WHAT WOULD CHANGE THE ASSESSMENT?</div><div className="cards"><article><span className="card-number">INDEPENDENT REFERENCE</span><h3>Two qualified equity sources</h3><p>Provider access, display entitlements, actual event timestamps and comparable price bases. No independent feed is currently connected.</p></article><article><span className="card-number">ISSUER EVIDENCE</span><h3>A currently valid multiplier</h3><p>Shares-per-token meaning and applicability must be verified against issuer evidence. A captured ratio is not enough.</p></article><article><span className="card-number">CONTROLLED DEMONSTRATION</span><h3>See the rules work</h3><p>The scenario lab uses fictional inputs and the same engine. It never supplies evidence to this live dashboard.</p><Link className="truth-link" href="/demo">Open synthetic scenarios ↗</Link></article></div></section>
+    <footer><span className="brand">AfterClose</span><p>Research preview · No wallet execution or transaction broadcasting.</p><a href="https://github.com/chyokore/afterclose">Source & developer diary ↗</a></footer>
+  </main>;
 }

@@ -22,6 +22,10 @@ function fresh(): TruthInput {
   };
 }
 export const scenarioNames = {
+  "missing-independent": "Fresh token, no independent equity quote",
+  "stale-token": "Fresh equity quotes, stale token",
+  "closed-stale-reference": "Market closed with stale equity quotes",
+  "missing-multiplier": "Multiplier validity unverified",
   "stale-reference": "Fresh token, stale underlying reference",
   "fresh-evidence": "Fresh token and independent references",
   "missing-timestamp": "Missing underlying timestamp",
@@ -41,6 +45,10 @@ export function syntheticFixture(scenario: Scenario): TruthInput {
     if (item && "priceAt" in item && item.priceAt) item.priceAt = { ...item.priceAt };
   }
   switch (scenario) {
+    case "missing-independent": input.references = []; break;
+    case "stale-token": input.tokenPrice!.priceAt!.unixMs = DEMO_NOW - 3_600_000; break;
+    case "closed-stale-reference": input.session!.session = "closed"; input.references.forEach(r => { r.priceAt!.unixMs = DEMO_NOW - 3_600_000; }); break;
+    case "missing-multiplier": input.multiplier = null; break;
     case "stale-reference": input.references.forEach(r => { r.priceAt!.unixMs = DEMO_NOW - 3_600_000; }); break;
     case "missing-timestamp": input.references[0].priceAt = null; break;
     case "provider-disagreement": input.references[1].price = 110; break;
