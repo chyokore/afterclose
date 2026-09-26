@@ -50,3 +50,14 @@ See [Developer Experience diary](docs/devex/README.md) for evidence and limitati
 Visit `/demo` for **DEMO — SYNTHETIC DATA** scenarios. This separate route requires no Binance connectivity. It uses a frozen fictional clock and never represents real prices, issuers, liquidity or quotes.
 
 The pure engine validates evidence and returns WAIT, MONITOR or PROCEED_TO_REVIEW. Review requires fresh independent references and matching execution evidence; it cannot trigger execution. Missing data fails closed. See [rules, defaults, test coverage and limitations](docs/devex/reference-truth-engine.md).
+
+## Windows system CA support
+
+On the development machine, AVG HTTPS scanning presents a certificate already trusted by Windows. Node 24's default trust failed; using the existing system trust restored verified TLS and authenticated Binance HTTP responses:
+
+```powershell
+$env:NODE_USE_SYSTEM_CA="1"
+npm run test:api
+```
+
+Set this in the shell **before launching Node**, including before starting the app if needed. It applies to that shell and its child processes; no permanent Windows setting or new CA installation is required. Do not disable TLS verification. The API diagnostic currently passes platforms but reports schema mismatches for tokens/search; TLS success is not full RWA integration. See the [certificate evidence and API outcomes](docs/devex/live-verification.md).
