@@ -1,9 +1,11 @@
 import Link from "next/link";
-import { evaluateReferenceTruth } from "@/lib/reference-truth/engine";
+import { defaultPolicy, evaluateReferenceTruth } from "@/lib/reference-truth/engine";
 import { ReferenceComparison } from "@/components/reference-comparison";
 import { loadDashboard } from "@/lib/evidence/load-dashboard";
 import { RefreshEvidence } from "@/components/refresh-evidence";
 import { ageLabel, timestampLabel, evidenceProvenance } from "@/lib/evidence/presentation";
+import { SnapshotNotice } from "@/components/snapshot-notice";
+import { failureCopy } from "@/lib/evidence/status";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -11,18 +13,20 @@ export const runtime = "nodejs";
 export default async function Home() {
   const { data, live, evaluatedAtMs, independent, evidence, issuer, calendar } = await loadDashboard();
   const decision = evaluateReferenceTruth(evidence, evaluatedAtMs);
-  return <main className="evidence-dashboard">
+  const failure = data.state === "connected" ? null : failureCopy[data.state === "error" ? data.failure : data.state];
+  return <main id="main-content" className="evidence-dashboard">
     <header className="nav"><Link className="brand" href="/"><span className="brand-icon">a/c</span>AfterClose<span className="beta">EVIDENCE DASHBOARD V1</span></Link><Link className="truth-link" href="/demo">Scenario lab ↗</Link></header>
-    <section className="dashboard-intro"><div><div className="eyebrow">UNDERSTAND THE GAP BEFORE THE DECISION</div><h1>Evidence first.<br /><span>Confidence earned.</span></h1><p>Tokenized stock research with visible sources, separate clocks, and an explainable decision.</p></div><div className="snapshot-note"><a className="decision-summary" href="#truth-title"><small>ENGINE DECISION</small><strong>{decision.decision}</strong><span>{decision.findings.filter(f => f.severity === "blocking").length} blocking findings · inspect the evidence ↓</span></a><span className={`status ${live ? "verified" : ""}`}>{live ? "Live Binance response" : data.state === "setup" ? "Setup required" : "Connection / evidence unavailable"}</span><p>Snapshot: {timestampLabel(evaluatedAtMs)}<br />Ages are evaluated at this snapshot, not a ticking live feed.</p><RefreshEvidence /></div></section>
+    <section className="dashboard-intro"><div><div className="eyebrow">UNDERSTAND THE GAP BEFORE THE DECISION</div><h1>Evidence first.<br /><span>Confidence earned.</span></h1><p>A token can trade while its underlying stock reference is old or unavailable. AfterClose checks the sources, separate clocks and missing evidence before interpreting a price gap.</p><Link className="button" href="/demo">Explore 12 synthetic scenarios →</Link></div><div className="snapshot-note"><a className="decision-summary" href="#truth-title"><small>ENGINE DECISION</small><strong>{decision.decision}</strong><span>{decision.findings.filter(f => f.severity === "blocking").length} blocking findings · inspect the evidence ↓</span></a><span className={`status ${live ? "verified" : ""}`}>{live ? "Binance response at snapshot" : data.state === "setup" ? "Setup required" : "Connection / evidence unavailable"}</span><p>Snapshot: {timestampLabel(evaluatedAtMs)}<br />Ages are evaluated at this snapshot, not a ticking live feed.</p><SnapshotNotice snapshotMs={evaluatedAtMs} maxAgeMs={defaultPolicy.maxObservationAgeMs} /><RefreshEvidence /></div></section>
+    <section className="product-summary" aria-label="About AfterClose"><div><h2>What this does</h2><p>Explains whether token, equity-reference and execution evidence are complete enough to assess a gap.</p></div><div><h2>What this does not do</h2><p>No trade recommendations, token safety ratings, profit guarantees or transactions. WAIT means the evidence does not qualify.</p></div></section>
     <section className="workspace" aria-labelledby="asset-title">
       <div className="section-top"><div><div className="eyebrow">01 / ASSET UNDER EXAMINATION</div><h2 id="asset-title">{live ? live.token.tokenSymbol : "NVDAon · research candidate"}</h2><p>{live ? live.token.tokenName : "Previously API-reported Ondo NVIDIA token"}</p></div><span className="network">BNB SMART CHAIN · 56</span></div>
       <div className="connected-panel">
         <p>Underlying: {live ? `${live.token.underlyingName ?? "Company unavailable"} / ${live.token.underlyingTicker}` : "NVIDIA / NVDA — historical discovery metadata"}</p>
         <p className="contract">{live?.token.tokenContractAddress ?? "Current contract evidence unavailable. See prior discovery record below."}</p>
         {live && <p className="fine">Issuer: {live.token.platformId} · Decimals: {live.token.decimals ?? "Unavailable"} · Binance-reported identity. Separate issuer corroboration is shown below when available.</p>}
-        {!live && <p className="connection-notice">{data.state === "setup" ? "Existing Binance server credentials are not available to this process." : "The current Binance evidence bundle could not be validated. Prices are withheld; no historical quote or synthetic substitute is loaded."} The engine below evaluates unavailable evidence.</p>}
+        {failure && <div className="connection-notice" role="status"><strong>{failure.title}</strong><p>{failure.action}</p><p>Live prices are withheld. Historical records and synthetic scenarios never replace a failed response.</p><Link className="truth-link" href="/demo">Use the clearly labeled synthetic lab →</Link></div>}
         <div className="metrics dashboard-metrics">
-          <div><small>Binance token price · USD*</small><strong>{live?.quote.tokenPrice ?? "Unavailable"}</strong><span>Per token · provider-reported</span></div>
+          <div><small>Binance token price · USD*</small><strong>{live?.quote.tokenPrice ?? "Unavailable"}</strong><span>{live && live.quote.tokenPrice == null ? "The validated response contains no token price. Refresh later; no previous price is substituted." : "Per token · provider-reported"}</span></div>
           <div><small>Token price age at evaluation</small><strong>{ageLabel(live?.quote.tokenPriceUpdatedAt, evaluatedAtMs)}</strong><span>From tokenPriceUpdatedAt, not retrieval time</span></div>
           <div><small>Independent equity reference</small><strong>Unavailable</strong><span>{independent.reasons[0]}</span></div>
           <div><small>Shares-per-token validity</small><strong>Unverified</strong><span>{issuer.reason}</span></div>
@@ -33,7 +37,7 @@ export default async function Home() {
     </section>
     <ReferenceComparison evidence={evidence} nowMs={evaluatedAtMs} />
     <section className="truth-panel" aria-labelledby="provenance-title"><div className="eyebrow">03 / TRACE THE EVIDENCE</div><h2 id="provenance-title">Every field has a source.</h2><p>Current response values remain separate from historical corroboration and unavailable independent evidence.</p>
-      <div className="comparison-table"><table><caption>Provenance and limitations · applies to this snapshot</caption><thead><tr><th>Evidence</th><th>Source</th><th>Qualification</th></tr></thead><tbody>{evidenceProvenance.map(row => <tr key={row.field}><th>{row.field}</th><td>{row.source}</td><td>{row.status}</td></tr>)}</tbody></table></div>
+      <div className="comparison-table" role="region" aria-label="Scrollable provenance table" tabIndex={0}><table><caption>Provenance and limitations · applies to this snapshot</caption><thead><tr><th>Evidence</th><th>Source</th><th>Qualification</th></tr></thead><tbody>{evidenceProvenance.map(row => <tr key={row.field}><th>{row.field}</th><td>{row.source}</td><td>{row.status}</td></tr>)}</tbody></table></div>
       <details><summary>Inspect reported values and historical context</summary><dl className="truth-metrics"><div><dt>Price endpoint token-derived reference · USD*</dt><dd>{live?.quote.referencePrice ?? "Unavailable"}</dd></div><div><dt>Underlying-market token-derived reference · USD*</dt><dd>{live?.market.marketData?.referencePrice ?? "Unavailable"}</dd></div><div><dt>Current response ratio · validity unverified</dt><dd>{live?.token.tokenToShareRatio ?? "Unavailable"}</dd></div></dl><p className="fine">Historical discovery on September 26, 2026: contract 0xa9ee28c80f960b889dfbd1902055218cba016f75, ratio 1.0017152487959898. Neither historical record is used to fill a missing live value. Indexed explorer metadata corroborated the identity; fresh explorer access returned 403 in that milestone.</p><a className="truth-link" href="https://bscscan.com/token/0xa9ee28c80f960b889dfbd1902055218cba016f75">Inspect the explorer independently ↗</a></details>
       <p className="fine">* USD units are specified by <a href="https://web3.binance.com/en/dev-docs/catalog/web3-wallet/api/rest-api/rwa-data">Binance documentation</a>, not a currency response field. Both referencePrice values are token-derived. They cannot establish independent equity price discovery.</p>
     </section>

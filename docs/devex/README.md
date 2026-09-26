@@ -2,7 +2,7 @@
 
 Initial date: **September 26, 2026**.
 
-Latest milestone: [Issuer multiplier and session evidence](issuer-multiplier-and-session.md) adds undated issuer-reported NVDAon metadata and a bounded Nasdaq published-schedule display. Current multiplier applicability and authoritative live status remain unverified; the engine remains WAIT. Prior [execution research](binance-execution-evidence.md) still applies: no quote or simulation was performed.
+Latest milestone: [Demo and deployment readiness](demo-readiness.md) improves explanations, failure states, snapshot-age disclosure and accessibility, with desktop/mobile screenshots and a deployment runbook. No public deployment was performed. Current issuer validity, independent equity and execution evidence remain unresolved; live WAIT is preserved.
 
 This diary separates user-reported milestones, direct observations, documentation findings and unverified work. It is not a claim of production readiness.
 

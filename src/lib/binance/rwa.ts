@@ -1,6 +1,7 @@
 import "server-only";
 import { z } from "zod";
 import { ApiError, credentialsConfigured, rwaGet, type ResponseAudit } from "./client";
+import type { FailureCode } from "../evidence/status";
 
 type AuditObserver = (audit: ResponseAudit) => void;
 export { tokenSchema, selectMvp } from "./schemas";
@@ -25,6 +26,13 @@ export async function loadRwa() {
     if (!quote || !same(market)) throw new ApiError("schema");
     return { state: "connected" as const, token, quote, market, fetchedAt: new Date().toISOString() };
   } catch (error) {
-    return { state: "error" as const, reason: error instanceof ApiError ? error.kind : "schema" };
+    const reason = error instanceof ApiError ? error.kind : "schema";
+    let failure: FailureCode = reason;
+    if (error instanceof ApiError) {
+      if (error.audit?.networkCode === "TIMEOUT" || error.audit?.networkCode?.includes("TIMEOUT") || error.audit?.networkCode === "ETIMEDOUT") failure = "timeout";
+      else if (error.status === 401 || error.status === 403 || ["40101", "40102", "40103", "40104"].includes(error.audit?.code ?? "")) failure = "authentication";
+      else if (error.status === 429) failure = "rate-limit";
+    }
+    return { state: "error" as const, reason, failure };
   }
 }

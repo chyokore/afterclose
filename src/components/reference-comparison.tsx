@@ -15,22 +15,24 @@ export function ReferenceComparison({ evidence, nowMs }: ComparisonProps) {
     <div className="eyebrow">02 / REFERENCE TRUTH ENGINE</div><h2 id="truth-title">The decision, with its evidence.</h2>
     <p>{evidence.token?.name ?? "Token unavailable"} · {evidence.underlying?.company ?? "Underlying unavailable"}</p>
     <p className="truth-state" role="status">{result.decision}</p>
-    <p>{result.decision === "PROCEED_TO_REVIEW" ? "Configured checks pass for review only. No trade is proposed or executed by this component." : result.decision === "MONITOR" ? "A comparison is available, but this scenario does not qualify for review." : "Critical evidence is missing, invalid, stale or fails a configured check."}</p>
-    <div className="comparison-table"><table><caption>Price evidence and separate freshness clocks</caption><thead><tr><th>Evidence</th><th>Price</th><th>Provider price age</th><th>Source</th></tr></thead><tbody>
+    <p>{result.decision === "PROCEED_TO_REVIEW" ? "Configured checks pass for review only, not a recommendation or guarantee of profitability. No trade is proposed or executed by this component." : result.decision === "MONITOR" ? "A comparison is available, but its interpretation or executability remains uncertain. This is not a trading recommendation." : "Critical evidence is missing, invalid, stale or fails a configured check. WAIT is an evidence-quality result, not a verdict that the token is unsafe."}</p>
+    <p className="table-hint">On narrow screens, scroll the table horizontally to inspect every source.</p>
+    <div className="comparison-table" role="region" aria-label="Scrollable price evidence table" tabIndex={0}><table><caption>Price evidence and separate freshness clocks</caption><thead><tr><th>Evidence</th><th>Price</th><th>Provider price age</th><th>Source</th></tr></thead><tbody>
       <tr><th>Token · per token</th><td>{amount(evidence.tokenPrice?.price)} {evidence.tokenPrice?.currency}</td><td>{age(result.tokenPriceAgeMs)}<br /><small>{timestampLabel(evidence.tokenPrice?.priceAt?.unixMs)}</small></td><td>{evidence.tokenPrice?.provenance.provider.name ?? "Unavailable"}</td></tr>
       {evidence.references.length === 0 && <tr><th>Independent equity · per share</th><td>Unavailable</td><td>Unavailable</td><td>No independent provider connected</td></tr>}
       {evidence.references.map((ref, i) => <tr key={`${ref.provenance.provider.id}-${i}`}><th>Equity · per share</th><td>{amount(ref.price)} {ref.currency}</td><td>{age(result.referenceAgesMs[i])}<br /><small>{timestampLabel(ref.priceAt?.unixMs)}</small></td><td>{ref.provenance.provider.name}<br /><small>{ref.basis}</small></td></tr>)}
     </tbody></table></div>
     <dl className="truth-metrics">
-      <div><dt>Shares per token</dt><dd>{amount(evidence.multiplier?.sharesPerToken)}</dd></div>
+      <div><dt>Shares per token accepted by engine</dt><dd>{amount(evidence.multiplier?.sharesPerToken)}</dd></div>
       <div><dt>Normalized token price / share</dt><dd>{amount(result.normalizedTokenPrice)}</dd></div>
       <div><dt>Median independent reference</dt><dd>{amount(result.referenceConsensusPrice)}</dd></div>
       <div><dt>Normalized gap</dt><dd>{result.normalizedGapBps === null ? "Unavailable" : `${(result.normalizedGapBps / 100).toFixed(2)}%`}</dd></div>
       <div><dt>Provider disagreement</dt><dd>{result.providerDisagreementBps === null ? "Unavailable" : `${result.providerDisagreementBps.toFixed(2)} bps`}</dd></div>
       <div><dt>AfterClose observation age</dt><dd>{age(result.observationAgeMs)}</dd></div>
-      <div><dt>Underlying session</dt><dd>{result.session}</dd></div>
+      <div><dt>Underlying session accepted by engine</dt><dd>{result.session}</dd></div>
       <div><dt>Available liquidity</dt><dd>{amount(evidence.liquidity?.availableNotional)} {evidence.liquidity?.currency}</dd></div>
       <div><dt>Quote estimated slippage</dt><dd>{evidence.quote ? `${evidence.quote.estimatedSlippageBps} bps` : "Unavailable"}</dd></div>
+      <div><dt>Execution evidence</dt><dd>{evidence.quote ? "See quote checks" : "Unavailable"}</dd></div>
     </dl>
     <h3>Engine check results</h3>{result.findings.length === 0 && <p>All configured engine checks passed. Review only; execution stays disabled.</p>}
     {result.findings.length > 0 && <ul className="truth-findings">{result.findings.map((f, i) => <li key={`${f.code}-${i}`}><code>{f.code}</code> <strong>{f.severity === "blocking" ? "Blocking" : "Monitor"}:</strong> {f.message}</li>)}</ul>}

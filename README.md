@@ -1,63 +1,105 @@
 # AfterClose
 
-**Don't trade the gap. Understand it first.**
+**Understand the gap before the decision.**
 
-Independent tokenized-stock research foundation for BNB Hack: Tokenized Stocks Edition. Target: BNB Smart Chain mainnet, chain ID **56**. This repository is independent of Noctive and uses none of its assets or infrastructure.
+Tokenized stocks can trade when their underlying equity reference is stale, missing or based on a different unit. AfterClose makes those gaps in evidence visible before anyone interprets a price difference.
 
-## Run locally
+This is a read-only hackathon research preview. **No public deployment exists. No wallet execution exists.**
 
-Use Node.js 24 LTS and npm.
+## One-minute demonstration
+
+1. Open `/` on the locally running application. Inspect NVDAon, source timestamps and the current **WAIT** explanation.
+2. Open `/demo` using the prominent scenario-lab link. Compare stale-reference, fresh-evidence and missing-multiplier scenarios.
+3. Explain the distinction: a successful API response is not a fresh equity quote; a passing synthetic review case is not evidence of a profitable real trade.
+
+WAIT is an evidence-quality result, not a token safety rating or a buy/sell recommendation.
+
+## What makes it different
+
+- A Reference Truth Engine separates provider price time, issuer applicability and AfterClose observation time.
+- Explicit provenance distinguishes token-derived pricing from independent equity data.
+- Missing or contradictory evidence stays missing; an outage never becomes a synthetic market quote.
+- Review eligibility includes freshness, provider disagreement, unit normalization, session, liquidity and quote checks. It never triggers execution.
+
+## Supported research asset
+
+BNB Smart Chain mainnet, chain **56**: Ondo **NVDAon**, referencing NVIDIA / NVDA.
+
+Contract: `0xa9ee28c80f960b889dfbd1902055218cba016f75`.
+
+The Binance-discovered identity was corroborated by the official Ondo asset page. This does not establish tradability through Binance's RFQ service. That quote test requires wallet context and was not performed.
+
+## Architecture and provenance
+
+| Layer | Responsibility |
+| --- | --- |
+| Next.js App Router | Server-rendered live dashboard, refresh control, loading/error UI and a separate scenario route |
+| Binance Web3 client | Server-only authenticated GET requests to platforms, tokens, search, price and underlying-market; pinned official host, TLS verification, timeouts and Zod validation |
+| Ondo page adapter | Read-only issuer metadata; exact decimal string, matching contract, no invented effective timestamp |
+| Nasdaq schedule | Manually reviewed public calendar, New York DST, holidays and bounded hours coverage; not live security status |
+| Reference Truth Engine | Pure validated assessment; no network or execution capability |
+| Synthetic lab | Twelve fictional scenarios with a frozen clock; no live API calls or production fallback |
+
+Binance's five RWA endpoints have returned HTTP 200/code 0 in recorded live work. Its `referencePrice` is token-derived, not an independent NVIDIA equity quote. The issuer-reported ratio has no verified effective/expiry interval. The calendar expires after seven days without review and stops before the announced December 6, 2026 hours change. Reloading does not renew that source review.
+
+| Decision | Meaning |
+| --- | --- |
+| WAIT | Critical evidence is missing, invalid, contradictory, stale or fails a configured check |
+| MONITOR | A gap can be compared, but interpretation or executability is uncertain |
+| PROCEED_TO_REVIEW | Configured evidence checks pass for review only; no recommendation, profit guarantee or automatic trade |
+
+The live engine remains WAIT. Two independent equity providers, current multiplier applicability, authoritative market/security status, liquidity and executable quote evidence remain unresolved. Thresholds are conservative research defaults, not calibrated trading advice.
+
+## Local setup
+
+Use **Node.js 24.x** and npm. The lockfile is committed.
 
 ```sh
 npm ci
-cp .env.example .env.local
-# Privately fill the two Binance credentials in .env.local.
+# Create .env.local from .env.example only if it does not already exist.
 npm run dev
 ```
 
-On PowerShell, use `Copy-Item .env.example .env.local`. Do not paste credentials into source files, Git, screenshots, or chat. The application works without credentials and clearly shows setup required. Only chain ID is public. The base URL is pinned to the official Binance host to prevent credential forwarding.
+PowerShell: use `Copy-Item .env.example .env.local` only if the local file does not already exist. Privately configure credentials there; never overwrite an existing credential file while following setup instructions. With no credentials, the live dashboard shows setup required and the synthetic lab remains usable.
 
-The host used for initial development had Node 16. A checksum-verified Node 24.21.0 runtime was downloaded under ignored `.tools/`; it is not part of the repository. If using that local runtime on this machine, prepend `.tools/node-v24.21.0-win-x64` to PATH in the current terminal.
+Environment variable names only:
 
-## Verify
+| Name | Scope |
+| --- | --- |
+| `BINANCE_API_KEY` | Required server-only Binance credential for live RWA access |
+| `BINANCE_SECRET_KEY` | Required server-only signing secret |
+| `BINANCE_WEB3_BASE_URL` | Optional server configuration; only the documented pinned host is accepted |
+| `NEXT_PUBLIC_BSC_CHAIN_ID` | Non-secret legacy configuration; runtime schemas enforce BSC 56 |
+| `NODE_USE_SYSTEM_CA` | Optional local Node trust configuration where an existing system CA is required |
+
+There is no Ondo API key or independent equity provider key configured by this application. Do not prefix secret names with `NEXT_PUBLIC_`. The development machine's existing system trust was necessary for verified TLS; do not copy local certificates to a host or disable certificate validation. See the recorded [TLS diagnostics](docs/devex/live-verification.md).
+
+## Validate and run the production build
 
 ```sh
-npm run lint
 npm test
-npm run test:api
+npm run lint
 npm run build
 npm start
 ```
 
-`test:api` loads `.env.local`, performs only GET requests, discovers an eligible BSC contract through the API, and reports sanitized results. With no credentials it reports all five endpoints skipped and exits normally; that is **not** a successful connectivity test. Tests use clearly synthetic credentials/responses and never demonstrate live connectivity.
+`npm run test:api` is a separate read-only live Binance diagnostic. It loads the local environment securely. Missing credentials cause skipped requests, not a successful connectivity result. Automated tests use synthetic responses and captured historical structures; those tests do not establish current API availability.
 
-## Current scope
+Ages and engine decisions are evaluated at a snapshot. A client-side notice asks for reassessment when that snapshot becomes historical; it does not refetch automatically or change price timestamps.
 
-- Next.js App Router, TypeScript, Tailwind, ESLint, server-rendered landing page.
-- Server-only HMAC-SHA256 client with exact encoded wire-path signing, `/build` prefix, timeouts, no redirects and no caching.
-- Platforms, tokens, search, price and underlying-market read integrations; runtime validation of consumed fields.
-- Live selection is restricted to API-discovered Ondo or bStocks stock tokens on BSC, then cross-checked through search and returned quote identity.
-- Credentials were absent during foundation development and configured for a subsequent live attempt. That attempt failed at DNS/transport; real schemas and at least one actual BSC token remain unverified. See [live verification evidence](docs/devex/live-verification.md).
+## Demo and deployment status
 
-The documented `referencePrice` is token-derived per-share pricing, not an independent traditional-market quote. No genuine underlying-reference timestamp is documented. The application does not calculate a discovery signal or invent freshness. Provider market status is labeled as such. Liquidity, slippage, executable quotes and independent price feeds are future work.
+Local demonstration is supported; **public deployment has not been approved or performed**. The app needs a Node server, not static-only hosting. [Deployment readiness](docs/deployment.md) covers Vercel and a standard Node host, environment isolation, outbound access, quotas, licensing and approval gates. It is a runbook, not a claim that a hosted environment was tested.
 
-No wallet connection, approvals, transactions, leverage, perpetuals, or broadcast functionality exists. Any future spot execution must require explicit user approval.
+[Demo/visual QA record](docs/qa/demo-readiness.md) includes reproducible desktop/mobile checks and known inspection limits. [Developer Experience diary](docs/devex/README.md) records actual work, including failed attempts and AI assistance.
 
-See [Developer Experience diary](docs/devex/README.md) for evidence and limitations.
+## Known limitations
 
-## Reference Truth Engine
+- No independent live equity quotes or associated display entitlements.
+- Issuer public-page structure is fragile; changes fail closed. An observed ratio is not current applicability, and BSC display scaling still needs reconciliation.
+- Published schedules do not establish live exchange status, absence of security halts or quote availability.
+- No wallet, signed transaction, approval, swap, RFQ submission, simulation or broadcast integration.
+- Each live render can make five Binance requests and one issuer request. No distributed rate limiter or shared cache exists; unrestricted public traffic is not ready without host/provider quota controls.
+- No fallback live prices. Network and schema failures are visible, actionable states.
 
-Visit `/demo` for **DEMO — SYNTHETIC DATA** scenarios. This separate route requires no Binance connectivity. It uses a frozen fictional clock and never represents real prices, issuers, liquidity or quotes.
-
-The pure engine validates evidence and returns WAIT, MONITOR or PROCEED_TO_REVIEW. Review requires fresh independent references and matching execution evidence; it cannot trigger execution. Missing data fails closed. See [rules, defaults, test coverage and limitations](docs/devex/reference-truth-engine.md).
-
-## Windows system CA support
-
-On the development machine, AVG HTTPS scanning presents a certificate already trusted by Windows. Node 24's default trust failed; using the existing system trust restored verified TLS and authenticated Binance HTTP responses:
-
-```powershell
-$env:NODE_USE_SYSTEM_CA="1"
-npm run test:api
-```
-
-Set this in the shell **before launching Node**, including before starting the app if needed. It applies to that shell and its child processes; no permanent Windows setting or new CA installation is required. Do not disable TLS verification. The API diagnostic currently passes platforms but reports schema mismatches for tokens/search; TLS success is not full RWA integration. See the [certificate evidence and API outcomes](docs/devex/live-verification.md).
+Research: [issuer/session evidence](docs/research/issuer-multiplier-and-session.md), [execution feasibility](docs/research/binance-execution-evidence.md), [independent providers](docs/research/underlying-equity-providers.md). This repository is independent of Noctive and uses none of its files, assets or infrastructure.

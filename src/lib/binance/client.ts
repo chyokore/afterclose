@@ -46,7 +46,16 @@ export async function rwaGet<T>(endpoint: Endpoint, params: Record<string, strin
     throw new ApiError("network", undefined, audit);
   }
   let payload: unknown;
-  try { payload = await response.json(); } catch { /* Non-JSON errors remain sanitized. */ }
+  try { payload = await response.json(); } catch (error) {
+    // The request timeout can also abort a slow response body after headers arrive.
+    const name = (error as { name?: string })?.name;
+    if (name === "TimeoutError" || name === "AbortError") {
+      const audit = { endpoint, status: response.status, latencyMs: Math.round(performance.now() - started), networkCode: "TIMEOUT" };
+      onResponse?.(audit);
+      throw new ApiError("network", response.status, audit);
+    }
+    // Other non-JSON responses are classified below without retaining raw errors.
+  }
   const metadata = z.object({ code: z.union([z.string().regex(/^\d{1,10}$/), z.number().int()]).optional(), timestamp: z.number().optional() }).safeParse(payload);
   const audit: ResponseAudit = { endpoint, status: response.status, latencyMs: Math.round(performance.now() - started), ...(metadata.success ? { code: metadata.data.code === undefined ? undefined : String(metadata.data.code), responseTimestamp: metadata.data.timestamp } : {}) };
   onResponse?.(audit);
