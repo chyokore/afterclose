@@ -2,7 +2,7 @@
 
 Initial date: **September 26, 2026**.
 
-Latest milestone: [Evidence Dashboard v1](evidence-dashboard.md) presents real Binance evidence, provenance, timestamp semantics and the actual engine decision. The labeled scenario lab demonstrates incomplete and complete fictional evidence. Independent equity access remains unavailable and the live engine remains WAIT.
+Latest milestone: [Binance execution evidence research](binance-execution-evidence.md) confirms authenticated BSC chain-list access and documents the wallet requirement that prevents an NVDAon RFQ test in this scope. No quote or simulation was performed; the live engine remains WAIT. The [Evidence Dashboard v1](evidence-dashboard.md) remains unchanged.
 
 This diary separates user-reported milestones, direct observations, documentation findings and unverified work. It is not a claim of production readiness.
 
