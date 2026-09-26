@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ReferenceComparison } from "@/components/reference-comparison";
 import { loadRwa } from "@/lib/binance/rwa";
 
 export const dynamic = "force-dynamic";
@@ -27,6 +28,7 @@ export default async function Home() {
         </div> : <div className="setup-panel"><div className="setup-symbol">⌁</div><div><h3>{data.state === "setup" ? "Your data connection starts here." : data.state === "empty" ? "No eligible BSC stock returned." : "We couldn’t verify the data connection."}</h3><p>{data.state === "setup" ? "Add your Binance Web3 API credentials on the server to discover supported Ondo and bStocks assets. No market prices are shown until real responses are verified." : data.state === "empty" ? "The API responded, but no matching Ondo or bStocks stock token was found on chain 56. No substitute asset has been selected." : data.state === "error" && data.reason === "network" ? "The server could not reach Binance Web3. Authentication and BSC token support remain unverified. Check network connectivity and DNS, then rerun the API diagnostic. No market data is shown." : "Market data is withheld. Check the server configuration and run the API diagnostic again."}</p>{data.state === "setup" && <details><summary>Connection setup</summary><ol><li>Copy <code>.env.example</code> to <code>.env.local</code>.</li><li>Set <code>BINANCE_API_KEY</code> and <code>BINANCE_SECRET_KEY</code> locally. Keep both private.</li><li>Run <code>npm run test:api</code>, then restart the app.</li></ol></details>}</div></div>}
         <div className="data-caveat"><span>REFERENCE FRESHNESS</span><p>Unknown. Binance&apos;s documented reference is derived from the token price; it is not an independent stock-market quote. No genuine underlying-price timestamp is documented. A price-discovery signal cannot be established from this data alone.</p></div>
       </section>
+      <ReferenceComparison />
       <section className="research"><div className="eyebrow">02 / THE QUESTIONS THAT MATTER</div><div className="cards">{[
         ["01", "Is the reference current?", "A stale reference can make an ordinary move look like an opportunity. Source and timestamp come first."],
         ["02", "Does the market agree?", "Market hours and differences between providers help explain the context behind a token price."],

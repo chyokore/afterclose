@@ -44,3 +44,9 @@ The documented `referencePrice` is token-derived per-share pricing, not an indep
 No wallet connection, approvals, transactions, leverage, perpetuals, or broadcast functionality exists. Any future spot execution must require explicit user approval.
 
 See [Developer Experience diary](docs/devex/README.md) for evidence and limitations.
+
+## Reference Truth Engine
+
+Visit `/demo` for **DEMO — SYNTHETIC DATA** scenarios. This separate route requires no Binance connectivity. It uses a frozen fictional clock and never represents real prices, issuers, liquidity or quotes.
+
+The pure engine validates evidence and returns WAIT, MONITOR or PROCEED_TO_REVIEW. Review requires fresh independent references and matching execution evidence; it cannot trigger execution. Missing data fails closed. See [rules, defaults, test coverage and limitations](docs/devex/reference-truth-engine.md).
