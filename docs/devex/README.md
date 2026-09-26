@@ -2,7 +2,7 @@
 
 Initial date: **September 26, 2026**.
 
-Latest milestone: live Binance RWA schemas reconciled; five authenticated endpoints pass. BSC NVDAon is API-reported with indexed explorer corroboration. The unchanged Reference Truth Engine remains WAIT because independent equity and execution evidence are unavailable. See [live verification](live-verification.md).
+Latest milestone: [independent equity provider research](underlying-equity-research.md) selects Massive as primary and Twelve Data as conditional fallback, pending credentials and entitlements. No provider adapter was implemented. The prior [live Binance milestone](live-verification.md) remains intact and the engine remains WAIT.
 
 This diary separates user-reported milestones, direct observations, documentation findings and unverified work. It is not a claim of production readiness.
 
