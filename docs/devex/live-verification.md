@@ -64,3 +64,33 @@ HTTPS was not restored, so `npm run test:api` was not repeated in this follow-up
 **Next diagnostic action:** compare `nslookup web3.binance.com` with a known-working hostname on the same configured resolver, then ask the network administrator to check resolver reachability and its response for the Binance hostname. A comparison on another user-approved network can isolate the current network without permanently changing DNS settings. No such comparison or network change was performed in this run.
 
 AI assistance: Codex ran the requested read-only network tests, compared Node and browser failures, inspected sanitized proxy flags and recorded these findings. Follow-up validation: `npm test` passed all 3 tests; `npm run lint` passed; `npm run build` passed. The test log containing HTTP 401 is synthetic, not an observed provider response. Only this diary file changed.
+
+## VPN-reported retry after Reference Truth Engine v1 — September 26, 2026
+
+Starting commit verified: `f05b4fe1552639a92ae51f241cf45d36b867844f`. Origin remains `https://github.com/chyokore/afterclose.git`; working tree was initially clean. The user reported a connected VPN. No VPN, DNS or proxy configuration was changed.
+
+Read-only Windows indicators returned zero user VPN profiles. The active adapter descriptions were a physical Intel wireless adapter and a Hyper-V virtual Ethernet adapter. These indicators do not establish whether a third-party VPN, browser-only VPN or split tunnel is active; this process's routing through the reported VPN could not be verified. A Hyper-V adapter alone is not evidence of a VPN tunnel.
+
+`nslookup web3.binance.com` again timed out at the configured resolver. `curl.exe -I --max-time 15 https://web3.binance.com/en/dev-docs` returned exit 6, Could not resolve host. HTTPS connectivity was therefore not restored for the command-line process. No TLS handshake or HTTP status was obtained.
+
+Next.js environment loading confirmed, using boolean output only, that .env.local was loaded, both local credential fields were nonempty, and the configured base URL was exactly the official https://web3.binance.com/build. Git still ignores .env.local. There was no environment-loading issue to fix.
+
+The requested `npm run test:api` was executed with the existing server-only client and exited 1:
+
+| RWA endpoint | Result | Latency | HTTP status |
+| --- | --- | --- | --- |
+| platforms | UND_ERR_CONNECT_TIMEOUT | 10,971 ms | None received |
+| tokens (chain 56) | ENOTFOUND | 499 ms | None received |
+| search (NVDA discovery keyword) | UND_ERR_CONNECT_TIMEOUT | 10,136 ms | None received |
+| price | Skipped; no API-discovered contract | N/A | N/A |
+| underlying-market | Skipped; no API-discovered contract | N/A | N/A |
+
+Authentication remains **unverified, not rejected**. No Binance error body or successful response was received. No actual token metadata, contract, provider, multiplier, currency, market status, price or timestamp was discovered. No new live-response provenance audit was possible; earlier documentation findings must not be mistaken for observed fields.
+
+The live integration and verified-token UI remain blocked on successful retrieval. No speculative adapter was presented as verified, and no fabricated data was supplied to the engine. The Reference Truth Engine, its tests, Binance client and existing UI were preserved unchanged; unavailable evidence continues to prevent review, and the synthetic demo remains isolated and labeled. No trades, signing of transactions or broadcasts were performed. No Noctive resources were accessed.
+
+Integration friction is still local DNS/transport, not demonstrated API rejection or documentation ambiguity. No new documentation defect can be inferred from this failed connection. AI assistance: Codex inspected sanitized environment and network indicators, ran the requested diagnostics, and recorded actual outcomes without printing credentials or authentication headers.
+
+Next action requiring user involvement: confirm in the VPN application that the tunnel covers system DNS and the Node/PowerShell processes, rather than only browser traffic, then repeat the hostname/HTTPS checks. This is a diagnostic suggestion, not a change made by Codex. Live API verification should resume only once the official hostname is reachable.
+
+Validation for this retry: `npm test` passed all 54 tests; `npm run lint` passed; `npm run build` passed. The HTTP 401 in the test output is a synthetic client test, not a live authentication rejection. Git review confirmed the diary is the only modified file; engine, adapters, UI and tests remain unchanged.
