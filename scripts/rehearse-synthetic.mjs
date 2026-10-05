@@ -3,6 +3,8 @@ import { resolve, join } from 'node:path';
 import { spawn } from 'node:child_process';
 import assert from 'node:assert/strict';
 const root = process.cwd();
+// Avoid reusing sockets that Next closes during long Windows rehearsals.
+const localFetch = (url, init = {}) => fetch(url, { ...init, headers:{ ...init.headers, Connection:'close' } });
 const stage = join(root, '.tools', `synthetic-rehearsal-${Date.now()}`);
 mkdirSync(stage, { recursive: true });
 for (const item of ['src', 'package.json', 'package-lock.json', 'tsconfig.json', 'next.config.ts', 'postcss.config.mjs']) cpSync(join(root,item), join(stage,item), { recursive: true });
@@ -34,7 +36,7 @@ async function check(mode, invalid=false) {
     assert.match(logs,/Ready/);
     const paths = invalid ? ['/','/demo'] : ['/','/demo', ...['missing-independent','stale-token','closed-stale-reference','missing-multiplier','stale-reference','fresh-evidence','missing-timestamp','provider-disagreement','insufficient-liquidity','high-slippage','market-closed','api-unavailable'].map(s=>`/demo?scenario=${s}`), '/demo?scenario=invalid', '/unknown'];
     for (const path of paths) {
-      const response = await fetch(`http://127.0.0.1:${port}${path}`);
+      const response = await localFetch(`http://127.0.0.1:${port}${path}`);
       const html = await response.text();
       if(invalid) { assert.ok(response.status>=500); assert.doesNotMatch(html,/Fictional Example Company|Historical discovery/); }
       else {
@@ -44,17 +46,41 @@ async function check(mode, invalid=false) {
       }
     }
     if (!invalid) {
+      // Visitors cannot select live mode through request-controlled input.
+      const attacks = [
+        '/?mode=live', '/?AFTERCLOSE_PREVIEW_MODE=live', '/?mode=%00live',
+        '/demo?scenario=fresh-evidence&mode=live',
+        '/demo?scenario=../../live', '/demo?scenario=%00',
+        '/demo?scenario=live&scenario=fresh-evidence',
+      ];
+      const headers = { 'x-afterclose-preview-mode':'live', 'AFTERCLOSE_PREVIEW_MODE':'live', 'x-vercel-env':'development', 'Cookie':'AFTERCLOSE_PREVIEW_MODE=live' };
+      for (const path of attacks) for (const rsc of [false, true]) {
+        const r = await localFetch(`http://127.0.0.1:${port}${path}`, { headers:{...headers,...(rsc ? {RSC:'1'} : {})} });
+        assert.equal(r.status,200);
+        const body = await r.text();
+        assert.match(body,/SYNTHETIC (DEMO|SCENARIO)/);
+        assert.doesNotMatch(body,/Historical discovery|NVDAon|1\.0017152487959898/);
+      }
+      for (const path of ['/live','/demo/live','/api/live']) {
+        const r = await localFetch(`http://127.0.0.1:${port}${path}`, { headers });
+        assert.equal(r.status,404);
+        assert.match(await r.text(),/SYNTHETIC DEMO/);
+      }
+      const metadata = await (await localFetch(`http://127.0.0.1:${port}/`)).text();
+      assert.match(metadata,/<title>AfterClose \| Synthetic demo<\/title>/);
+      assert.match(metadata,/name="robots" content="noindex, nofollow"/);
+      console.log('PASS 14 adversarial HTML/RSC requests, 3 route-parameter probes, metadata');
       for(let i=0;i<3;i++) {
-        const r = await fetch(`http://127.0.0.1:${port}/?_rsc=rehearsal${i}`, { headers:{RSC:'1','Cache-Control':'no-cache'} });
+        const r = await localFetch(`http://127.0.0.1:${port}/?_rsc=rehearsal${i}`, { headers:{RSC:'1','Cache-Control':'no-cache'} });
         assert.equal(r.status,200); const body=await r.text(); assert.match(body,/Synthetic preview|Fictional Example/); assert.doesNotMatch(body,/Historical discovery|NVDAon/);
       }
-      const html=await (await fetch(`http://127.0.0.1:${port}/`)).text();
+      const html=await (await localFetch(`http://127.0.0.1:${port}/`)).text();
       const assets=[...new Set([...html.matchAll(/(?:src|href)="([^" ]*\/_next\/static\/[^" ]+)"/g)].map(m=>m[1]))];
       assert.ok(assets.length>0);
-      for(const asset of assets) { const r=await fetch(`http://127.0.0.1:${port}${asset}`); assert.equal(r.status,200); const b=await r.text(); assert.doesNotMatch(b,/1\.0017152487959898|BINANCE_SECRET_KEY|Historical discovery/); }
+      for(const asset of assets) { const r=await localFetch(`http://127.0.0.1:${port}${asset}`); assert.equal(r.status,200); const b=await r.text(); assert.doesNotMatch(b,/1\.0017152487959898|BINANCE_SECRET_KEY|Historical discovery/); }
       console.log(`PASS synthetic routes, 12 scenarios, invalid scenario, 404, RSC refresh x3, ${assets.length} assets`);
     } else console.log('PASS invalid runtime mode: dashboard and lab fail closed');
-  } finally { if (child.exitCode === null) await new Promise(r => { child.once('exit', r); child.kill(); }); }
+  } finally { writeFileSync(join(stage, 'runtime-' + mode + '.log'), logs); if (child.exitCode === null) await new Promise(r => { child.once('exit', r); child.kill(); }); }
 }
 await check('synthetic');
 await check('typo',true);
