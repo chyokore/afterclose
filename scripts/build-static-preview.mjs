@@ -1,0 +1,16 @@
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { build } from 'esbuild';
+const out = 'static-preview/dist';
+mkdirSync(`${out}/assets`, { recursive: true });
+const result = await build({ entryPoints: ['static-preview/app.ts'], outfile: `${out}/assets/preview.js`, bundle: true, minify: true, platform: 'browser', target: 'es2022', format: 'esm', metafile: true, sourcemap: false });
+const inputs = Object.keys(result.metafile.inputs);
+const allowed = /^(static-preview\/(app|model)\.ts|src\/demo\/reference-fixtures\.ts|src\/lib\/reference-truth\/(engine|models)\.ts|node_modules\/zod\/)/;
+if (inputs.some(p => !allowed.test(p.replaceAll('\\','/')))) throw new Error('Unexpected dependency in static bundle');
+writeFileSync(`${out}/index.html`, readFileSync('static-preview/index.html'));
+writeFileSync(`${out}/assets/preview.css`, readFileSync('static-preview/preview.css'));
+writeFileSync(`${out}/404.html`, '<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow"><meta http-equiv="Content-Security-Policy" content="default-src \'none\'; base-uri \'none\'; form-action \'none\'"><title>AfterClose | Page not found</title><body><p>SYNTHETIC DEMONSTRATION — NOT LIVE MARKET DATA</p><h1>Page not found</h1><p>No substitute evidence or decision is shown. Reopen the original preview URL to return to the scenario lab.</p></body></html>');
+writeFileSync(`${out}/.nojekyll`, '');
+writeFileSync(`${out}/_headers`, "/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: no-referrer\n  X-Robots-Tag: noindex, nofollow\n  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-ancestors 'none'\n");
+mkdirSync('.tools/static-preview', { recursive: true });
+writeFileSync('.tools/static-preview/metafile.json', JSON.stringify(result.metafile, null, 2));
+console.log(`Static build complete: browser-only dependency graph (${inputs.length} modules). Output: ${out}`);

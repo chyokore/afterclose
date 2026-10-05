@@ -1,0 +1,69 @@
+{
+  "base": "0b00ab64de53afff7de2dd1911c976a39610f91e",
+  "canonicalTests": 88,
+  "staticModelTests": 15,
+  "outputTests": 4,
+  "browser": {
+    "scenarioDecisionAndFindingParity": 36,
+    "directScenarioChecks": 12,
+    "overflowChecks": 45,
+    "refreshChecks": 3,
+    "keyboardChecks": 8,
+    "missingChecks": 6,
+    "errorChecks": 1,
+    "projectPrefixChecks": 3,
+    "screenshots": 10,
+    "externalRequests": 0,
+    "apiAttempts": 0,
+    "pageErrors": 0,
+    "localAssetRequests": 69,
+    "widths": [
+      1440,
+      390,
+      320
+    ]
+  },
+  "output": {
+    "files": [
+      {
+        "path": ".nojekyll",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "404.html",
+        "bytes": 530,
+        "sha256": "6446845d8623d18ec4cab16bb27718c7998124fb3b1038fd94656a807fe71732"
+      },
+      {
+        "path": "assets/preview.css",
+        "bytes": 10852,
+        "sha256": "ca173e3c20a106942362c3c90fc5af1dca8a26ec4328fda1e7d6b4b0cd9df3e8"
+      },
+      {
+        "path": "assets/preview.js",
+        "bytes": 475248,
+        "sha256": "3d793c4fa7e67afbdcaec9eac80d6d88afa3b084d24dc7e09bb2068f02f3ea41"
+      },
+      {
+        "path": "index.html",
+        "bytes": 1797,
+        "sha256": "43ad0a7c8d564643b83a893221d948950ac755ab55d8b6cd678b86be7bc5e3d1"
+      },
+      {
+        "path": "_headers",
+        "bytes": 324,
+        "sha256": "db63b5f4299b01979ad49c03accafa6dda1a200bd33c3481c4211a8b1db66ded"
+      }
+    ],
+    "totalBytes": 488751,
+    "serverFunctions": 0,
+    "apiRoutes": 0,
+    "workerEntrypoints": 0
+  },
+  "credentialScan": {
+    "textFiles": 110,
+    "binaryFilesSkipped": 15,
+    "findings": 0
+  }
+}
