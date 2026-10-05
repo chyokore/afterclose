@@ -8,11 +8,12 @@
     "start": "next start",
     "lint": "eslint",
     "test": "node --conditions=react-server --import tsx --test tests/*.test.ts",
-    "test:api": "node --conditions=react-server --import tsx scripts/test-api.ts"
+    "test:api": "node --conditions=react-server --import tsx scripts/test-api.ts",
+    "build:cloudflare": "opennextjs-cloudflare build"
   },
   "dependencies": {
-    "@next/env": "^16.3.6",
-    "next": "16.3.6",
+    "@next/env": "16.3.8",
+    "next": "16.3.8",
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "server-only": "^0.0.1",
@@ -24,10 +25,12 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.3.6",
+    "eslint-config-next": "16.3.8",
     "tailwindcss": "^4",
     "tsx": "^4.23.15",
-    "typescript": "^5"
+    "typescript": "^5",
+    "@opennextjs/cloudflare": "1.20.8",
+    "wrangler": "4.147.0"
   },
   "engines": {
     "node": ">=24 <25"

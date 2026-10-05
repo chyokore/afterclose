@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import Loading from '../src/app/loading';
+import ErrorPage from '../src/app/error';
+const loading=renderToStaticMarkup(createElement(Loading));
+assert.match(loading,/aria-busy="true"/);
+assert.match(loading,/Synthetic mode uses only fictional fixtures/);
+assert.match(loading,/No price or decision is implied/);
+const error=renderToStaticMarkup(createElement(ErrorPage,{reset:()=>{}}));
+assert.match(error,/role="alert"/);
+assert.match(error,/No substitute market data is shown/);
+assert.match(error,/Try again/);
+for(const html of [loading,error]) assert.doesNotMatch(html,/NVDAon|Historical discovery|1\.0017152487959898/);
+console.log('PASS 2 rendered loading/error component states; client reset interaction and visual animation not exercised');

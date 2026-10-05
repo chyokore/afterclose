@@ -1,4 +1,4 @@
-import { cpSync, mkdirSync, readdirSync, linkSync, existsSync, writeFileSync, readFileSync } from 'node:fs';
+import { statSync, cpSync, mkdirSync, readdirSync, linkSync, existsSync, writeFileSync, readFileSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { spawn } from 'node:child_process';
 import assert from 'node:assert/strict';
@@ -12,7 +12,7 @@ function linkTree(from, to) {
   mkdirSync(to, { recursive:true });
   for (const entry of readdirSync(from, { withFileTypes:true })) {
     const source=join(from,entry.name), target=join(to,entry.name);
-    if(entry.isDirectory()) linkTree(source,target);
+    if(statSync(source).isDirectory()) linkTree(source,target);
     else linkSync(source,target);
   }
 }

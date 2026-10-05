@@ -1,0 +1,2147 @@
+{
+  "base": "69fd830b15e58ccd792b8d7d5f717ce20ca3835b",
+  "changes": [
+    {
+      "path": "node_modules/@ast-grep/napi",
+      "before": null,
+      "after": "0.40.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-darwin-arm64",
+      "before": null,
+      "after": "0.40.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-darwin-x64",
+      "before": null,
+      "after": "0.40.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-linux-arm64-gnu",
+      "before": null,
+      "after": "0.40.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-linux-arm64-musl",
+      "before": null,
+      "after": "0.40.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-linux-x64-gnu",
+      "before": null,
+      "after": "0.40.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-linux-x64-musl",
+      "before": null,
+      "after": "0.40.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-win32-arm64-msvc",
+      "before": null,
+      "after": "0.40.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-win32-ia32-msvc",
+      "before": null,
+      "after": "0.40.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@ast-grep/napi-win32-x64-msvc",
+      "before": null,
+      "after": "0.40.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-crypto/sha1-browser",
+      "before": null,
+      "after": "5.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-crypto/sha1-browser/node_modules/@smithy/util-utf8",
+      "before": null,
+      "after": "2.3.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-crypto/sha256-browser",
+      "before": null,
+      "after": "5.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-crypto/sha256-browser/node_modules/@smithy/util-utf8",
+      "before": null,
+      "after": "2.3.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-crypto/sha256-js",
+      "before": null,
+      "after": "5.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-crypto/supports-web-crypto",
+      "before": null,
+      "after": "5.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-crypto/util",
+      "before": null,
+      "after": "5.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-crypto/util/node_modules/@smithy/util-utf8",
+      "before": null,
+      "after": "2.3.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/checksums",
+      "before": null,
+      "after": "3.1001.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/client-cloudfront",
+      "before": null,
+      "after": "3.984.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/client-dynamodb",
+      "before": null,
+      "after": "3.984.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/client-lambda",
+      "before": null,
+      "after": "3.984.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/client-s3",
+      "before": null,
+      "after": "3.984.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/client-sqs",
+      "before": null,
+      "after": "3.984.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/core",
+      "before": null,
+      "after": "3.978.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/credential-provider-env",
+      "before": null,
+      "after": "3.972.72",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/credential-provider-http",
+      "before": null,
+      "after": "3.972.74",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/credential-provider-ini",
+      "before": null,
+      "after": "3.973.17",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/credential-provider-login",
+      "before": null,
+      "after": "3.972.79",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/credential-provider-node",
+      "before": null,
+      "after": "3.972.84",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/credential-provider-process",
+      "before": null,
+      "after": "3.972.72",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/credential-provider-sso",
+      "before": null,
+      "after": "3.973.16",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/credential-provider-web-identity",
+      "before": null,
+      "after": "3.972.78",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/dynamodb-codec",
+      "before": null,
+      "after": "3.973.46",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/endpoint-cache",
+      "before": null,
+      "after": "3.972.11",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-bucket-endpoint",
+      "before": null,
+      "after": "3.972.50",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-endpoint-discovery",
+      "before": null,
+      "after": "3.972.31",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-expect-continue",
+      "before": null,
+      "after": "3.972.46",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-flexible-checksums",
+      "before": null,
+      "after": "3.974.56",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-host-header",
+      "before": null,
+      "after": "3.972.47",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-location-constraint",
+      "before": null,
+      "after": "3.972.43",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-logger",
+      "before": null,
+      "after": "3.972.46",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-recursion-detection",
+      "before": null,
+      "after": "3.972.48",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-sdk-s3",
+      "before": null,
+      "after": "3.972.77",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-sdk-s3/node_modules/@aws-sdk/signature-v4-multi-region",
+      "before": null,
+      "after": "3.996.47",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-sdk-sqs",
+      "before": null,
+      "after": "3.972.43",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-ssec",
+      "before": null,
+      "after": "3.972.43",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/middleware-user-agent",
+      "before": null,
+      "after": "3.972.76",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/nested-clients",
+      "before": null,
+      "after": "3.997.46",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/nested-clients/node_modules/@aws-sdk/signature-v4-multi-region",
+      "before": null,
+      "after": "3.996.47",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/region-config-resolver",
+      "before": null,
+      "after": "3.972.50",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/signature-v4-multi-region",
+      "before": null,
+      "after": "3.984.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/token-providers",
+      "before": null,
+      "after": "3.1138.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/types",
+      "before": null,
+      "after": "3.974.6",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/util-endpoints",
+      "before": null,
+      "after": "3.984.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/util-locate-window",
+      "before": null,
+      "after": "3.965.10",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/util-user-agent-browser",
+      "before": null,
+      "after": "3.972.47",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/util-user-agent-node",
+      "before": null,
+      "after": "3.973.62",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws-sdk/xml-builder",
+      "before": null,
+      "after": "3.972.41",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@aws/lambda-invoke-store",
+      "before": null,
+      "after": "0.3.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@cloudflare/kv-asset-handler",
+      "before": null,
+      "after": "0.5.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@cloudflare/unenv-preset",
+      "before": null,
+      "after": "2.16.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@cloudflare/workerd-darwin-64",
+      "before": null,
+      "after": "1.20261001.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@cloudflare/workerd-darwin-arm64",
+      "before": null,
+      "after": "1.20261001.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@cloudflare/workerd-linux-64",
+      "before": null,
+      "after": "1.20261001.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@cloudflare/workerd-linux-arm64",
+      "before": null,
+      "after": "1.20261001.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@cloudflare/workerd-windows-64",
+      "before": null,
+      "after": "1.20261001.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@cspotcode/source-map-support",
+      "before": null,
+      "after": "0.8.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@cspotcode/source-map-support/node_modules/@jridgewell/trace-mapping",
+      "before": null,
+      "after": "0.3.9",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@dotenvx/dotenvx",
+      "before": null,
+      "after": "1.31.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@dotenvx/dotenvx/node_modules/isexe",
+      "before": null,
+      "after": "3.1.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@dotenvx/dotenvx/node_modules/which",
+      "before": null,
+      "after": "4.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@ecies/ciphers",
+      "before": null,
+      "after": "0.2.6",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@isaacs/cliui",
+      "before": null,
+      "after": "9.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@jridgewell/source-map",
+      "before": null,
+      "after": "0.3.11",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@next/env",
+      "before": "16.3.6",
+      "after": "16.3.8",
+      "reason": "Aligned Next.js security patch"
+    },
+    {
+      "path": "node_modules/@next/eslint-plugin-next",
+      "before": "16.3.6",
+      "after": "16.3.8",
+      "reason": "Aligned Next.js security patch"
+    },
+    {
+      "path": "node_modules/@next/swc-darwin-arm64",
+      "before": "16.3.6",
+      "after": "16.3.8",
+      "reason": "Aligned Next.js security patch"
+    },
+    {
+      "path": "node_modules/@next/swc-darwin-x64",
+      "before": "16.3.6",
+      "after": "16.3.8",
+      "reason": "Aligned Next.js security patch"
+    },
+    {
+      "path": "node_modules/@next/swc-linux-arm64-gnu",
+      "before": "16.3.6",
+      "after": "16.3.8",
+      "reason": "Aligned Next.js security patch"
+    },
+    {
+      "path": "node_modules/@next/swc-linux-arm64-musl",
+      "before": "16.3.6",
+      "after": "16.3.8",
+      "reason": "Aligned Next.js security patch"
+    },
+    {
+      "path": "node_modules/@next/swc-linux-x64-gnu",
+      "before": "16.3.6",
+      "after": "16.3.8",
+      "reason": "Aligned Next.js security patch"
+    },
+    {
+      "path": "node_modules/@next/swc-linux-x64-musl",
+      "before": "16.3.6",
+      "after": "16.3.8",
+      "reason": "Aligned Next.js security patch"
+    },
+    {
+      "path": "node_modules/@next/swc-win32-arm64-msvc",
+      "before": "16.3.6",
+      "after": "16.3.8",
+      "reason": "Aligned Next.js security patch"
+    },
+    {
+      "path": "node_modules/@next/swc-win32-x64-msvc",
+      "before": "16.3.6",
+      "after": "16.3.8",
+      "reason": "Aligned Next.js security patch"
+    },
+    {
+      "path": "node_modules/@noble/ciphers",
+      "before": null,
+      "after": "1.3.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@noble/curves",
+      "before": null,
+      "after": "1.9.7",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@noble/hashes",
+      "before": null,
+      "after": "1.8.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@node-minify/core",
+      "before": null,
+      "after": "8.0.6",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@node-minify/core/node_modules/brace-expansion",
+      "before": null,
+      "after": "2.1.7",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@node-minify/core/node_modules/glob",
+      "before": null,
+      "after": "9.3.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@node-minify/core/node_modules/lru-cache",
+      "before": null,
+      "after": "10.4.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@node-minify/core/node_modules/minimatch",
+      "before": null,
+      "after": "8.0.7",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@node-minify/core/node_modules/minipass",
+      "before": null,
+      "after": "4.2.8",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@node-minify/core/node_modules/path-scurry",
+      "before": null,
+      "after": "1.11.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@node-minify/core/node_modules/path-scurry/node_modules/minipass",
+      "before": null,
+      "after": "7.1.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@node-minify/terser",
+      "before": null,
+      "after": "8.0.6",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@node-minify/utils",
+      "before": null,
+      "after": "8.0.6",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws",
+      "before": null,
+      "after": "4.1.7",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/aix-ppc64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/android-arm",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/android-arm64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/android-x64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/darwin-arm64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/darwin-x64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/freebsd-arm64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/freebsd-x64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-arm",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-arm64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-ia32",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-loong64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-mips64el",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-ppc64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-riscv64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-s390x",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/linux-x64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/netbsd-arm64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/netbsd-x64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/openbsd-arm64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/openbsd-x64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/sunos-x64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/win32-arm64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/win32-ia32",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/@esbuild/win32-x64",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/chalk",
+      "before": null,
+      "after": "5.6.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/aws/node_modules/esbuild",
+      "before": null,
+      "after": "0.25.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@opennextjs/cloudflare",
+      "before": null,
+      "after": "1.20.8",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@poppinss/colors",
+      "before": null,
+      "after": "4.1.6",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@poppinss/dumper",
+      "before": null,
+      "after": "0.6.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@poppinss/dumper/node_modules/supports-color",
+      "before": null,
+      "after": "10.2.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@poppinss/exception",
+      "before": null,
+      "after": "1.2.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@sindresorhus/is",
+      "before": null,
+      "after": "7.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/config-resolver",
+      "before": null,
+      "after": "4.7.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/core",
+      "before": null,
+      "after": "3.35.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/credential-provider-imds",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/eventstream-serde-browser",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/eventstream-serde-config-resolver",
+      "before": null,
+      "after": "4.6.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/eventstream-serde-node",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/fetch-http-handler",
+      "before": null,
+      "after": "5.8.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/hash-blob-browser",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/hash-node",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/hash-stream-node",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/invalid-dependency",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/is-array-buffer",
+      "before": null,
+      "after": "2.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/md5-js",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/middleware-content-length",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/middleware-endpoint",
+      "before": null,
+      "after": "4.7.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/middleware-retry",
+      "before": null,
+      "after": "4.8.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/middleware-serde",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/middleware-stack",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/node-config-provider",
+      "before": null,
+      "after": "4.6.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/node-http-handler",
+      "before": null,
+      "after": "4.12.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/protocol-http",
+      "before": null,
+      "after": "5.6.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/signature-v4",
+      "before": null,
+      "after": "5.7.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/smithy-client",
+      "before": null,
+      "after": "4.15.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/types",
+      "before": null,
+      "after": "4.19.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/url-parser",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/util-base64",
+      "before": null,
+      "after": "4.6.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/util-body-length-browser",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/util-body-length-node",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/util-buffer-from",
+      "before": null,
+      "after": "2.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/util-defaults-mode-browser",
+      "before": null,
+      "after": "4.6.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/util-defaults-mode-node",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/util-endpoints",
+      "before": null,
+      "after": "3.7.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/util-middleware",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/util-retry",
+      "before": null,
+      "after": "4.6.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/util-stream",
+      "before": null,
+      "after": "4.8.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/util-utf8",
+      "before": null,
+      "after": "4.5.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@smithy/util-waiter",
+      "before": null,
+      "after": "4.6.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@speed-highlight/core",
+      "before": null,
+      "after": "1.2.24",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@tsconfig/node18",
+      "before": null,
+      "after": "1.0.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/@types/node-fetch",
+      "before": null,
+      "after": "2.6.13",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/abort-controller",
+      "before": null,
+      "after": "3.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/accepts",
+      "before": null,
+      "after": "2.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/agentkeepalive",
+      "before": null,
+      "after": "4.6.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/ansi-colors",
+      "before": null,
+      "after": "4.1.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/ansi-regex",
+      "before": null,
+      "after": "5.0.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/array-timsort",
+      "before": null,
+      "after": "1.0.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/asynckit",
+      "before": null,
+      "after": "0.4.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/aws4fetch",
+      "before": null,
+      "after": "1.0.20",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/blake3-wasm",
+      "before": null,
+      "after": "2.1.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/body-parser",
+      "before": null,
+      "after": "2.3.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/body-parser/node_modules/content-type",
+      "before": null,
+      "after": "2.1.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/bowser",
+      "before": null,
+      "after": "2.14.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/buffer-from",
+      "before": null,
+      "after": "1.1.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/bytes",
+      "before": null,
+      "after": "3.1.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/ci-info",
+      "before": null,
+      "after": "4.4.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/cliui",
+      "before": null,
+      "after": "9.0.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/cliui/node_modules/ansi-regex",
+      "before": null,
+      "after": "6.4.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/cliui/node_modules/emoji-regex",
+      "before": null,
+      "after": "10.6.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/cliui/node_modules/string-width",
+      "before": null,
+      "after": "7.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/cliui/node_modules/strip-ansi",
+      "before": null,
+      "after": "7.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/cloudflare",
+      "before": null,
+      "after": "4.5.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/cloudflare/node_modules/@types/node",
+      "before": null,
+      "after": "18.19.130",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/cloudflare/node_modules/undici-types",
+      "before": null,
+      "after": "5.26.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/combined-stream",
+      "before": null,
+      "after": "1.0.8",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/commander",
+      "before": null,
+      "after": "11.1.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/comment-json",
+      "before": null,
+      "after": "4.6.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/content-disposition",
+      "before": null,
+      "after": "1.1.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/content-type",
+      "before": null,
+      "after": "1.0.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/cookie",
+      "before": null,
+      "after": "1.1.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/cookie-signature",
+      "before": null,
+      "after": "1.2.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/delayed-stream",
+      "before": null,
+      "after": "1.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/depd",
+      "before": null,
+      "after": "2.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/dotenv",
+      "before": null,
+      "after": "16.6.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/duplexer",
+      "before": null,
+      "after": "0.1.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/eciesjs",
+      "before": null,
+      "after": "0.4.18",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/ee-first",
+      "before": null,
+      "after": "1.1.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/encodeurl",
+      "before": null,
+      "after": "2.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/enquirer",
+      "before": null,
+      "after": "2.4.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/error-stack-parser-es",
+      "before": null,
+      "after": "1.0.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/escape-html",
+      "before": null,
+      "after": "1.0.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/eslint-config-next",
+      "before": "16.3.6",
+      "after": "16.3.8",
+      "reason": "Aligned Next.js security patch"
+    },
+    {
+      "path": "node_modules/esprima",
+      "before": null,
+      "after": "4.0.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/etag",
+      "before": null,
+      "after": "1.8.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/event-target-shim",
+      "before": null,
+      "after": "5.0.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/execa",
+      "before": null,
+      "after": "5.1.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/express",
+      "before": null,
+      "after": "5.2.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/express/node_modules/cookie",
+      "before": null,
+      "after": "0.7.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/fdir",
+      "before": null,
+      "after": "6.5.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/finalhandler",
+      "before": null,
+      "after": "2.1.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/foreground-child",
+      "before": null,
+      "after": "3.3.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/foreground-child/node_modules/signal-exit",
+      "before": null,
+      "after": "4.1.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/form-data",
+      "before": null,
+      "after": "4.0.6",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/form-data-encoder",
+      "before": null,
+      "after": "1.7.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/form-data/node_modules/mime-db",
+      "before": null,
+      "after": "1.52.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/form-data/node_modules/mime-types",
+      "before": null,
+      "after": "2.1.35",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/formdata-node",
+      "before": null,
+      "after": "4.4.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/forwarded",
+      "before": null,
+      "after": "0.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/fresh",
+      "before": null,
+      "after": "2.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/fs.realpath",
+      "before": null,
+      "after": "1.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/get-caller-file",
+      "before": null,
+      "after": "2.0.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/get-east-asian-width",
+      "before": null,
+      "after": "1.7.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/get-stream",
+      "before": null,
+      "after": "6.0.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/glob",
+      "before": null,
+      "after": "12.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/glob/node_modules/balanced-match",
+      "before": null,
+      "after": "4.0.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/glob/node_modules/brace-expansion",
+      "before": null,
+      "after": "5.0.12",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/glob/node_modules/minimatch",
+      "before": null,
+      "after": "10.2.6",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/gzip-size",
+      "before": null,
+      "after": "6.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/http-errors",
+      "before": null,
+      "after": "2.0.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/human-signals",
+      "before": null,
+      "after": "2.1.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/humanize-ms",
+      "before": null,
+      "after": "1.2.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/iconv-lite",
+      "before": null,
+      "after": "0.7.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/inherits",
+      "before": null,
+      "after": "2.0.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/ipaddr.js",
+      "before": null,
+      "after": "1.9.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/is-promise",
+      "before": null,
+      "after": "4.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/is-stream",
+      "before": null,
+      "after": "2.0.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/jackspeak",
+      "before": null,
+      "after": "4.2.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/kleur",
+      "before": null,
+      "after": "4.1.5",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/media-typer",
+      "before": null,
+      "after": "1.1.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/merge-descriptors",
+      "before": null,
+      "after": "2.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/merge-stream",
+      "before": null,
+      "after": "2.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/micromatch/node_modules/picomatch",
+      "before": null,
+      "after": "2.3.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/mime-db",
+      "before": null,
+      "after": "1.54.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/mime-types",
+      "before": null,
+      "after": "3.0.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/mimic-fn",
+      "before": null,
+      "after": "2.1.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/miniflare",
+      "before": null,
+      "after": "5.20261001.0-alpha",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/minipass",
+      "before": null,
+      "after": "7.1.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/mkdirp",
+      "before": null,
+      "after": "1.0.4",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/mnemonist",
+      "before": null,
+      "after": "0.38.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/negotiator",
+      "before": null,
+      "after": "1.1.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/negotiator/node_modules/content-type",
+      "before": null,
+      "after": "2.1.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/next",
+      "before": "16.3.6",
+      "after": "16.3.8",
+      "reason": "Aligned Next.js security patch"
+    },
+    {
+      "path": "node_modules/node-domexception",
+      "before": null,
+      "after": "1.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/node-fetch",
+      "before": null,
+      "after": "2.7.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/npm-run-path",
+      "before": null,
+      "after": "4.0.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/object-treeify",
+      "before": null,
+      "after": "1.1.33",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/obliterator",
+      "before": null,
+      "after": "1.6.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/on-finished",
+      "before": null,
+      "after": "2.4.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/once",
+      "before": null,
+      "after": "1.4.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/onetime",
+      "before": null,
+      "after": "5.1.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/package-json-from-dist",
+      "before": null,
+      "after": "1.0.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/parseurl",
+      "before": null,
+      "after": "1.3.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/path-scurry",
+      "before": null,
+      "after": "2.0.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/path-scurry/node_modules/lru-cache",
+      "before": null,
+      "after": "11.5.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/path-to-regexp",
+      "before": null,
+      "after": "6.3.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/pathe",
+      "before": null,
+      "after": "2.0.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/picomatch",
+      "before": "2.3.2",
+      "after": "4.0.7",
+      "reason": "npm dependency placement/deduplication for the added toolchain; no direct upgrade requested"
+    },
+    {
+      "path": "node_modules/proxy-addr",
+      "before": null,
+      "after": "2.0.8",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/qs",
+      "before": null,
+      "after": "6.16.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/range-parser",
+      "before": null,
+      "after": "1.3.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/raw-body",
+      "before": null,
+      "after": "3.0.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/router",
+      "before": null,
+      "after": "2.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/router/node_modules/path-to-regexp",
+      "before": null,
+      "after": "8.4.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/safer-buffer",
+      "before": null,
+      "after": "2.1.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/send",
+      "before": null,
+      "after": "1.2.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/serve-static",
+      "before": null,
+      "after": "2.2.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/setprototypeof",
+      "before": null,
+      "after": "1.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/signal-exit",
+      "before": null,
+      "after": "3.0.7",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/source-map",
+      "before": null,
+      "after": "0.6.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/source-map-support",
+      "before": null,
+      "after": "0.5.21",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/statuses",
+      "before": null,
+      "after": "2.0.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/string-width",
+      "before": null,
+      "after": "8.3.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/string-width/node_modules/ansi-regex",
+      "before": null,
+      "after": "6.4.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/string-width/node_modules/strip-ansi",
+      "before": null,
+      "after": "7.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/strip-ansi",
+      "before": null,
+      "after": "6.0.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/strip-final-newline",
+      "before": null,
+      "after": "2.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/terser",
+      "before": null,
+      "after": "5.16.9",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/terser/node_modules/commander",
+      "before": null,
+      "after": "2.20.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/tinyglobby/node_modules/fdir",
+      "before": "6.5.0",
+      "after": null,
+      "reason": "npm dependency placement/deduplication for the added toolchain; no direct upgrade requested"
+    },
+    {
+      "path": "node_modules/tinyglobby/node_modules/picomatch",
+      "before": "4.0.7",
+      "after": null,
+      "reason": "npm dependency placement/deduplication for the added toolchain; no direct upgrade requested"
+    },
+    {
+      "path": "node_modules/toidentifier",
+      "before": null,
+      "after": "1.0.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/tr46",
+      "before": null,
+      "after": "0.0.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/ts-tqdm",
+      "before": null,
+      "after": "0.8.6",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/type-is",
+      "before": null,
+      "after": "2.1.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/type-is/node_modules/content-type",
+      "before": null,
+      "after": "2.1.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/undici",
+      "before": null,
+      "after": "7.29.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/unenv",
+      "before": null,
+      "after": "2.0.0-rc.24",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/unpipe",
+      "before": null,
+      "after": "1.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/urlpattern-polyfill",
+      "before": null,
+      "after": "10.1.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/vary",
+      "before": null,
+      "after": "1.1.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/web-streams-polyfill",
+      "before": null,
+      "after": "4.0.0-beta.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/webidl-conversions",
+      "before": null,
+      "after": "3.0.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/whatwg-url",
+      "before": null,
+      "after": "5.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/workerd",
+      "before": null,
+      "after": "1.20261001.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler",
+      "before": null,
+      "after": "4.147.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/aix-ppc64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/android-arm",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/android-arm64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/android-x64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/darwin-arm64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/darwin-x64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/freebsd-arm64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/freebsd-x64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-arm",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-arm64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-ia32",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-loong64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-mips64el",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-ppc64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-riscv64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-s390x",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/linux-x64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/netbsd-arm64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/netbsd-x64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/openbsd-arm64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/openbsd-x64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/openharmony-arm64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/sunos-x64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/win32-arm64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/win32-ia32",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/@esbuild/win32-x64",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrangler/node_modules/esbuild",
+      "before": null,
+      "after": "0.28.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrap-ansi",
+      "before": null,
+      "after": "9.0.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrap-ansi/node_modules/ansi-regex",
+      "before": null,
+      "after": "6.4.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrap-ansi/node_modules/ansi-styles",
+      "before": null,
+      "after": "6.2.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrap-ansi/node_modules/emoji-regex",
+      "before": null,
+      "after": "10.6.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrap-ansi/node_modules/string-width",
+      "before": null,
+      "after": "7.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrap-ansi/node_modules/strip-ansi",
+      "before": null,
+      "after": "7.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/wrappy",
+      "before": null,
+      "after": "1.0.2",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/ws",
+      "before": null,
+      "after": "8.21.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/y18n",
+      "before": null,
+      "after": "5.0.8",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/yaml",
+      "before": null,
+      "after": "2.9.1",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/yargs",
+      "before": null,
+      "after": "18.2.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/yargs-parser",
+      "before": null,
+      "after": "22.0.0",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/youch",
+      "before": null,
+      "after": "4.1.0-beta.10",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    },
+    {
+      "path": "node_modules/youch-core",
+      "before": null,
+      "after": "0.3.3",
+      "reason": "Pinned Cloudflare adapter/Wrangler transitive toolchain dependency"
+    }
+  ]
+}
