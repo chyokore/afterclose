@@ -1,3 +1,7 @@
+# Restricted-preview override
+
+For the current milestone, use [the synthetic-only approval plan](deployment/restricted-preview-plan.md). The live-provider credential and connectivity instructions below are historical and MUST NOT be used for the restricted preview. No hosted action is approved.
+
 # Deployment readiness — not deployed
 
 Reviewed September 26, 2026. This is a proposed runbook for AfterClose only. Do not create a deployment, connect hosting auto-deploys, publish a preview or attach a public domain until the user approves the destination and exposure. No host was provisioned in this milestone.

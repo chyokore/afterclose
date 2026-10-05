@@ -1,4 +1,5 @@
 import "server-only";
+import { assertLiveAccess } from "../preview-mode";
 import { randomUUID } from "node:crypto";
 import { z } from "zod";
 import { signGet, signedGetPath } from "./auth";
@@ -16,6 +17,7 @@ export function credentialsConfigured() {
 }
 
 export async function rwaGet<T>(endpoint: Endpoint, params: Record<string, string>, schema: z.ZodType<T>, onResponse?: (audit: ResponseAudit) => void): Promise<T> {
+  assertLiveAccess();
   if (!credentialsConfigured()) throw new ApiError("setup");
   // Prevent accidental credential forwarding to alternate hosts or redirects.
   const base = process.env.BINANCE_WEB3_BASE_URL || "https://web3.binance.com/build";

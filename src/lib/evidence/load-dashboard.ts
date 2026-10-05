@@ -1,10 +1,12 @@
 import "server-only";
+import { assertLiveAccess } from "../preview-mode";
 import { loadRwa } from "../binance/rwa";
 import { toReferenceEvidence } from "../binance/reference-adapter";
 import { unavailableEquityProvider, unavailableTruth } from "../equity/provider";
 import { observeOndoMultiplier } from "../issuer/ondo";
 import { observeNasdaqSchedule } from "../session/nasdaq-calendar";
 export async function loadDashboard() {
+  assertLiveAccess();
   const [data, issuer] = await Promise.all([loadRwa(), observeOndoMultiplier()]);
   const live = data.state === "connected" ? data : null;
   const evaluatedAtMs = Date.now();

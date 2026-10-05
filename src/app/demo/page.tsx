@@ -1,9 +1,11 @@
 import Link from "next/link";
+import { previewMode } from "@/lib/preview-mode";
 import { ReferenceComparison } from "@/components/reference-comparison";
 import { DEMO_NOW, scenarioNames, syntheticFixture, type Scenario } from "@/demo/reference-fixtures";
 
 export const metadata = { title: "AfterClose | Synthetic engine scenarios" };
 export default async function DemoPage({ searchParams }: { searchParams: Promise<{ scenario?: string }> }) {
+  previewMode();
   const { scenario: requested } = await searchParams;
   const scenario: Scenario = requested && Object.hasOwn(scenarioNames, requested) ? requested as Scenario : "stale-reference";
   return <main id="main-content" className="demo-page">

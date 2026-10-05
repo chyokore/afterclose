@@ -103,3 +103,9 @@ Local demonstration is supported; **public deployment has not been approved or p
 - No fallback live prices. Network and schema failures are visible, actionable states.
 
 Research: [issuer/session evidence](docs/research/issuer-multiplier-and-session.md), [execution feasibility](docs/research/binance-execution-evidence.md), [independent providers](docs/research/underlying-equity-providers.md). This repository is independent of Noctive and uses none of its files, assets or infrastructure.
+
+## Restricted synthetic preview
+
+The [exact restricted-preview plan](docs/deployment/restricted-preview-plan.md) is awaiting approval. **NO HOSTED DEPLOYMENT HAS OCCURRED.** Use server-only `AFTERCLOSE_PREVIEW_MODE=synthetic` for a fictional dashboard and all 12 scenarios. Live adapters reject requests in this mode, even with credentials present. Refresh repeats frozen fixtures. Invalid values fail closed; missing mode on Vercel also fails closed. For the existing local live workflow, leave the flag unset.
+
+With Node 24, run `node scripts/rehearse-synthetic.mjs` for an isolated production build/server rehearsal with no env files or provider secrets and server fetch interception. It retains ignored artifacts under `.tools`, binds only loopback, and stops its server after checking routes, RSC refresh and assets. This does not validate hosted authentication. The Vercel config disables Git auto-deploys; no hosting connection is created by that file.

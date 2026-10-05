@@ -12,3 +12,5 @@ This diary separates user-reported milestones, direct observations, documentatio
 - [Improvement proposals](improvement-proposals.md): evidence-based suggestions
 
 AI assistance: OpenAI Codex read the project brief, inspected this repository, consulted official docs, generated the foundation, and ran the recorded checks. No other project files, credentials or infrastructure were used.
+
+Latest milestone (October 5, 2026): [Restricted synthetic preview](restricted-preview.md) adds server-controlled fixture isolation and a reviewable hosted approval plan. No hosted deployment has occurred.

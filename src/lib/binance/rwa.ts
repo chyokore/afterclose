@@ -1,4 +1,5 @@
 import "server-only";
+import { assertLiveAccess } from "../preview-mode";
 import { z } from "zod";
 import { ApiError, credentialsConfigured, rwaGet, type ResponseAudit } from "./client";
 import type { FailureCode } from "../evidence/status";
@@ -13,6 +14,7 @@ export const prices = (contract: string, observe?: AuditObserver) => rwaGet("pri
 export const underlyingMarket = (contract: string, observe?: AuditObserver) => rwaGet("underlying-market", { binanceChainId: "56", tokenContractAddress: address.parse(contract) }, marketSchema, observe);
 
 export async function loadRwa() {
+  assertLiveAccess();
   if (!credentialsConfigured()) return { state: "setup" as const };
   try {
     const [issuers, catalog] = await Promise.all([platforms(), tokens()]);

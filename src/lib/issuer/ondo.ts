@@ -1,7 +1,9 @@
 import "server-only";
+import { assertLiveAccess } from "../preview-mode";
 import { ONDO_ASSET_SOURCE, parseOndoPage, unavailableIssuer } from "./multiplier";
 
 export async function observeOndoMultiplier() {
+  assertLiveAccess();
   try {
     const response = await fetch(ONDO_ASSET_SOURCE, { cache: "no-store", redirect: "error", signal: AbortSignal.timeout(8000), headers: { Accept: "text/html" } });
     if (!response.ok) return unavailableIssuer(Date.now(), `Official issuer page returned HTTP ${response.status}; no multiplier substituted.`);
