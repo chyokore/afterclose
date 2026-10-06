@@ -2,6 +2,12 @@
 
 Official basis: [BNB Hack: Tokenized Stocks Edition](https://www.bnbchain.org/en/hackathons/tokenized-stocks), reviewed October 6, 2026. This is an evidence audit, not a predicted score or an eligibility certification.
 
+## Prompt 20 deployment update
+
+**IMPLEMENTED:** Secure deployment-readiness controls and local validation at application commit `a62b1ffb8742c651b9449317e80963c9e3c0a5f6`: explicit production mode, fail-closed configuration, fixed provider operations, shared refresh limits, safe health/build identity, and 152 passing tests. These are local results, not hosted proof.
+
+**REMAINING OPPORTUNITY:** Public LIVE hosting and fresh hosted verification remain incomplete. The owner-authorized Render preflight stopped before service creation because the current Hobby workspace has an existing payment method and explicitly bills usage beyond included limits. No compliant no-paid-overages path was established. See the [deployment record](../deployment/render-live-deployment-record.md). No live URL, hosted receipt, hosted connectivity, cold-start timing or hosted 90-second rehearsal is claimed. The existing public synthetic fallback remains unchanged.
+
 | Dimension | Implemented evidence | Weakness | Highest-value remaining improvement | Judge-verifiable proof |
 | --- | --- | --- | --- | --- |
 | Technical implementation — 30% | Authenticated RWA discovery, token/market reads and supported-chain module; audited failures; separate clocks; canonical engine; digest verification and persisted snapshot | Six endpoints are chiefly one data module, not six independent modules. Independent equity, dated multiplier, route/simulation unavailable; live hosting local only | Secure separately hosted live service, then owner-authorized genuine execution-context research if scope later permits | `/live` request inspector; [frozen genuine capture](captured-evidence.json); offline verifier; `tests/competition.test.ts` |
