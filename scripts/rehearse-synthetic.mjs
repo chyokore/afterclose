@@ -34,7 +34,7 @@ async function check(mode, invalid=false) {
   try {
     for (let i=0;i<120 && !logs.includes('Ready');i++) await new Promise(r=>setTimeout(r,500));
     assert.match(logs,/Ready/);
-    const paths = invalid ? ['/','/demo'] : ['/','/demo', ...['missing-independent','stale-token','closed-stale-reference','missing-multiplier','stale-reference','fresh-evidence','missing-timestamp','provider-disagreement','insufficient-liquidity','high-slippage','market-closed','api-unavailable'].map(s=>`/demo?scenario=${s}`), '/demo?scenario=invalid', '/unknown'];
+    const paths = invalid ? ['/','/demo','/live'] : ['/','/demo','/live', ...['missing-independent','stale-token','closed-stale-reference','missing-multiplier','stale-reference','fresh-evidence','missing-timestamp','provider-disagreement','insufficient-liquidity','high-slippage','market-closed','api-unavailable'].map(s=>`/demo?scenario=${s}`), '/demo?scenario=invalid', '/unknown'];
     for (const path of paths) {
       const response = await localFetch(`http://127.0.0.1:${port}${path}`);
       const html = await response.text();
@@ -63,7 +63,7 @@ async function check(mode, invalid=false) {
       }
       for (const path of ['/live','/demo/live','/api/live']) {
         const r = await localFetch(`http://127.0.0.1:${port}${path}`, { headers });
-        assert.equal(r.status,404);
+        assert.equal(r.status,path==='/live'?200:404);
         assert.match(await r.text(),/SYNTHETIC DEMO/);
       }
       const metadata = await (await localFetch(`http://127.0.0.1:${port}/`)).text();

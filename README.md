@@ -4,11 +4,11 @@
 
 Tokenized stocks can trade when their underlying equity reference is stale, missing or based on a different unit. AfterClose makes those gaps in evidence visible before anyone interprets a price difference.
 
-This is a read-only hackathon research preview. **No public deployment exists. No wallet execution exists.**
+This is a read-only hackathon research application. The [public synthetic fallback](https://afterclose-preview.pages.dev/) remains frozen. **Competition LIVE EVIDENCE runs locally at `/live`; no live hosted deployment or wallet execution exists.** See the [live evidence record](docs/competition/live-evidence.md), [judging scorecard](docs/competition/judging-scorecard.md) and [90-second path](docs/competition/90-second-demo-path.md).
 
 ## One-minute demonstration
 
-1. Open `/` on the locally running application. Inspect NVDAon, source timestamps and the current **WAIT** explanation.
+1. Open `/live` on the locally running application. Inspect rediscovered NVDAon, separate provider/observation timestamps, evidence classification and **WAIT** explanation. Expand provenance and copy its verifiable receipt.
 2. Open `/demo` using the prominent scenario-lab link. Compare stale-reference, fresh-evidence and missing-multiplier scenarios.
 3. Explain the distinction: a successful API response is not a fresh equity quote; a passing synthetic review case is not evidence of a profitable real trade.
 
@@ -34,11 +34,12 @@ The Binance-discovered identity was corroborated by the official Ondo asset page
 | Layer | Responsibility |
 | --- | --- |
 | Next.js App Router | Server-rendered live dashboard, refresh control, loading/error UI and a separate scenario route |
-| Binance Web3 client | Server-only authenticated GET requests to platforms, tokens, search, price and underlying-market; pinned official host, TLS verification, timeouts and Zod validation |
+| Binance Web3 client | Server-only authenticated GET requests to platforms, tokens, search, price, underlying-market and supported chains; pinned official host, TLS verification, timeouts and Zod validation |
 | Ondo page adapter | Read-only issuer metadata; exact decimal string, matching contract, no invented effective timestamp |
 | Nasdaq schedule | Manually reviewed public calendar, New York DST, holidays and bounded hours coverage; not live security status |
 | Reference Truth Engine | Pure validated assessment; no network or execution capability |
 | Synthetic lab | Twelve fictional scenarios with a frozen clock; no live API calls or production fallback |
+| Competition evidence | Deterministic freshness, canonical SHA-256 receipts, offline verifier and local snapshots always displayed as historical |
 
 Binance's five RWA endpoints have returned HTTP 200/code 0 in recorded live work. Its `referencePrice` is token-derived, not an independent NVIDIA equity quote. The issuer-reported ratio has no verified effective/expiry interval. The calendar expires after seven days without review and stops before the announced December 6, 2026 hours change. Reloading does not renew that source review.
 
@@ -73,6 +74,8 @@ Environment variable names only:
 | `NODE_USE_SYSTEM_CA` | Optional local Node trust configuration where an existing system CA is required |
 
 There is no Ondo API key or independent equity provider key configured by this application. Do not prefix secret names with `NEXT_PUBLIC_`. The development machine's existing system trust was necessary for verified TLS; do not copy local certificates to a host or disable certificate validation. See the recorded [TLS diagnostics](docs/devex/live-verification.md).
+
+For a production live build, use `npm run build:live-safe`, then `npm start`. The builder excludes environment files and provider credentials, denies outbound requests, and writes `.next` only after a successful isolated build. Runtime reads the existing server credentials. Persistent Turbopack filesystem caches are disabled: an exact binary scan found local credential values in ordinary-build cache files during this milestone, and those files were removed. Run both `scripts/scan-credentials.mjs` and `scripts/scan-known-credentials.mjs` against generated output before publishing any future deployment.
 
 ## Validate and run the production build
 

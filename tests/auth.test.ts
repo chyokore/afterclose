@@ -19,4 +19,7 @@ test("unsigned base prefix and arbitrary endpoints are rejected", () => {
   assert.throws(() => signedGetPath("https://example.com"));
   assert.throws(() => signedGetPath("/api/v1/dex/market/rwa/../swap"));
   assert.equal(signedGetPath("/api/v1/dex/market/rwa/platforms"), "/build/api/v1/dex/market/rwa/platforms");
+  assert.equal(signedGetPath("/api/v1/dex/aggregator/supported/chain"), "/build/api/v1/dex/aggregator/supported/chain");
+  assert.throws(() => signedGetPath("/api/v1/dex/aggregator/quote"));
+  assert.throws(() => signedGetPath("/api/v1/dex/pre-transaction/simulate"));
 });

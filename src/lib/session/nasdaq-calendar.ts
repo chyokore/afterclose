@@ -12,7 +12,7 @@ export const nasdaqSchedule = {
   earlyCloses: ["2026-11-27", "2026-12-24"],
 };
 const date = z.string().regex(/^\d{4}-\d{2}-\d{2}$/);
-const scheduleSchema = z.object({
+export const scheduleSchema = z.object({
   mode: z.enum(["live", "synthetic"]), market: z.literal("XNAS"), timezone: z.literal("America/New_York"),
   source: z.literal(CALENDAR_SOURCE), hoursSource: z.literal(HOURS_SOURCE),
   observedAtMs: z.number().int().nonnegative(), validFromDate: date, validUntilDate: date,

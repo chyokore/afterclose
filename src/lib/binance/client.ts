@@ -4,9 +4,9 @@ import { randomUUID } from "node:crypto";
 import { z } from "zod";
 import { signGet, signedGetPath } from "./auth";
 
-export const endpointNames = ["platforms", "tokens", "search", "price", "underlying-market"] as const;
+export const endpointNames = ["platforms", "tokens", "search", "price", "underlying-market", "chain-list"] as const;
 export type Endpoint = (typeof endpointNames)[number];
-export type ResponseAudit = { endpoint: Endpoint; status?: number; latencyMs: number; code?: string; responseTimestamp?: number; networkCode?: string };
+export type ResponseAudit = { endpoint: Endpoint; status?: number; latencyMs: number; code?: string; responseTimestamp?: number; networkCode?: string; observedAtMs?: number };
 export class ApiError extends Error {
   constructor(public readonly kind: "setup" | "configuration" | "network" | "http" | "schema" | "provider", public readonly status?: number, public readonly audit?: ResponseAudit, public readonly issues?: { path: string; code: string }[]) {
     super(`Binance Web3 request unavailable (${kind})`);
@@ -23,7 +23,7 @@ export async function rwaGet<T>(endpoint: Endpoint, params: Record<string, strin
   const base = process.env.BINANCE_WEB3_BASE_URL || "https://web3.binance.com/build";
   if (base !== "https://web3.binance.com/build") throw new ApiError("configuration");
   if (!endpointNames.includes(endpoint)) throw new ApiError("configuration");
-  const path = signedGetPath(`/api/v1/dex/market/rwa/${endpoint}`, params);
+  const path = signedGetPath(endpoint === "chain-list" ? "/api/v1/dex/aggregator/supported/chain" : `/api/v1/dex/market/rwa/${endpoint}`, params);
   const timestamp = new Date().toISOString();
   const started = performance.now();
   let response: Response;
@@ -43,7 +43,7 @@ export async function rwaGet<T>(endpoint: Endpoint, params: Record<string, strin
     const failure = error as { name?: string; cause?: { code?: string } };
     const allowed = ["ENOTFOUND", "ECONNREFUSED", "ECONNRESET", "ETIMEDOUT", "UND_ERR_CONNECT_TIMEOUT", "UNABLE_TO_VERIFY_LEAF_SIGNATURE", "SELF_SIGNED_CERT_IN_CHAIN", "CERT_HAS_EXPIRED"];
     const networkCode = failure.name === "TimeoutError" ? "TIMEOUT" : allowed.includes(failure.cause?.code ?? "") ? failure.cause!.code : "UNCLASSIFIED";
-    const audit = { endpoint, latencyMs: Math.round(performance.now() - started), networkCode };
+    const audit = { endpoint, latencyMs: Math.round(performance.now() - started), networkCode, observedAtMs: Date.now() };
     onResponse?.(audit);
     throw new ApiError("network", undefined, audit);
   }
@@ -52,14 +52,14 @@ export async function rwaGet<T>(endpoint: Endpoint, params: Record<string, strin
     // The request timeout can also abort a slow response body after headers arrive.
     const name = (error as { name?: string })?.name;
     if (name === "TimeoutError" || name === "AbortError") {
-      const audit = { endpoint, status: response.status, latencyMs: Math.round(performance.now() - started), networkCode: "TIMEOUT" };
+      const audit = { endpoint, status: response.status, latencyMs: Math.round(performance.now() - started), networkCode: "TIMEOUT", observedAtMs: Date.now() };
       onResponse?.(audit);
       throw new ApiError("network", response.status, audit);
     }
     // Other non-JSON responses are classified below without retaining raw errors.
   }
   const metadata = z.object({ code: z.union([z.string().regex(/^\d{1,10}$/), z.number().int()]).optional(), timestamp: z.number().optional() }).safeParse(payload);
-  const audit: ResponseAudit = { endpoint, status: response.status, latencyMs: Math.round(performance.now() - started), ...(metadata.success ? { code: metadata.data.code === undefined ? undefined : String(metadata.data.code), responseTimestamp: metadata.data.timestamp } : {}) };
+  const audit: ResponseAudit = { endpoint, status: response.status, latencyMs: Math.round(performance.now() - started), observedAtMs: Date.now(), ...(metadata.success ? { code: metadata.data.code === undefined ? undefined : String(metadata.data.code), responseTimestamp: metadata.data.timestamp } : {}) };
   onResponse?.(audit);
   if (!response.ok) {
     // Only known endpoint and HTTP status; no URLs, headers, bodies, or raw errors.

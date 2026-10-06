@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:live-safe": "node scripts/build-live-safe.mjs",
     "start": "next start",
     "lint": "eslint",
     "test": "node --conditions=react-server --import tsx --test tests/*.test.ts",

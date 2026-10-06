@@ -2,7 +2,7 @@ import { createHmac } from "node:crypto";
 
 // Pure helper: never reads credentials from the environment.
 export function signedGetPath(endpoint: string, params: Record<string, string> = {}) {
-  if (!/^\/api\/v1\/dex\/market\/rwa\/[a-z-]+$/.test(endpoint)) {
+  if (!/^\/api\/v1\/dex\/market\/rwa\/[a-z-]+$/.test(endpoint) && endpoint !== "/api/v1/dex/aggregator/supported/chain") {
     throw new Error("Invalid RWA endpoint");
   }
   const query = Object.entries(params)
