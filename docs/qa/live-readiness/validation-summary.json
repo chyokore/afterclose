@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-06",
+  "branch": "codex/live-deployment-readiness",
+  "baseCommit": "e05a16b1dde15d8f81299ff472ed5a45e62cb5ff",
+  "sourceDigest": "715e52738c45c7e8ef0cd09da65cf88e4a2022a6a78b62fe0e1873438ed101c9",
+  "tests": {
+    "canonicalIncludingCompetitionAndReadiness": 133,
+    "staticModel": 15,
+    "staticOutput": 4,
+    "total": 152,
+    "failures": 0,
+    "skipped": 0
+  },
+  "lint": "passed",
+  "typescript": "passed",
+  "isolatedBuild": "passed",
+  "buildProviderFetchAttempts": 0,
+  "buildEnvironmentFilesCopied": 0,
+  "cleanInstallPackages": 641,
+  "finalBrowserRun": {
+    "browserErrors": 0,
+    "status": "passed",
+    "finalCaptureOndoRequests": 1,
+    "totalMilestoneBinanceRequests": 28,
+    "totalMilestoneOndoRequests": 5,
+    "scenarioChecks": 12,
+    "modes": 8,
+    "externalBrowserRequests": 0,
+    "viewports": [
+      1440,
+      390,
+      320
+    ],
+    "capturedResponseFiles": 367,
+    "finalCaptureBinanceRequests": 6
+  },
+  "finalScans": {
+    "patterns": {
+      "textFilesScanned": 961,
+      "findings": 0,
+      "binaryFilesSkipped": 28
+    },
+    "clientBoundary": {
+      "authenticationHeaderFindings": 0,
+      "secretNameFindings": 0,
+      "filesScanned": 400
+    },
+    "exactCredential": {
+      "includesBinary": true,
+      "findings": 0,
+      "filesScanned": 988
+    }
+  },
+  "recommendation": "CONDITIONAL GO",
+  "deployed": false,
+  "payments": 0,
+  "walletConnections": 0,
+  "walletSignatures": 0,
+  "simulations": 0,
+  "transactions": 0
+}

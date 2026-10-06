@@ -14,8 +14,9 @@ test("mode allows local live only when unset; hosted missing and invalid modes f
   for (const value of ["", "live", "false", "Synthetic", "typo"]) {
     assert.throws(() => previewMode({ NODE_ENV: "test", AFTERCLOSE_PREVIEW_MODE: value }));
   }
-  assert.throws(() => previewMode({ NODE_ENV: "test", VERCEL: "1" }));
-  assert.throws(() => previewMode({ NODE_ENV: "test", VERCEL_ENV: "preview" }));
+  // Hosted configuration failures render the unavailable live shell, not fixtures.
+  assert.equal(previewMode({ NODE_ENV: "test", VERCEL: "1" }), "live");
+  assert.equal(previewMode({ NODE_ENV: "test", VERCEL_ENV: "preview" }), "live");
 });
 
 test("synthetic and invalid modes block all live entry points before fetch, with or without secrets", async t => {

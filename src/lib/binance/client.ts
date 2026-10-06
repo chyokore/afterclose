@@ -3,6 +3,10 @@ import { assertLiveAccess } from "../preview-mode";
 import { randomUUID } from "node:crypto";
 import { z } from "zod";
 import { signGet, signedGetPath } from "./auth";
+import { validCredential } from "../deployment";
+import { allowedEvidenceRequest } from "./request-policy";
+import { boundedJson } from "./bounded-json";
+import { containsCredentialValue } from "../secret-boundary";
 
 export const endpointNames = ["platforms", "tokens", "search", "price", "underlying-market", "chain-list"] as const;
 export type Endpoint = (typeof endpointNames)[number];
@@ -13,7 +17,7 @@ export class ApiError extends Error {
   }
 }
 export function credentialsConfigured() {
-  return Boolean(process.env.BINANCE_API_KEY?.trim() && process.env.BINANCE_SECRET_KEY?.trim());
+  return validCredential(process.env.BINANCE_API_KEY) && validCredential(process.env.BINANCE_SECRET_KEY);
 }
 
 export async function rwaGet<T>(endpoint: Endpoint, params: Record<string, string>, schema: z.ZodType<T>, onResponse?: (audit: ResponseAudit) => void): Promise<T> {
@@ -23,6 +27,7 @@ export async function rwaGet<T>(endpoint: Endpoint, params: Record<string, strin
   const base = process.env.BINANCE_WEB3_BASE_URL || "https://web3.binance.com/build";
   if (base !== "https://web3.binance.com/build") throw new ApiError("configuration");
   if (!endpointNames.includes(endpoint)) throw new ApiError("configuration");
+  if (!allowedEvidenceRequest(endpoint, params)) throw new ApiError("configuration");
   const path = signedGetPath(endpoint === "chain-list" ? "/api/v1/dex/aggregator/supported/chain" : `/api/v1/dex/market/rwa/${endpoint}`, params);
   const timestamp = new Date().toISOString();
   const started = performance.now();
@@ -48,7 +53,7 @@ export async function rwaGet<T>(endpoint: Endpoint, params: Record<string, strin
     throw new ApiError("network", undefined, audit);
   }
   let payload: unknown;
-  try { payload = await response.json(); } catch (error) {
+  try { payload = await boundedJson(response); } catch (error) {
     // The request timeout can also abort a slow response body after headers arrive.
     const name = (error as { name?: string })?.name;
     if (name === "TimeoutError" || name === "AbortError") {
@@ -71,5 +76,6 @@ export async function rwaGet<T>(endpoint: Endpoint, params: Record<string, strin
   if (envelope.data.code !== 0 || !envelope.data.success) throw new ApiError("provider", response.status, audit);
   const parsed = schema.safeParse(envelope.data.data);
   if (!parsed.success) throw new ApiError("schema", response.status, audit, parsed.error.issues.map(i => ({ path: i.path.map(String).join("."), code: i.code })));
+  if(containsCredentialValue(parsed.data))throw new ApiError("provider",response.status,audit);
   return parsed.data;
 }

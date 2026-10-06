@@ -4,6 +4,7 @@ import { join, resolve } from "node:path";
 import { randomUUID } from "node:crypto";
 import { assertLiveAccess } from "../preview-mode";
 import { eligibleSnapshot, verifyReceipt, type EvidenceReceipt } from "./receipt";
+import { containsCredentialValue } from "../secret-boundary";
 
 // Local-only file, outside public/ and ignored by Git. No public storage provisioned.
 export function snapshotStore(directory = resolve(".tools/competition-snapshots")) {
@@ -14,14 +15,14 @@ export function snapshotStore(directory = resolve(".tools/competition-snapshots"
     try {
       if ((await stat(path)).size > 256_000) return null;
       const parsed = verifyReceipt(JSON.parse(await readFile(path, "utf8")));
-      return parsed && eligibleSnapshot(parsed) ? parsed : null;
+      return parsed && eligibleSnapshot(parsed) && !containsCredentialValue(parsed) ? parsed : null;
     } catch { return null; }
   }
   function save(value: EvidenceReceipt): Promise<boolean> {
     assertLiveAccess();
     const operation = pending.then(async () => {
       const checked = verifyReceipt(value);
-      if (!checked || !eligibleSnapshot(checked)) return false;
+      if (!checked || !eligibleSnapshot(checked) || containsCredentialValue(checked)) return false;
       const previous = await read();
       if (previous && previous.receipt.evaluatedAtMs >= checked.receipt.evaluatedAtMs) return false;
       const json = JSON.stringify(checked);

@@ -30,7 +30,7 @@ test("client safeguards (synthetic responses, not live API evidence)", async t =
     assert.equal(init?.cache, "no-store");
     return Response.json({ code: 0, success: true, data: [] });
   };
-  assert.deepEqual(await rwaGet("search", { keyword: "two words" }, z.array(z.unknown())), []);
+  assert.deepEqual(await rwaGet("search", { keyword: "NVDA" }, z.array(z.unknown())), []);
   globalThis.fetch = async () => Response.json({ code: 40102, success: false, msg: "sensitive provider content" });
   await assert.rejects(rwaGet("platforms", {}, z.array(z.unknown())), (e: ApiError) => e.kind === "provider" && !e.message.includes("sensitive"));
   globalThis.fetch = async () => Response.json({ code: 0, success: true, data: "wrong shape" });

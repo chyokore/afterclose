@@ -1,0 +1,115 @@
+{
+  "results": [
+    {
+      "mode": "live",
+      "viewports": [
+        1440,
+        390,
+        320
+      ],
+      "scenarioChecks": 12,
+      "clipboard": "passed",
+      "digest": "7e6ebdac38e53e58ad76027d35df827f2eba63e44649b99f1b63ff9f783cbeb5",
+      "providerEvaluationsInspected": 1,
+      "observedAtMs": 1791298690955,
+      "classification": "LIVE",
+      "decision": "WAIT",
+      "endpoints": [
+        {
+          "code": "0",
+          "endpoint": "platforms",
+          "latencyMs": 1649,
+          "observedAtMs": 1791298688866,
+          "responseTimestamp": 1791298688839,
+          "status": 200
+        },
+        {
+          "code": "0",
+          "endpoint": "tokens",
+          "latencyMs": 2036,
+          "observedAtMs": 1791298689260,
+          "responseTimestamp": 1791298688508,
+          "status": 200
+        },
+        {
+          "code": "0",
+          "endpoint": "search",
+          "latencyMs": 1768,
+          "observedAtMs": 1791298688996,
+          "responseTimestamp": 1791298688977,
+          "status": 200
+        },
+        {
+          "code": "0",
+          "endpoint": "price",
+          "latencyMs": 444,
+          "observedAtMs": 1791298689724,
+          "responseTimestamp": 1791298689699,
+          "status": 200
+        },
+        {
+          "code": "0",
+          "endpoint": "underlying-market",
+          "latencyMs": 431,
+          "observedAtMs": 1791298689714,
+          "responseTimestamp": 1791298689706,
+          "status": 200
+        },
+        {
+          "code": "0",
+          "endpoint": "chain-list",
+          "latencyMs": 1625,
+          "observedAtMs": 1791298688859,
+          "responseTimestamp": 1791298688830,
+          "status": 200
+        }
+      ]
+    },
+    {
+      "mode": "unavailable",
+      "credentialConfiguration": "empty test override",
+      "snapshot": "separate HISTORICAL",
+      "outboundFetchAttempts": 0
+    },
+    {
+      "mode": "synthetic",
+      "liveRoute": "guarded",
+      "outboundFetchAttempts": 0
+    },
+    {
+      "mode": "missing-mode",
+      "live": "unavailable",
+      "scenario": "accessible",
+      "outboundFetchAttempts": 0
+    },
+    {
+      "mode": "invalid-mode",
+      "live": "unavailable",
+      "scenario": "accessible",
+      "outboundFetchAttempts": 0
+    },
+    {
+      "mode": "conflict",
+      "live": "unavailable",
+      "scenario": "accessible",
+      "outboundFetchAttempts": 0
+    },
+    {
+      "mode": "malformed",
+      "live": "unavailable",
+      "scenario": "accessible",
+      "outboundFetchAttempts": 0
+    },
+    {
+      "mode": "loading",
+      "delayedFailure": "safe",
+      "fabricatedPrices": 0,
+      "outboundFetchAttempts": 0
+    }
+  ],
+  "browserErrors": [],
+  "externalBrowserRequests": [],
+  "artifactsCaptured": 367,
+  "binanceRequests": 6,
+  "ondoRequests": 1
+}

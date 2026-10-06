@@ -1,4 +1,6 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
+import { productionRuntime, deploymentConfiguration } from "@/lib/deployment";
 import { previewMode } from "@/lib/preview-mode";
 import { SyntheticDashboard } from "@/components/synthetic-dashboard";
 import { defaultPolicy, evaluateReferenceTruth } from "@/lib/reference-truth/engine";
@@ -14,6 +16,7 @@ export const runtime = "nodejs";
 
 export default async function Home() {
   if (previewMode() === "synthetic") return <SyntheticDashboard />;
+  if(productionRuntime() || deploymentConfiguration().mode === "competition-live") redirect("/live");
   const { data, live, evaluatedAtMs, independent, evidence, issuer, calendar } = await loadDashboard();
   const decision = evaluateReferenceTruth(evidence, evaluatedAtMs);
   const failure = data.state === "connected" ? null : failureCopy[data.state === "error" ? data.failure : data.state];

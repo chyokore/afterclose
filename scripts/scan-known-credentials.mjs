@@ -8,8 +8,8 @@ const values=['BINANCE_API_KEY','BINANCE_SECRET_KEY'].map(k=>process.env[k]).fil
 if(values.length===0)throw new Error('No owner credential values available for exact-value scan.');
 const files=new Set(execFileSync('git',['ls-files','--cached','--others','--exclude-standard','-z'],{encoding:'utf8',windowsHide:true}).split('\0').filter(Boolean).map(f=>resolve(f)));
 function walk(p){const s=lstatSync(p);if(s.isSymbolicLink())return;if(s.isDirectory())for(const e of readdirSync(p))walk(join(p,e));else files.add(resolve(p));}
-for(const p of process.argv.slice(2))walk(p);
+for(const p of process.argv.slice(2).filter(p=>p!=='--counts-only'))walk(p);
 let scanned=0;const findings=[];
 for(const file of files){if(/(?:^|[\\/])\.env(?:\.|$)/.test(file))continue;const bytes=readFileSync(file);scanned++;if(values.some(v=>bytes.includes(v)))findings.push(relative(process.cwd(),file));}
-console.log(JSON.stringify({filesScanned:scanned,includesBinary:true,exactCredentialFindings:findings}));
+console.log(JSON.stringify({filesScanned:scanned,includesBinary:true,exactCredentialFindings:process.argv.includes('--counts-only')?findings.length:findings}));
 if(findings.length)process.exitCode=1;

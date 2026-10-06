@@ -3,23 +3,26 @@ import { assertLiveAccess } from "../preview-mode";
 import { observeCompetition } from "./observe";
 import { createEvidenceReceipt, eligibleSnapshot, snapshotView } from "./receipt";
 import { localSnapshots } from "./snapshot";
+import { deploymentConfiguration } from "../deployment";
+import { unavailableObservation } from "./unavailable";
+import { evidenceCache } from "./cache";
 
 async function capture() {
-  const observation = await observeCompetition();
+  const observation = await observeCompetition().catch(() => unavailableObservation("provider"));
   const current = createEvidenceReceipt(observation, Date.now());
   const saved = eligibleSnapshot(current) ? await localSnapshots.save(current) : false;
   const last = await localSnapshots.read();
   return { current, saved, last };
 }
-let inflight: Promise<Awaited<ReturnType<typeof capture>>> | null = null;
-let cached: Awaited<ReturnType<typeof capture>> | null = null;
-// Per-process request coalescing, no background polling. Original receipt clocks never change.
-export async function loadCompetition() {
-  assertLiveAccess();
-  const now = Date.now();
-  if (!cached || now < cached.current.receipt.evaluatedAtMs || now - cached.current.receipt.evaluatedAtMs >= 15_000) {
-    inflight ??= capture().finally(() => { inflight = null; });
-    cached = await inflight;
+const sharedCapture=evidenceCache(capture,v=>v.current.receipt.observation.state!=="connected");
+// Re-evaluate cached raw evidence without resetting any provider or observation clock.
+export async function loadCompetition(validRequest = true) {
+  if(!validRequest || !deploymentConfiguration().liveAllowed){
+    const current=createEvidenceReceipt(unavailableObservation(),Date.now());
+    return {current,saved:false,last:null,snapshot:null};
   }
-  return { ...cached, snapshot: cached.last ? snapshotView(cached.last, Date.now()) : null };
+  assertLiveAccess();
+  const cached=await sharedCapture(), now=Date.now();
+  const current=createEvidenceReceipt(cached.current.receipt.observation,now);
+  return { ...cached,current,snapshot:cached.last?snapshotView(cached.last,now):null };
 }

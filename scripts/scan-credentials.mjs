@@ -3,7 +3,7 @@ import { join, resolve } from 'node:path';
 import { execFileSync } from 'node:child_process';
 const files = new Set(execFileSync('git', ['ls-files','--cached','--others','--exclude-standard','-z'], { encoding:'utf8' }).split('\0').filter(Boolean).map(f=>resolve(f)));
 function walk(p){if(statSync(p).isDirectory()){for(const e of readdirSync(p))walk(join(p,e));}else files.add(resolve(p));}
-for(const arg of process.argv.slice(2))walk(arg);
+for(const arg of process.argv.slice(2).filter(p=>p!=='--counts-only'))walk(arg);
 const patterns = [
   /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/,
   /(?:ghp_|github_pat_)[A-Za-z0-9_]{30,}/,
@@ -12,5 +12,5 @@ const patterns = [
 ];
 const findings=[];let scanned=0,skippedBinary=0;
 for(const file of files){const bytes=readFileSync(file);if(bytes.includes(0)){skippedBinary++;continue;}scanned++;if(patterns.some(p=>p.test(bytes.toString('utf8'))))findings.push(file);}
-console.log(JSON.stringify({filesScanned:scanned,skippedBinary,credentialPatternFindings:findings}));
+console.log(JSON.stringify({filesScanned:scanned,skippedBinary,credentialPatternFindings:process.argv.includes('--counts-only')?findings.length:findings}));
 if(findings.length)process.exitCode=1;

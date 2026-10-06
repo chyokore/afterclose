@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function LiveLoading(){return <main id="main-content" className="state-page" aria-busy="true"><h1>Starting live evidence service…</h1><p role="status">Fetching and checking provider evidence. No price or decision is implied while this loads.</p><p>A sleeping host may show its own startup page before AfterClose can respond. Provider requests have bounded timeouts; failed evidence offers Retry.</p><Link className="truth-link" href="/demo" prefetch={false}>Open the separate Scenario Lab →</Link></main>;}
