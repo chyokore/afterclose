@@ -1,0 +1,1144 @@
+{
+  "mode": "OFFLINE SYNTHETIC SIZING ONLY",
+  "node": "v24.21.0",
+  "providerCalls": 0,
+  "batches": 30,
+  "requestsPerBatch": 10,
+  "firstRequest": {
+    "wallMs": 293.3634000000002,
+    "cpuMs": 296,
+    "normalizationSchemaMs": 0.41000000000030923,
+    "binanceHeadersMs": 30.3408000000004,
+    "binanceBodyReadMs": 45.72889999999916,
+    "jsonParsingMs": 0.3040000000009968,
+    "engineMs": 5.2871000000000095,
+    "canonicalJsonMs": 2.482600000000275,
+    "sha256Ms": 0.45029999999997017,
+    "receiptMs": 110.02230000000009,
+    "responseSerializationMs": 0.14289999999982683,
+    "responseBytes": 12549
+  },
+  "small-fixture": {
+    "catalogEntries": 4,
+    "providerPayloadBytes": 3267,
+    "distributions": {
+      "wallMs": {
+        "median": 17.199309999999876,
+        "p90": 22.47979000000032,
+        "max": 33.83109000000009
+      },
+      "cpuMs": {
+        "median": 10.9,
+        "p90": 17.3,
+        "max": 18.9
+      },
+      "normalizationSchemaMs": {
+        "median": 0.1476699999999255,
+        "p90": 0.28309000000008383,
+        "max": 4.660390000000007
+      },
+      "binanceHeadersMs": {
+        "median": 5.240190000000075,
+        "p90": 8.463869999999952,
+        "max": 11.732110000000148
+      },
+      "binanceBodyReadMs": {
+        "median": 0.7718500000002677,
+        "p90": 2.4591999999996004,
+        "max": 6.712449999999762
+      },
+      "jsonParsingMs": {
+        "median": 0.16924000000008163,
+        "p90": 0.8527400000002672,
+        "max": 1.3846999999999299
+      },
+      "engineMs": {
+        "median": 0.10500000000001819,
+        "p90": 0.24032000000015613,
+        "max": 1.0903000000002065
+      },
+      "canonicalJsonMs": {
+        "median": 1.5855100000000675,
+        "p90": 4.030410000000302,
+        "max": 10.628349999999864
+      },
+      "sha256Ms": {
+        "median": 0.30044999999954597,
+        "p90": 0.6099299999999858,
+        "max": 2.877760000000035
+      },
+      "receiptMs": {
+        "median": 4.881340000000091,
+        "p90": 8.016330000000016,
+        "max": 13.285959999999886
+      },
+      "responseSerializationMs": {
+        "median": 0.12361999999975523,
+        "p90": 0.42627000000029514,
+        "max": 2.338879999999699
+      },
+      "responseBytes": {
+        "median": 12534.2,
+        "p90": 12536.4,
+        "max": 12537
+      }
+    },
+    "individualDistributions": {
+      "wallMs": {
+        "median": 15.137199999999211,
+        "p90": 30.10989999999947,
+        "max": 79.40380000000005
+      },
+      "cpuMs": {
+        "median": 15,
+        "p90": 31,
+        "max": 48
+      },
+      "normalizationSchemaMs": {
+        "median": 0.12489999999979773,
+        "p90": 0.21019999999953143,
+        "max": 45.600900000000365
+      },
+      "binanceHeadersMs": {
+        "median": 3.738500000001295,
+        "p90": 10.115300000001298,
+        "max": 53.94540000000052
+      },
+      "binanceBodyReadMs": {
+        "median": 0.6041999999997643,
+        "p90": 1.162699999999404,
+        "max": 53.53519999999935
+      },
+      "jsonParsingMs": {
+        "median": 0.1525999999994383,
+        "p90": 0.21809999999913998,
+        "max": 12.304200000000037
+      },
+      "engineMs": {
+        "median": 0.09199999999964348,
+        "p90": 0.14879999999993743,
+        "max": 10.175700000000688
+      },
+      "canonicalJsonMs": {
+        "median": 1.2963999999992666,
+        "p90": 3.1249000000007072,
+        "max": 61.213700000000244
+      },
+      "sha256Ms": {
+        "median": 0.2525999999998021,
+        "p90": 0.3816999999999098,
+        "max": 25.993600000000242
+      },
+      "receiptMs": {
+        "median": 3.6658000000006723,
+        "p90": 9.236100000000079,
+        "max": 63.516999999999825
+      },
+      "responseSerializationMs": {
+        "median": 0.11079999999947177,
+        "p90": 0.15350000000034925,
+        "max": 22.37249999999949
+      },
+      "responseBytes": {
+        "median": 12533,
+        "p90": 12540,
+        "max": 12546
+      }
+    },
+    "samples": [
+      {
+        "wallMs": 33.83109000000009,
+        "cpuMs": 17.3,
+        "normalizationSchemaMs": 0.2674199999999928,
+        "binanceHeadersMs": 11.732110000000148,
+        "binanceBodyReadMs": 6.712449999999762,
+        "jsonParsingMs": 1.3846999999999299,
+        "engineMs": 0.7359200000000783,
+        "canonicalJsonMs": 1.881989999999996,
+        "sha256Ms": 2.877760000000035,
+        "receiptMs": 12.500870000000168,
+        "responseSerializationMs": 0.13712999999997919,
+        "responseBytes": 12537
+      },
+      {
+        "wallMs": 20.952720000000046,
+        "cpuMs": 18.9,
+        "normalizationSchemaMs": 0.28309000000008383,
+        "binanceHeadersMs": 7.692850000000272,
+        "binanceBodyReadMs": 2.9230799999996635,
+        "jsonParsingMs": 0.8527400000002672,
+        "engineMs": 0.24032000000015613,
+        "canonicalJsonMs": 4.030410000000302,
+        "sha256Ms": 0.6099299999999858,
+        "receiptMs": 7.889159999999992,
+        "responseSerializationMs": 0.12778999999991356,
+        "responseBytes": 12535.1
+      },
+      {
+        "wallMs": 17.199309999999876,
+        "cpuMs": 15.5,
+        "normalizationSchemaMs": 0.16143000000020039,
+        "binanceHeadersMs": 5.240190000000075,
+        "binanceBodyReadMs": 0.8628599999996368,
+        "jsonParsingMs": 0.16132999999963432,
+        "engineMs": 0.1135300000002644,
+        "canonicalJsonMs": 1.3173100000000886,
+        "sha256Ms": 0.25565999999989797,
+        "receiptMs": 3.6414200000001076,
+        "responseSerializationMs": 0.11665000000011787,
+        "responseBytes": 12534
+      },
+      {
+        "wallMs": 15.517189999999664,
+        "cpuMs": 9.3,
+        "normalizationSchemaMs": 0.16574000000000524,
+        "binanceHeadersMs": 6.469210000000021,
+        "binanceBodyReadMs": 0.9243200000005345,
+        "jsonParsingMs": 0.14871000000030107,
+        "engineMs": 0.10500000000001819,
+        "canonicalJsonMs": 1.5855100000000675,
+        "sha256Ms": 0.3502999999998792,
+        "receiptMs": 4.912389999999959,
+        "responseSerializationMs": 0.10407999999997627,
+        "responseBytes": 12533
+      },
+      {
+        "wallMs": 16.8383600000001,
+        "cpuMs": 11.1,
+        "normalizationSchemaMs": 0.19531000000006316,
+        "binanceHeadersMs": 6.247080000000187,
+        "binanceBodyReadMs": 1.118790000000081,
+        "jsonParsingMs": 0.17472999999936292,
+        "engineMs": 0.13423000000011598,
+        "canonicalJsonMs": 1.5825200000002042,
+        "sha256Ms": 0.9660699999999451,
+        "receiptMs": 4.881340000000091,
+        "responseSerializationMs": 0.19835000000002764,
+        "responseBytes": 12534.4
+      },
+      {
+        "wallMs": 18.270629999999983,
+        "cpuMs": 18.7,
+        "normalizationSchemaMs": 0.1699399999999514,
+        "binanceHeadersMs": 6.6200799999999616,
+        "binanceBodyReadMs": 0.852860000000328,
+        "jsonParsingMs": 0.16924000000008163,
+        "engineMs": 0.1313000000000102,
+        "canonicalJsonMs": 1.616569999999865,
+        "sha256Ms": 0.30768000000025497,
+        "receiptMs": 4.718099999999685,
+        "responseSerializationMs": 0.2664299999996729,
+        "responseBytes": 12535.1
+      },
+      {
+        "wallMs": 16.403470000000016,
+        "cpuMs": 14.1,
+        "normalizationSchemaMs": 0.17813999999998487,
+        "binanceHeadersMs": 5.201939999999558,
+        "binanceBodyReadMs": 0.7718500000002677,
+        "jsonParsingMs": 0.16280999999989945,
+        "engineMs": 0.11337999999987006,
+        "canonicalJsonMs": 1.309190000000217,
+        "sha256Ms": 0.24725999999991471,
+        "receiptMs": 4.563320000000203,
+        "responseSerializationMs": 0.11283999999996012,
+        "responseBytes": 12533.6
+      },
+      {
+        "wallMs": 19.279499999999917,
+        "cpuMs": 12.5,
+        "normalizationSchemaMs": 0.17130999999972119,
+        "binanceHeadersMs": 6.878209999999944,
+        "binanceBodyReadMs": 0.6068399999996472,
+        "jsonParsingMs": 0.15798000000040702,
+        "engineMs": 0.10932999999986351,
+        "canonicalJsonMs": 1.6702800000001843,
+        "sha256Ms": 0.2754800000001524,
+        "receiptMs": 4.596970000000056,
+        "responseSerializationMs": 0.1154099999999744,
+        "responseBytes": 12536.1
+      },
+      {
+        "wallMs": 14.767010000000028,
+        "cpuMs": 17.1,
+        "normalizationSchemaMs": 0.1288199999997232,
+        "binanceHeadersMs": 4.138030000000072,
+        "binanceBodyReadMs": 1.9715799999999946,
+        "jsonParsingMs": 0.1501900000002024,
+        "engineMs": 0.11159000000006927,
+        "canonicalJsonMs": 1.334009999999853,
+        "sha256Ms": 0.3363899999999376,
+        "receiptMs": 5.1228499999998345,
+        "responseSerializationMs": 0.10658999999968728,
+        "responseBytes": 12534
+      },
+      {
+        "wallMs": 15.422189999999954,
+        "cpuMs": 17.2,
+        "normalizationSchemaMs": 0.21066999999984545,
+        "binanceHeadersMs": 4.416670000000158,
+        "binanceBodyReadMs": 2.4591999999996004,
+        "jsonParsingMs": 0.17155000000002474,
+        "engineMs": 0.0992500000000291,
+        "canonicalJsonMs": 1.3532399999999143,
+        "sha256Ms": 0.3289699999998447,
+        "receiptMs": 3.8474700000002486,
+        "responseSerializationMs": 0.10832999999993262,
+        "responseBytes": 12533.2
+      },
+      {
+        "wallMs": 17.770129999999973,
+        "cpuMs": 9.5,
+        "normalizationSchemaMs": 0.24057999999995444,
+        "binanceHeadersMs": 4.831080000000111,
+        "binanceBodyReadMs": 0.6918899999996029,
+        "jsonParsingMs": 0.17974999999996727,
+        "engineMs": 0.39628999999986264,
+        "canonicalJsonMs": 2.978220000000147,
+        "sha256Ms": 0.529200000000128,
+        "receiptMs": 6.25594000000001,
+        "responseSerializationMs": 0.1246900000000096,
+        "responseBytes": 12534.6
+      },
+      {
+        "wallMs": 17.408250000000045,
+        "cpuMs": 15.6,
+        "normalizationSchemaMs": 0.1617099999999482,
+        "binanceHeadersMs": 5.434710000000086,
+        "binanceBodyReadMs": 0.6390600000002451,
+        "jsonParsingMs": 0.1570900000002439,
+        "engineMs": 0.14809999999988577,
+        "canonicalJsonMs": 2.4833199999998214,
+        "sha256Ms": 0.3023300000000745,
+        "receiptMs": 4.960509999999886,
+        "responseSerializationMs": 0.12301000000006752,
+        "responseBytes": 12534.6
+      },
+      {
+        "wallMs": 13.99334000000008,
+        "cpuMs": 15.6,
+        "normalizationSchemaMs": 0.135570000000007,
+        "binanceHeadersMs": 3.8319299999999203,
+        "binanceBodyReadMs": 0.6026299999995899,
+        "jsonParsingMs": 0.1542300000000978,
+        "engineMs": 0.13242999999974928,
+        "canonicalJsonMs": 2.1264900000001035,
+        "sha256Ms": 0.31519999999982246,
+        "receiptMs": 4.452670000000035,
+        "responseSerializationMs": 0.10937999999987369,
+        "responseBytes": 12533.9
+      },
+      {
+        "wallMs": 13.982739999999922,
+        "cpuMs": 9.4,
+        "normalizationSchemaMs": 0.12056999999995241,
+        "binanceHeadersMs": 4.482390000000305,
+        "binanceBodyReadMs": 0.5635299999999915,
+        "jsonParsingMs": 0.1465199999998731,
+        "engineMs": 0.08933999999990191,
+        "canonicalJsonMs": 1.3400300000000243,
+        "sha256Ms": 0.23622999999997774,
+        "receiptMs": 5.592939999999908,
+        "responseSerializationMs": 0.15664000000006126,
+        "responseBytes": 12533
+      },
+      {
+        "wallMs": 14.630290000000059,
+        "cpuMs": 11,
+        "normalizationSchemaMs": 0.10970000000015716,
+        "binanceHeadersMs": 5.068299999999999,
+        "binanceBodyReadMs": 0.7445700000002944,
+        "jsonParsingMs": 0.17228000000022803,
+        "engineMs": 0.07947000000003754,
+        "canonicalJsonMs": 2.1220900000001164,
+        "sha256Ms": 0.2675999999999476,
+        "receiptMs": 4.8276599999999235,
+        "responseSerializationMs": 0.12654000000011364,
+        "responseBytes": 12533.9
+      },
+      {
+        "wallMs": 14.958380000000124,
+        "cpuMs": 6.1,
+        "normalizationSchemaMs": 4.660390000000007,
+        "binanceHeadersMs": 4.7855000000003205,
+        "binanceBodyReadMs": 0.5655699999996614,
+        "jsonParsingMs": 0.1481100000002698,
+        "engineMs": 1.0903000000002065,
+        "canonicalJsonMs": 1.4117199999999683,
+        "sha256Ms": 0.4740300000002208,
+        "receiptMs": 5.205450000000019,
+        "responseSerializationMs": 0.13302000000003317,
+        "responseBytes": 12533.5
+      },
+      {
+        "wallMs": 27.564310000000024,
+        "cpuMs": 9.5,
+        "normalizationSchemaMs": 0.1154700000000048,
+        "binanceHeadersMs": 3.9498900000004142,
+        "binanceBodyReadMs": 1.9265000000005785,
+        "jsonParsingMs": 0.4721999999998843,
+        "engineMs": 0.08974999999991269,
+        "canonicalJsonMs": 10.628349999999864,
+        "sha256Ms": 0.37986999999993715,
+        "receiptMs": 13.285959999999886,
+        "responseSerializationMs": 0.10830999999998311,
+        "responseBytes": 12534.2
+      },
+      {
+        "wallMs": 18.63068000000003,
+        "cpuMs": 3.1,
+        "normalizationSchemaMs": 0.1558599999998478,
+        "binanceHeadersMs": 9.738950000000022,
+        "binanceBodyReadMs": 0.9509000000003652,
+        "jsonParsingMs": 0.1519299999998111,
+        "engineMs": 0.09461000000001149,
+        "canonicalJsonMs": 1.6359099999999671,
+        "sha256Ms": 0.26595999999981357,
+        "receiptMs": 4.670920000000114,
+        "responseSerializationMs": 0.13869000000004233,
+        "responseBytes": 12536.4
+      },
+      {
+        "wallMs": 14.770960000000377,
+        "cpuMs": 10.9,
+        "normalizationSchemaMs": 0.1031699999997727,
+        "binanceHeadersMs": 4.25204999999969,
+        "binanceBodyReadMs": 0.7638800000002448,
+        "jsonParsingMs": 0.2308099999996557,
+        "engineMs": 0.08554999999978463,
+        "canonicalJsonMs": 1.2406000000000859,
+        "sha256Ms": 0.24743000000016763,
+        "receiptMs": 5.769020000000092,
+        "responseSerializationMs": 0.11101000000053318,
+        "responseBytes": 12533
+      },
+      {
+        "wallMs": 12.635109999999987,
+        "cpuMs": 7.8,
+        "normalizationSchemaMs": 0.11223999999983789,
+        "binanceHeadersMs": 3.1334500000002663,
+        "binanceBodyReadMs": 0.8335799999989831,
+        "jsonParsingMs": 0.17033000000010362,
+        "engineMs": 0.15112000000008266,
+        "canonicalJsonMs": 1.4354200000005222,
+        "sha256Ms": 0.23201000000026398,
+        "receiptMs": 3.7766899999996895,
+        "responseSerializationMs": 0.67612999999983,
+        "responseBytes": 12533.4
+      },
+      {
+        "wallMs": 18.919739999999912,
+        "cpuMs": 9.4,
+        "normalizationSchemaMs": 0.12523000000001047,
+        "binanceHeadersMs": 3.2223299999997836,
+        "binanceBodyReadMs": 0.5181199999997261,
+        "jsonParsingMs": 0.14450999999899067,
+        "engineMs": 0.07411000000065542,
+        "canonicalJsonMs": 6.305040000000008,
+        "sha256Ms": 0.22705999999980123,
+        "receiptMs": 8.440840000000389,
+        "responseSerializationMs": 0.12361999999975523,
+        "responseBytes": 12533.7
+      },
+      {
+        "wallMs": 13.903179999999884,
+        "cpuMs": 14.1,
+        "normalizationSchemaMs": 0.12596000000030472,
+        "binanceHeadersMs": 4.298539999999411,
+        "binanceBodyReadMs": 2.231430000000546,
+        "jsonParsingMs": 1.0016599999997198,
+        "engineMs": 0.12399999999997817,
+        "canonicalJsonMs": 1.2996399999998176,
+        "sha256Ms": 0.25116999999972905,
+        "receiptMs": 4.032660000000033,
+        "responseSerializationMs": 0.12989999999972496,
+        "responseBytes": 12534.8
+      },
+      {
+        "wallMs": 22.47979000000032,
+        "cpuMs": 10.9,
+        "normalizationSchemaMs": 0.1476699999999255,
+        "binanceHeadersMs": 10.148829999999725,
+        "binanceBodyReadMs": 0.7882699999992837,
+        "jsonParsingMs": 0.180199999999968,
+        "engineMs": 0.08739999999979772,
+        "canonicalJsonMs": 1.9622999999995954,
+        "sha256Ms": 0.30044999999954597,
+        "receiptMs": 4.594189999999981,
+        "responseSerializationMs": 0.7978500000001076,
+        "responseBytes": 12535.7
+      },
+      {
+        "wallMs": 29.743950000000222,
+        "cpuMs": 18.8,
+        "normalizationSchemaMs": 0.5391900000002352,
+        "binanceHeadersMs": 8.463869999999952,
+        "binanceBodyReadMs": 1.4702100000005884,
+        "jsonParsingMs": 0.47334000000028026,
+        "engineMs": 0.08833000000013272,
+        "canonicalJsonMs": 1.416489999999976,
+        "sha256Ms": 0.26407000000017433,
+        "receiptMs": 3.9314800000000103,
+        "responseSerializationMs": 0.13571999999985565,
+        "responseBytes": 12537
+      },
+      {
+        "wallMs": 20.847050000000127,
+        "cpuMs": 6.3,
+        "normalizationSchemaMs": 0.12040999999971973,
+        "binanceHeadersMs": 5.8204499999998,
+        "binanceBodyReadMs": 0.5581199999996898,
+        "jsonParsingMs": 0.4421800000001895,
+        "engineMs": 0.06877000000004045,
+        "canonicalJsonMs": 1.5791700000001583,
+        "sha256Ms": 0.2430800000005547,
+        "receiptMs": 3.7060600000000705,
+        "responseSerializationMs": 2.338879999999699,
+        "responseBytes": 12536.6
+      },
+      {
+        "wallMs": 13.60012999999999,
+        "cpuMs": 7.9,
+        "normalizationSchemaMs": 0.1201999999997497,
+        "binanceHeadersMs": 3.739690000000337,
+        "binanceBodyReadMs": 0.5070599999999104,
+        "jsonParsingMs": 0.14738999999935914,
+        "engineMs": 0.07734000000036759,
+        "canonicalJsonMs": 1.9089899999999034,
+        "sha256Ms": 0.2536900000000969,
+        "receiptMs": 5.935210000000007,
+        "responseSerializationMs": 0.10799999999999273,
+        "responseBytes": 12533.4
+      },
+      {
+        "wallMs": 19.03531000000021,
+        "cpuMs": 15.6,
+        "normalizationSchemaMs": 0.1274199999998018,
+        "binanceHeadersMs": 5.266769999999087,
+        "binanceBodyReadMs": 3.7269000000011148,
+        "jsonParsingMs": 1.2194400000000314,
+        "engineMs": 0.0955100000001039,
+        "canonicalJsonMs": 1.4036199999998644,
+        "sha256Ms": 0.27335000000020954,
+        "receiptMs": 3.567070000000058,
+        "responseSerializationMs": 0.11792000000023109,
+        "responseBytes": 12535.8
+      },
+      {
+        "wallMs": 19.72415000000019,
+        "cpuMs": 9.4,
+        "normalizationSchemaMs": 0.14146000000000641,
+        "binanceHeadersMs": 5.374519999999938,
+        "binanceBodyReadMs": 0.5571099999999205,
+        "jsonParsingMs": 0.16040999999968336,
+        "engineMs": 0.06656000000002678,
+        "canonicalJsonMs": 5.338139999999839,
+        "sha256Ms": 0.3111899999998059,
+        "receiptMs": 7.414380000000165,
+        "responseSerializationMs": 0.42627000000029514,
+        "responseBytes": 12535.4
+      },
+      {
+        "wallMs": 13.84419999999991,
+        "cpuMs": 10.9,
+        "normalizationSchemaMs": 0.11775999999990745,
+        "binanceHeadersMs": 6.326250000000255,
+        "binanceBodyReadMs": 0.6516200000000026,
+        "jsonParsingMs": 0.20524999999979626,
+        "engineMs": 0.09218000000018947,
+        "canonicalJsonMs": 3.001160000000527,
+        "sha256Ms": 0.37718000000022583,
+        "receiptMs": 5.48061000000016,
+        "responseSerializationMs": 0.10586000000039349,
+        "responseBytes": 12533.5
+      },
+      {
+        "wallMs": 21.115100000000346,
+        "cpuMs": 4.7,
+        "normalizationSchemaMs": 4.537500000000182,
+        "binanceHeadersMs": 8.120570000000043,
+        "binanceBodyReadMs": 0.6307000000011612,
+        "jsonParsingMs": 0.1595499999999447,
+        "engineMs": 0.13342000000011467,
+        "canonicalJsonMs": 1.3197000000000116,
+        "sha256Ms": 0.7838500000003478,
+        "receiptMs": 8.016330000000016,
+        "responseSerializationMs": 0.11298999999999068,
+        "responseBytes": 12535.6
+      }
+    ]
+  },
+  "expanded-catalog": {
+    "catalogEntries": 500,
+    "providerPayloadBytes": 396391,
+    "distributions": {
+      "wallMs": {
+        "median": 47.74209000000046,
+        "p90": 69.11073999999971,
+        "max": 88.23228999999955
+      },
+      "cpuMs": {
+        "median": 31.2,
+        "p90": 36.1,
+        "max": 40.7
+      },
+      "normalizationSchemaMs": {
+        "median": 0.11893999999920198,
+        "p90": 0.37761000000009515,
+        "max": 4.894840000000113
+      },
+      "binanceHeadersMs": {
+        "median": 29.58768000000091,
+        "p90": 49.72304000000095,
+        "max": 85.03206999999857
+      },
+      "binanceBodyReadMs": {
+        "median": 23.942100000003485,
+        "p90": 29.848759999998585,
+        "max": 54.69034999999967
+      },
+      "jsonParsingMs": {
+        "median": 6.763699999999881,
+        "p90": 10.479860000001645,
+        "max": 13.9625399999999
+      },
+      "engineMs": {
+        "median": 0.08284999999996216,
+        "p90": 0.12400000000034198,
+        "max": 0.24006999999910478
+      },
+      "canonicalJsonMs": {
+        "median": 1.6660299999995913,
+        "p90": 2.9270000000000436,
+        "max": 5.603580000000511
+      },
+      "sha256Ms": {
+        "median": 0.3040800000013405,
+        "p90": 0.49398000000073805,
+        "max": 5.54724999999944
+      },
+      "receiptMs": {
+        "median": 4.998980000000666,
+        "p90": 9.550100000000748,
+        "max": 15.928379999999743
+      },
+      "responseSerializationMs": {
+        "median": 0.12000999999982014,
+        "p90": 0.1708100000003469,
+        "max": 2.523720000001049
+      },
+      "responseBytes": {
+        "median": 12543.7,
+        "p90": 12544.6,
+        "max": 12545.8
+      }
+    },
+    "individualDistributions": {
+      "wallMs": {
+        "median": 47.85199999999895,
+        "p90": 76.2538999999997,
+        "max": 181.8176999999996
+      },
+      "cpuMs": {
+        "median": 31,
+        "p90": 47,
+        "max": 94
+      },
+      "normalizationSchemaMs": {
+        "median": 0.10080000000016298,
+        "p90": 0.15970000000015716,
+        "max": 47.59089999999924
+      },
+      "binanceHeadersMs": {
+        "median": 27.989000000001397,
+        "p90": 54.92570000000342,
+        "max": 200.88550000000396
+      },
+      "binanceBodyReadMs": {
+        "median": 18.92529999999897,
+        "p90": 42.49469999999201,
+        "max": 191.40979999999763
+      },
+      "jsonParsingMs": {
+        "median": 5.33549999999741,
+        "p90": 11.729099999993196,
+        "max": 68.74799999999777
+      },
+      "engineMs": {
+        "median": 0.07189999999900465,
+        "p90": 0.10800000000017462,
+        "max": 1.6085000000020955
+      },
+      "canonicalJsonMs": {
+        "median": 1.3245999999999185,
+        "p90": 3.2939000000005763,
+        "max": 22.946499999998196
+      },
+      "sha256Ms": {
+        "median": 0.25860000000102445,
+        "p90": 0.4573999999993248,
+        "max": 49.55109999999877
+      },
+      "receiptMs": {
+        "median": 3.7282999999988533,
+        "p90": 9.755499999999302,
+        "max": 82.85449999999764
+      },
+      "responseSerializationMs": {
+        "median": 0.10940000000118744,
+        "p90": 0.16049999999813735,
+        "max": 24.169599999997445
+      },
+      "responseBytes": {
+        "median": 12544,
+        "p90": 12544,
+        "max": 12550
+      }
+    },
+    "samples": [
+      {
+        "wallMs": 85.57502999999978,
+        "cpuMs": 34.3,
+        "normalizationSchemaMs": 0.37761000000009515,
+        "binanceHeadersMs": 66.36880999999903,
+        "binanceBodyReadMs": 54.69034999999967,
+        "jsonParsingMs": 13.9625399999999,
+        "engineMs": 0.075039999999899,
+        "canonicalJsonMs": 5.603580000000511,
+        "sha256Ms": 0.291979999999603,
+        "receiptMs": 7.797839999999814,
+        "responseSerializationMs": 0.11240000000016152,
+        "responseBytes": 12544
+      },
+      {
+        "wallMs": 61.602210000000014,
+        "cpuMs": 31.2,
+        "normalizationSchemaMs": 0.12589000000025408,
+        "binanceHeadersMs": 35.129159999999864,
+        "binanceBodyReadMs": 26.678930000000037,
+        "jsonParsingMs": 6.716669999999977,
+        "engineMs": 0.08746000000010098,
+        "canonicalJsonMs": 2.9270000000000436,
+        "sha256Ms": 0.38177000000014233,
+        "receiptMs": 9.790710000000399,
+        "responseSerializationMs": 0.3095499999997628,
+        "responseBytes": 12544
+      },
+      {
+        "wallMs": 69.11073999999971,
+        "cpuMs": 39,
+        "normalizationSchemaMs": 0.12434999999968568,
+        "binanceHeadersMs": 34.03265999999876,
+        "binanceBodyReadMs": 36.748220000000764,
+        "jsonParsingMs": 11.54594999999954,
+        "engineMs": 0.07278999999980443,
+        "canonicalJsonMs": 1.7643099999997502,
+        "sha256Ms": 5.54724999999944,
+        "receiptMs": 10.00575000000008,
+        "responseSerializationMs": 0.14728999999988446,
+        "responseBytes": 12544
+      },
+      {
+        "wallMs": 71.9255000000001,
+        "cpuMs": 40.7,
+        "normalizationSchemaMs": 0.11712999999999738,
+        "binanceHeadersMs": 50.90386999999864,
+        "binanceBodyReadMs": 35.91546000000053,
+        "jsonParsingMs": 12.973250000000007,
+        "engineMs": 0.12400000000034198,
+        "canonicalJsonMs": 2.1409900000006017,
+        "sha256Ms": 0.32806999999993425,
+        "receiptMs": 5.836569999999665,
+        "responseSerializationMs": 0.10631000000012136,
+        "responseBytes": 12544
+      },
+      {
+        "wallMs": 67.92231000000011,
+        "cpuMs": 26.7,
+        "normalizationSchemaMs": 0.19364000000041415,
+        "binanceHeadersMs": 49.72304000000095,
+        "binanceBodyReadMs": 27.10801000000083,
+        "jsonParsingMs": 9.643749999999637,
+        "engineMs": 0.10177999999978056,
+        "canonicalJsonMs": 5.2224299999992585,
+        "sha256Ms": 0.33387000000057016,
+        "receiptMs": 9.550100000000748,
+        "responseSerializationMs": 0.11179000000047382,
+        "responseBytes": 12544.3
+      },
+      {
+        "wallMs": 52.86329000000078,
+        "cpuMs": 28.1,
+        "normalizationSchemaMs": 4.894840000000113,
+        "binanceHeadersMs": 36.69870999999912,
+        "binanceBodyReadMs": 23.521719999998822,
+        "jsonParsingMs": 7.929830000000948,
+        "engineMs": 0.08754999999946449,
+        "canonicalJsonMs": 4.978399999999965,
+        "sha256Ms": 0.3868399999999383,
+        "receiptMs": 8.580239999999685,
+        "responseSerializationMs": 0.13668999999972584,
+        "responseBytes": 12543.4
+      },
+      {
+        "wallMs": 43.91670000000049,
+        "cpuMs": 28.1,
+        "normalizationSchemaMs": 0.1340600000003178,
+        "binanceHeadersMs": 23.732130000000687,
+        "binanceBodyReadMs": 24.299300000001313,
+        "jsonParsingMs": 6.984130000000005,
+        "engineMs": 0.07374999999992723,
+        "canonicalJsonMs": 2.910729999999603,
+        "sha256Ms": 0.49398000000073805,
+        "receiptMs": 5.982800000001225,
+        "responseSerializationMs": 0.12568000000028406,
+        "responseBytes": 12543.4
+      },
+      {
+        "wallMs": 41.30189000000064,
+        "cpuMs": 29.7,
+        "normalizationSchemaMs": 0.10734999999986031,
+        "binanceHeadersMs": 28.32502999999815,
+        "binanceBodyReadMs": 17.470690000000104,
+        "jsonParsingMs": 6.002279999999155,
+        "engineMs": 0.09882000000070548,
+        "canonicalJsonMs": 1.9834799999996904,
+        "sha256Ms": 0.2794899999993504,
+        "receiptMs": 4.424740000000019,
+        "responseSerializationMs": 0.14077999999899476,
+        "responseBytes": 12543.7
+      },
+      {
+        "wallMs": 35.84546000000082,
+        "cpuMs": 32.9,
+        "normalizationSchemaMs": 0.10113000000055763,
+        "binanceHeadersMs": 23.016140000001542,
+        "binanceBodyReadMs": 18.569310000001497,
+        "jsonParsingMs": 6.4791699999994306,
+        "engineMs": 0.06923999999926309,
+        "canonicalJsonMs": 1.5017700000014884,
+        "sha256Ms": 0.2581999999994878,
+        "receiptMs": 3.7496199999997772,
+        "responseSerializationMs": 0.10469999999950233,
+        "responseBytes": 12543.4
+      },
+      {
+        "wallMs": 42.636769999999885,
+        "cpuMs": 31.2,
+        "normalizationSchemaMs": 0.11078999999990628,
+        "binanceHeadersMs": 24.44046000000053,
+        "binanceBodyReadMs": 18.204550000001838,
+        "jsonParsingMs": 6.0599900000001075,
+        "engineMs": 0.07435000000004947,
+        "canonicalJsonMs": 2.2821699999996783,
+        "sha256Ms": 0.2644800000001851,
+        "receiptMs": 5.825150000000576,
+        "responseSerializationMs": 0.10893000000032771,
+        "responseBytes": 12544.2
+      },
+      {
+        "wallMs": 54.241240000000836,
+        "cpuMs": 37.5,
+        "normalizationSchemaMs": 0.1260599999990518,
+        "binanceHeadersMs": 35.282530000000406,
+        "binanceBodyReadMs": 19.03309999999983,
+        "jsonParsingMs": 6.049979999998323,
+        "engineMs": 0.08061999999990803,
+        "canonicalJsonMs": 1.319640000000072,
+        "sha256Ms": 0.32762999999904424,
+        "receiptMs": 7.262349999999787,
+        "responseSerializationMs": 0.1708100000003469,
+        "responseBytes": 12544.6
+      },
+      {
+        "wallMs": 41.17182999999968,
+        "cpuMs": 32.8,
+        "normalizationSchemaMs": 0.1002199999995355,
+        "binanceHeadersMs": 25.269820000002074,
+        "binanceBodyReadMs": 18.230269999998562,
+        "jsonParsingMs": 5.9080500000029135,
+        "engineMs": 0.0914599999996426,
+        "canonicalJsonMs": 1.2127599999996164,
+        "sha256Ms": 0.2706499999992957,
+        "receiptMs": 4.057759999999325,
+        "responseSerializationMs": 0.10202999999928579,
+        "responseBytes": 12543.7
+      },
+      {
+        "wallMs": 41.88927000000003,
+        "cpuMs": 34.6,
+        "normalizationSchemaMs": 1.8897100000005593,
+        "binanceHeadersMs": 32.069449999999414,
+        "binanceBodyReadMs": 18.152809999999953,
+        "jsonParsingMs": 5.790230000000156,
+        "engineMs": 0.08315999999940686,
+        "canonicalJsonMs": 1.826319999999032,
+        "sha256Ms": 0.28324000000029625,
+        "receiptMs": 4.504299999999785,
+        "responseSerializationMs": 0.108980000000156,
+        "responseBytes": 12543.7
+      },
+      {
+        "wallMs": 42.247270000000206,
+        "cpuMs": 29.7,
+        "normalizationSchemaMs": 0.09508999999961816,
+        "binanceHeadersMs": 28.050460000000385,
+        "binanceBodyReadMs": 28.22019999999975,
+        "jsonParsingMs": 7.554850000000078,
+        "engineMs": 0.06789000000062514,
+        "canonicalJsonMs": 1.2707199999989824,
+        "sha256Ms": 0.2588599999991857,
+        "receiptMs": 3.38182000000088,
+        "responseSerializationMs": 0.11170999999958439,
+        "responseBytes": 12543.7
+      },
+      {
+        "wallMs": 42.511079999999495,
+        "cpuMs": 35.8,
+        "normalizationSchemaMs": 0.12250999999960185,
+        "binanceHeadersMs": 28.56275999999889,
+        "binanceBodyReadMs": 23.07654000000148,
+        "jsonParsingMs": 6.1649999999997815,
+        "engineMs": 0.07988000000041211,
+        "canonicalJsonMs": 2.196200000000681,
+        "sha256Ms": 0.382050000000163,
+        "receiptMs": 5.7658500000005,
+        "responseSerializationMs": 0.12255999999943015,
+        "responseBytes": 12542.8
+      },
+      {
+        "wallMs": 47.401420000000144,
+        "cpuMs": 36.1,
+        "normalizationSchemaMs": 0.3521099999998114,
+        "binanceHeadersMs": 29.638090000000012,
+        "binanceBodyReadMs": 24.54479000000065,
+        "jsonParsingMs": 6.9733000000011085,
+        "engineMs": 0.0752200000002631,
+        "canonicalJsonMs": 1.6424000000006345,
+        "sha256Ms": 0.29255000000048315,
+        "receiptMs": 5.775760000000446,
+        "responseSerializationMs": 0.12000999999982014,
+        "responseBytes": 12543.1
+      },
+      {
+        "wallMs": 45.66980999999978,
+        "cpuMs": 31.1,
+        "normalizationSchemaMs": 0.108009999999922,
+        "binanceHeadersMs": 34.55316999999959,
+        "binanceBodyReadMs": 29.794879999998376,
+        "jsonParsingMs": 6.320880000000034,
+        "engineMs": 0.07400000000052387,
+        "canonicalJsonMs": 1.2246000000002824,
+        "sha256Ms": 0.4832300000009127,
+        "receiptMs": 3.6887000000002446,
+        "responseSerializationMs": 0.11003999999993538,
+        "responseBytes": 12543.1
+      },
+      {
+        "wallMs": 47.74209000000046,
+        "cpuMs": 35.9,
+        "normalizationSchemaMs": 0.10302999999985332,
+        "binanceHeadersMs": 28.956420000000072,
+        "binanceBodyReadMs": 28.246880000000964,
+        "jsonParsingMs": 8.783639999998922,
+        "engineMs": 0.08471999999928811,
+        "canonicalJsonMs": 1.3483200000013311,
+        "sha256Ms": 0.25210000000006405,
+        "receiptMs": 4.46278999999995,
+        "responseSerializationMs": 0.15485999999946215,
+        "responseBytes": 12543.9
+      },
+      {
+        "wallMs": 51.66598000000049,
+        "cpuMs": 26.5,
+        "normalizationSchemaMs": 0.14541000000026544,
+        "binanceHeadersMs": 27.462100000001374,
+        "binanceBodyReadMs": 20.218870000001335,
+        "jsonParsingMs": 7.035609999998269,
+        "engineMs": 0.07409000000006927,
+        "canonicalJsonMs": 2.290309999998499,
+        "sha256Ms": 0.3040800000013405,
+        "receiptMs": 8.874439999999595,
+        "responseSerializationMs": 0.1316499999997177,
+        "responseBytes": 12543.4
+      },
+      {
+        "wallMs": 42.55431000000026,
+        "cpuMs": 26.5,
+        "normalizationSchemaMs": 0.11893999999920198,
+        "binanceHeadersMs": 30.369759999999225,
+        "binanceBodyReadMs": 23.942100000003485,
+        "jsonParsingMs": 5.955519999999888,
+        "engineMs": 0.21772999999993772,
+        "canonicalJsonMs": 1.6660299999995913,
+        "sha256Ms": 0.38796999999976833,
+        "receiptMs": 4.492009999999572,
+        "responseSerializationMs": 0.11504000000022643,
+        "responseBytes": 12544.3
+      },
+      {
+        "wallMs": 56.10769999999975,
+        "cpuMs": 28.3,
+        "normalizationSchemaMs": 0.9906299999998737,
+        "binanceHeadersMs": 43.67367000000013,
+        "binanceBodyReadMs": 22.224489999997605,
+        "jsonParsingMs": 6.763699999999881,
+        "engineMs": 0.09642000000021653,
+        "canonicalJsonMs": 2.325840000000608,
+        "sha256Ms": 0.50097999999889,
+        "receiptMs": 4.954469999999856,
+        "responseSerializationMs": 2.1450900000003457,
+        "responseBytes": 12543.7
+      },
+      {
+        "wallMs": 52.27928999999931,
+        "cpuMs": 34.3,
+        "normalizationSchemaMs": 0.10093000000015309,
+        "binanceHeadersMs": 29.58768000000091,
+        "binanceBodyReadMs": 23.399899999999615,
+        "jsonParsingMs": 7.440880000000471,
+        "engineMs": 0.07640000000101281,
+        "canonicalJsonMs": 2.5176699999996344,
+        "sha256Ms": 0.24096000000063214,
+        "receiptMs": 6.031030000000101,
+        "responseSerializationMs": 0.12265999999908672,
+        "responseBytes": 12545.2
+      },
+      {
+        "wallMs": 52.354999999999926,
+        "cpuMs": 32.8,
+        "normalizationSchemaMs": 0.10208000000020548,
+        "binanceHeadersMs": 37.40852999999843,
+        "binanceBodyReadMs": 21.47742999999864,
+        "jsonParsingMs": 5.811010000001261,
+        "engineMs": 0.24006999999910478,
+        "canonicalJsonMs": 1.4295299999990676,
+        "sha256Ms": 0.3580500000007305,
+        "receiptMs": 4.356429999999454,
+        "responseSerializationMs": 2.523720000001049,
+        "responseBytes": 12543.7
+      },
+      {
+        "wallMs": 46.54165999999932,
+        "cpuMs": 23.4,
+        "normalizationSchemaMs": 0.11906999999955588,
+        "binanceHeadersMs": 27.273449999998775,
+        "binanceBodyReadMs": 20.133100000000194,
+        "jsonParsingMs": 6.26224000000002,
+        "engineMs": 0.08284999999996216,
+        "canonicalJsonMs": 1.603689999999915,
+        "sha256Ms": 0.33536999999996625,
+        "receiptMs": 6.498859999999695,
+        "responseSerializationMs": 0.14478000000053726,
+        "responseBytes": 12544.6
+      },
+      {
+        "wallMs": 47.99942999999985,
+        "cpuMs": 26.6,
+        "normalizationSchemaMs": 0.1690599999994447,
+        "binanceHeadersMs": 28.331379999999264,
+        "binanceBodyReadMs": 29.499670000001423,
+        "jsonParsingMs": 6.769950000002427,
+        "engineMs": 0.10863000000063039,
+        "canonicalJsonMs": 1.225039999999717,
+        "sha256Ms": 0.25456999999951224,
+        "receiptMs": 4.998980000000666,
+        "responseSerializationMs": 0.10759999999900174,
+        "responseBytes": 12544
+      },
+      {
+        "wallMs": 45.766709999999875,
+        "cpuMs": 36,
+        "normalizationSchemaMs": 0.12488000000048487,
+        "binanceHeadersMs": 29.518379999997705,
+        "binanceBodyReadMs": 29.848759999998585,
+        "jsonParsingMs": 9.087520000000222,
+        "engineMs": 0.08479000000043016,
+        "canonicalJsonMs": 1.2161400000011782,
+        "sha256Ms": 0.2449900000003254,
+        "receiptMs": 3.2590500000005704,
+        "responseSerializationMs": 0.11594000000004598,
+        "responseBytes": 12543.7
+      },
+      {
+        "wallMs": 48.22897000000012,
+        "cpuMs": 28.2,
+        "normalizationSchemaMs": 0.1131600000004255,
+        "binanceHeadersMs": 29.19376999999986,
+        "binanceBodyReadMs": 28.70460000000021,
+        "jsonParsingMs": 10.479860000001645,
+        "engineMs": 0.10763999999981025,
+        "canonicalJsonMs": 1.7393299999988812,
+        "sha256Ms": 0.2638900000009016,
+        "receiptMs": 4.79162000000033,
+        "responseSerializationMs": 0.1569599999987986,
+        "responseBytes": 12544
+      },
+      {
+        "wallMs": 88.23228999999955,
+        "cpuMs": 32.8,
+        "normalizationSchemaMs": 0.1043099999998958,
+        "binanceHeadersMs": 85.03206999999857,
+        "binanceBodyReadMs": 28.973419999998804,
+        "jsonParsingMs": 5.337129999998433,
+        "engineMs": 0.23077000000084807,
+        "canonicalJsonMs": 1.4640800000001035,
+        "sha256Ms": 4.286309999999139,
+        "receiptMs": 15.928379999999743,
+        "responseSerializationMs": 0.10478000000039174,
+        "responseBytes": 12545.8
+      },
+      {
+        "wallMs": 48.96330999999991,
+        "cpuMs": 26.7,
+        "normalizationSchemaMs": 0.10519000000022061,
+        "binanceHeadersMs": 31.461849999999686,
+        "binanceBodyReadMs": 24.286669999999503,
+        "jsonParsingMs": 6.8010099999992235,
+        "engineMs": 0.07991000000001805,
+        "canonicalJsonMs": 1.2633399999991526,
+        "sha256Ms": 0.25565999999962513,
+        "receiptMs": 4.57445000000007,
+        "responseSerializationMs": 0.13052999999927123,
+        "responseBytes": 12543.7
+      },
+      {
+        "wallMs": 42.626200000000246,
+        "cpuMs": 31.3,
+        "normalizationSchemaMs": 0.09725999999973282,
+        "binanceHeadersMs": 28.584129999999277,
+        "binanceBodyReadMs": 22.226659999999175,
+        "jsonParsingMs": 6.150930000000881,
+        "engineMs": 0.07561999999998079,
+        "canonicalJsonMs": 1.2551599999991594,
+        "sha256Ms": 0.3182600000007369,
+        "receiptMs": 3.493419999999605,
+        "responseSerializationMs": 0.11785000000018045,
+        "responseBytes": 12543.4
+      }
+    ]
+  },
+  "simulatedNetworkSample": {
+    "wallMs": 203.14440000000104,
+    "cpuMs": 296,
+    "normalizationSchemaMs": 0.09500000000116415,
+    "binanceHeadersMs": 644.0734999999986,
+    "binanceBodyReadMs": 0.19650000000183354,
+    "jsonParsingMs": 0.21169999999983702,
+    "engineMs": 0.06980000000112341,
+    "canonicalJsonMs": 1.4337999999988824,
+    "sha256Ms": 0.42889999999533757,
+    "receiptMs": 3.930899999999383,
+    "responseSerializationMs": 0.11560000000099535,
+    "responseBytes": 12557
+  },
+  "mockBinanceRequests": 3792,
+  "notes": [
+    "No actual network; fake credentials only. Historical small fixture plus explicitly synthetic 500-entry sizing case.",
+    "Warm distributions are 30 batch means of 10 requests, reducing Windows process-CPU quantization; maxima are batch means, not individual-request maxima.",
+    "Total CPU excludes verifier and isolated schema probe; includes mock response construction and Node request/stream machinery. It is a local process CPU proxy, not workerd billed CPU.",
+    "Receipt timing contains engine/canonical JSON/SHA metrics; do not sum overlapping metrics. Schema probe isolates normalization only, not full receipt assembly.",
+    "Issuer response is an offline 503, so successful issuer HTML parsing and real TLS/DNS are excluded. Full network timings remain the historical five-live-sample record.",
+    "Simulated 50ms wait per mock fetch produces two sequential provider stages; sum of concurrent fetch metrics is not elapsed network time."
+  ]
+}
