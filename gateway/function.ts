@@ -1,3 +1,4 @@
 import handler from "./handler";
 export default handler;
-export const config={path:"/api/live-evidence",memory:1024};
+// Free uses Netlify's default 1024 MB; an explicit memory override requires Pro.
+export const config={path:"/api/live-evidence"};

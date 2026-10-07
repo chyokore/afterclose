@@ -9,5 +9,5 @@ test('prototype Scenario Lab retains offline policy and exact canonical applicat
   assert.deepEqual(await readFile('.tools/gateway-preview/lab/assets/preview.js'),await readFile('static-preview/dist/assets/preview.js'));const html=await readFile('.tools/gateway-preview/lab/index.html','utf8');assert.match(html,/connect-src 'none'/);assert.match(html,/href="\.\.\/">LIVE EVIDENCE/);assert.match(html,/SYNTHETIC DEMONSTRATION/);
 });
 test('deployment package exposes one statically configured function and no browser credentials',async()=>{
-  const entry=await readFile('.tools/gateway-package/functions/live-evidence.mjs','utf8');assert.match(entry,/export const config=\{path:"\/api\/live-evidence",memory:1024\}/);assert.match(entry,/\.\.\/lib\/evidence.mjs/);const html=await readFile('.tools/gateway-package/public/index.html','utf8');assert.doesNotMatch(html,/BINANCE_|<script/);
+  const entry=await readFile('.tools/gateway-package/functions/live-evidence.mjs','utf8');assert.match(entry,/export const config=\{path:"\/api\/live-evidence"\}/);assert.doesNotMatch(entry,/memory\s*:/);assert.match(entry,/\.\.\/lib\/evidence.mjs/);const html=await readFile('.tools/gateway-package/public/index.html','utf8');assert.doesNotMatch(html,/BINANCE_|<script/);
 });
