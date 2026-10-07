@@ -5,17 +5,21 @@ import { assertLiveAccess } from "../preview-mode";
 import { observeOndoMultiplier } from "../issuer/ondo";
 import { chainSchema, discoverNvda, endpointOrder, liveObservationSchema, type LiveObservation } from "./model";
 
-export async function observeCompetition(): Promise<LiveObservation> {
+export const competitionOperations = { platforms, tokens, search, prices, underlyingMarket,
+  chains: (record?: (audit:ResponseAudit)=>void) => rwaGet("chain-list", {binanceChainId:"56"}, chainSchema, record),
+  issuer: observeOndoMultiplier };
+export async function observeCompetition(operations = competitionOperations): Promise<LiveObservation> {
   assertLiveAccess();
+  const {platforms,tokens,search,prices,underlyingMarket,chains,issuer:readIssuer}=operations;
   const audits: ResponseAudit[] = [];
   const record = (a: ResponseAudit) => { audits.push(a); };
-  const issuerPromise = credentialsConfigured() ? observeOndoMultiplier() : Promise.resolve(null);
+  const issuerPromise = credentialsConfigured() ? readIssuer() : Promise.resolve(null);
   const observation: Omit<LiveObservation, "issuer"> = { mode: "live", state: "unavailable", failure: null, token: null, quote: null, market: null, discovery: "UNVERIFIED", searchCompany: null, audits: [], chains: null };
   if (!credentialsConfigured()) observation.failure = "setup";
   else {
     try {
       // Settle every independent request before returning, including partial failure audits.
-      const initial = await Promise.allSettled([platforms(record), tokens(record), search("NVDA", record), rwaGet("chain-list", { binanceChainId: "56" }, chainSchema, record)]);
+      const initial = await Promise.allSettled([platforms(record), tokens(record), search("NVDA", record), chains(record)]);
       const [p, t, s, c] = initial;
       if (c.status === "fulfilled") observation.chains = c.value;
       for (const response of initial) if (response.status === "rejected") throw response.reason;

@@ -1,5 +1,6 @@
 import "server-only";
 import { createHash } from "node:crypto";
+import { measure } from "../metrics";
 import { liveObservationSchema } from "./model";
 import { mvpContract } from "../binance/schemas";
 import { classifyFreshness, freshnessPolicy } from "./freshness";
@@ -20,7 +21,10 @@ export function canonicalize(value: unknown): string {
   }
   throw new Error("Receipt must contain finite JSON values only");
 }
-export const digestOf = (value: unknown) => createHash("sha256").update(canonicalize(value)).digest("hex");
+export const digestOf = (value: unknown) => {
+  const json=measure("canonicalJsonMs",()=>canonicalize(value));
+  return measure("sha256Ms",()=>createHash("sha256").update(json).digest("hex"));
+};
 const cleanJson = <T>(v: T): T => JSON.parse(JSON.stringify(v)) as T;
 export function createEvidenceReceipt(raw: unknown, evaluatedAtMs: number, rawSchedule: unknown = competitionSchedule) {
   const observation = cleanJson(liveObservationSchema.parse(raw));
@@ -47,7 +51,7 @@ export function createEvidenceReceipt(raw: unknown, evaluatedAtMs: number, rawSc
     // Missing exchange identity, independent quote, dated multiplier and authoritative session remain null.
   }
   const parsedInput = truthInputSchema.parse(engineInput);
-  const result = evaluateReferenceTruth(parsedInput, evaluatedAtMs);
+  const result = measure("engineMs",()=>evaluateReferenceTruth(parsedInput, evaluatedAtMs));
   const calendar = observeNasdaqSchedule(evaluatedAtMs, calendarReview);
   const calendarEvent = calendar.availability !== "available" ? "UNKNOWN" : calendarReview.holidays.includes(calendar.calendarDate!) ? "HOLIDAY" : calendarReview.earlyCloses.includes(calendar.calendarDate!) ? "EARLY_CLOSE" : "STANDARD";
   type Field = { id: string; label: string; raw: string | number | boolean | null; normalized: string | number | null; provider: string; source: string; asset: string | null; chain: number; contract: string | null; providerAtMs: number | null; providerTimeSemantics: string; observedAtMs: number | null; observationAgeMs: number | null; providerDataAgeMs: number | null; latencyMs: number | null; classification: string; derived: boolean; usedByEngine: boolean; limitation: string };

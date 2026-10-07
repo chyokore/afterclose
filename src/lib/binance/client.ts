@@ -7,6 +7,7 @@ import { validCredential } from "../deployment";
 import { allowedEvidenceRequest } from "./request-policy";
 import { boundedJson } from "./bounded-json";
 import { containsCredentialValue } from "../secret-boundary";
+import { recordTiming } from "../metrics";
 
 export const endpointNames = ["platforms", "tokens", "search", "price", "underlying-market", "chain-list"] as const;
 export type Endpoint = (typeof endpointNames)[number];
@@ -52,6 +53,7 @@ export async function rwaGet<T>(endpoint: Endpoint, params: Record<string, strin
     onResponse?.(audit);
     throw new ApiError("network", undefined, audit);
   }
+  recordTiming("binanceHeadersMs",performance.now()-started);
   let payload: unknown;
   try { payload = await boundedJson(response); } catch (error) {
     // The request timeout can also abort a slow response body after headers arrive.

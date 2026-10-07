@@ -1,0 +1,10 @@
+import {build} from 'esbuild';
+import {mkdir,copyFile,cp,readFile,writeFile} from 'node:fs/promises';
+const out='.tools/gateway-preview';await mkdir(out,{recursive:true});
+const result=await build({entryPoints:['gateway-preview/live.ts'],bundle:true,platform:'browser',format:'esm',target:'es2022',minify:true,outfile:`${out}/live.js`,metafile:true});
+if(Object.keys(result.metafile.inputs).some(p=>p!=='gateway-preview/live.ts'))throw Error('Unexpected browser dependency');
+await copyFile('gateway-preview/index.html',`${out}/index.html`);await copyFile('gateway-preview/live.css',`${out}/live.css`);
+await cp('static-preview/dist',`${out}/lab`,{recursive:true});
+const html=await readFile(`${out}/lab/index.html`,'utf8');
+await writeFile(`${out}/lab/index.html`,html.replace('<nav aria-label="Main">','<nav aria-label="Main"><a href="../">LIVE EVIDENCE</a>'));
+console.log(JSON.stringify({prototypeBuilt:true,inputs:Object.keys(result.metafile.inputs),deployment:false}));
