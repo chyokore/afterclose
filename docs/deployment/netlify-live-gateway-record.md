@@ -98,6 +98,8 @@ The compatibility correction passed all **169 tests** (147 TypeScript, 3 gateway
 
 ## Integration hold and next step
 
+**Prompt 23 update:** [Authentication diagnosis](binance-hosted-auth-diagnosis.md) reconfirmed local code-0 discovery and the credential mismatch, then found Binance's explicit API server-location prohibition covering the deployed US region. Credential replacement/redeployment was put on hold. No new hosted calls or deployment occurred. The restriction is documented independently of the still-undefined `40304`; provider-supported clarification is required before proceeding with the earlier credential-only next step below.
+
 **Do not connect Cloudflare yet.** The future non-secret value would be `PUBLIC_LIVE_GATEWAY_URL=https://afterclose-live.netlify.app/api/live-evidence`, but it is not approved as a verified integration target. Resolve the credential-pair discrepancy privately and obtain provider-supported clarification for `40304`. Any corrected environment requires a separately authorized redeployment because Prompt 22's one production deployment has been consumed. Then rerun bounded hosted live-evidence verification after provider access is valid. Do not work around any provider restriction.
 
 The deployed gateway remains fail closed; there is no recurring polling job. Existing static preview <https://afterclose-preview.pages.dev/> is unchanged. Wallet, wallet signing, transaction simulation and broadcast: **NONE**. Read-only API request authentication is distinct from wallet signing.
