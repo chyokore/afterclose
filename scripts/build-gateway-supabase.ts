@@ -13,12 +13,12 @@ async function main(){
   const diagnosticUntil=process.argv.includes('--diagnostics')?Date.now()+2*3600_000:0;
   const source=`import process from 'node:process';import {Buffer} from 'node:buffer';
 import {createSupabaseValidation} from '../../gateway/supabase-validation';
-import {runtimeSelfTest} from '../../gateway/supabase-self-test';
+${diagnosticUntil?"import {runtimeSelfTest} from '../../gateway/supabase-self-test';":''}
 globalThis.process=process;globalThis.Buffer=Buffer;
 const allowed=new Set(['https://ipwho.is/','https://ipapi.co/json/']);
 const transport=globalThis.fetch.bind(globalThis);
 globalThis.fetch=(input,init)=>{const url=typeof input==='string'?input:input instanceof URL?input.href:input.url;if(!allowed.has(url))throw Error('GATE_A_NETWORK_DENIED');return transport(input,init);};
-const handler=createSupabaseValidation({region:()=>Deno.env.get('SB_REGION'),runtime:'Supabase Edge Runtime / Deno '+Deno.version.deno,diagnosticUntil:${diagnosticUntil},selfTest:()=>runtimeSelfTest(${JSON.stringify(engineCases)})});
+const handler=createSupabaseValidation({region:()=>Deno.env.get('SB_REGION'),runtime:'Supabase Edge Runtime / Deno '+Deno.version.deno,diagnosticUntil:${diagnosticUntil}${diagnosticUntil?`,selfTest:()=>runtimeSelfTest(${JSON.stringify(engineCases)})`:''}});
 Deno.serve(handler);`;
   const entry=out+'/entry.ts';await writeFile(entry,source);
   const options={entryPoints:[entry],bundle:true,platform:'node' as const,target:'es2022',format:'esm' as const,conditions:['react-server'],minify:true,metafile:true,write:false};
