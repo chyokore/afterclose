@@ -1,0 +1,202 @@
+{
+  "classification": "VERIFIED_NON_US",
+  "observedAt": "2026-10-07T18:58:36.042Z",
+  "diagnosticBuild": {
+    "provider": "Supabase",
+    "intendedRegion": "eu-central-1",
+    "runtimeRegion": "eu-central-1",
+    "runtime": "Supabase Edge Runtime / Deno supabase-edge-runtime-1.77.0 (compatible with Deno v2.1.4)",
+    "gate": "A",
+    "providerAccess": "DISABLED",
+    "build": {
+      "commit": "9e0e9dec2d1611d9938625ddcab2eaf97ac30802",
+      "sourceDigest": "3978ecc3895dd471f5b25f6bb1396d2caccfc623c40cbcc917d88db91433d8f3",
+      "dirty": false
+    }
+  },
+  "retainedBuild": {
+    "provider": "Supabase",
+    "intendedRegion": "eu-central-1",
+    "runtimeRegion": "eu-central-1",
+    "runtime": "Supabase Edge Runtime / Deno supabase-edge-runtime-1.77.0 (compatible with Deno v2.1.4)",
+    "gate": "A",
+    "providerAccess": "DISABLED",
+    "build": {
+      "commit": "2991ae70446f2d1753ea91be70f506fd861f2946",
+      "sourceDigest": "6aac02b067cfd70b2123174e49617403009ef650644c3affe119fb5baeb89bfa",
+      "dirty": false
+    }
+  },
+  "retainedVerifiedAt": "2026-10-07T19:03:54.295Z",
+  "bytes": 493744,
+  "probes": [
+    {
+      "source": "https://ipwho.is/",
+      "status": 200,
+      "ip": "2a05:d014:61b:270a:57e9:668e:971:b22e",
+      "country": "DE",
+      "region": "Hessen",
+      "city": "Frankfurt am Main",
+      "asn": "16509",
+      "provider": "Amazon Data Services Ireland Ltd",
+      "elapsedMs": 80.137191
+    },
+    {
+      "source": "https://ipapi.co/json/",
+      "status": 200,
+      "ip": "2a05:d014:61b:270a:57e9:668e:971:b22e",
+      "country": "DE",
+      "region": "Hesse",
+      "city": "Frankfurt am Main",
+      "asn": "AS16509",
+      "provider": "Amazon.com, Inc.",
+      "elapsedMs": 219.17994500000003
+    }
+  ],
+  "runtimeChecks": {
+    "deterministicJson": true,
+    "webCryptoSha256": true,
+    "cache": true,
+    "abortTimeout": true,
+    "asyncLocalStorage": true,
+    "timestamps": true
+  },
+  "engineCases": [
+    {
+      "name": "stale-reference",
+      "decision": "WAIT",
+      "digest": "57abb80a87d2c90fe02227cb597038c0c91119237f844ea77e606f589c567562"
+    },
+    {
+      "name": "market-closed",
+      "decision": "MONITOR",
+      "digest": "650f1f5535c2e086241847fa5db8157096523a4355f3f71592c511dcce71342f"
+    },
+    {
+      "name": "fresh-evidence",
+      "decision": "PROCEED_TO_REVIEW",
+      "digest": "43e96089e6f8b43a71d6eb98a6b94aac2f0cf3f3e4bb9db7daef541a809f09ef"
+    },
+    {
+      "name": "api-unavailable",
+      "decision": "WAIT",
+      "digest": "da44693f903d6044d2f8e929f64281d04343cd0a3a64d84fa437feab6d5ae915"
+    }
+  ],
+  "receiptCases": [
+    {
+      "name": "configuration",
+      "digest": "ded51fb6300053ae277108eb4b652bec1fce7c30e67014042c11e0927aeba6b2"
+    },
+    {
+      "name": "provider",
+      "digest": "6b225e03dfdd66f05139d552b738063c59dd52370f1db3a62e019aceb0178867"
+    }
+  ],
+  "byteEquivalence": "PASS (deep equality including canonical JSON against local expected.json)",
+  "requests": 26,
+  "diagnosticRequests": 2,
+  "binanceRequests": 0,
+  "latency": [
+    {
+      "label": "first",
+      "elapsedMs": 2179.5901
+    },
+    {
+      "label": "warm",
+      "elapsedMs": 1052.1459999999997
+    },
+    {
+      "label": "egress-diagnostic",
+      "elapsedMs": 593.6975000000002
+    }
+  ],
+  "controls": [
+    {
+      "label": "first",
+      "status": 503,
+      "cors": "https://afterclose-preview.pages.dev",
+      "region": "eu-central-1"
+    },
+    {
+      "label": "warm",
+      "status": 503,
+      "cors": "https://afterclose-preview.pages.dev",
+      "region": "eu-central-1"
+    },
+    {
+      "label": "denied-origin",
+      "status": 403,
+      "cors": null,
+      "region": "eu-central-1"
+    },
+    {
+      "label": "denied-origin",
+      "status": 403,
+      "cors": null,
+      "region": "eu-central-1"
+    },
+    {
+      "label": "POST",
+      "status": 405,
+      "cors": "https://afterclose-preview.pages.dev",
+      "region": "eu-central-1"
+    },
+    {
+      "label": "PUT",
+      "status": 405,
+      "cors": "https://afterclose-preview.pages.dev",
+      "region": "eu-central-1"
+    },
+    {
+      "label": "DELETE",
+      "status": 405,
+      "cors": "https://afterclose-preview.pages.dev",
+      "region": "eu-central-1"
+    },
+    {
+      "label": "rejected-input",
+      "status": 400,
+      "cors": "https://afterclose-preview.pages.dev",
+      "region": "eu-central-1"
+    },
+    {
+      "label": "rejected-input",
+      "status": 400,
+      "cors": "https://afterclose-preview.pages.dev",
+      "region": "eu-central-1"
+    },
+    {
+      "label": "rejected-input",
+      "status": 400,
+      "cors": "https://afterclose-preview.pages.dev",
+      "region": "eu-central-1"
+    },
+    {
+      "label": "rejected-input",
+      "status": 400,
+      "cors": "https://afterclose-preview.pages.dev",
+      "region": "eu-central-1"
+    },
+    {
+      "label": "rejected-input",
+      "status": 400,
+      "cors": "https://afterclose-preview.pages.dev",
+      "region": "eu-central-1"
+    }
+  ],
+  "security": {
+    "at": "2026-10-07T19:06:27.416Z",
+    "identityMatches": true,
+    "diagnosticsDisabled": true,
+    "diagnosticStatus": 404,
+    "logRows": 37,
+    "sensitiveKeyPatternFindings": 0,
+    "scannedArtifacts": [
+      "index.ts",
+      "hosted-results.json",
+      "hosted-diagnostic-results.json",
+      "runtime-logs.json"
+    ]
+  }
+}
