@@ -47,7 +47,7 @@ try{
     for(let i=0;i<15;i++)await sample();
     const samples:Record<string,number>[]=[],individual:Record<string,number>[]=[];
     for(let b=0;b<30;b++){
-      const rows=[];for(let i=0;i<10;i++)rows.push(await sample());
+      const rows:Record<string,number>[]=[];for(let i=0;i<10;i++)rows.push(await sample());
       individual.push(...rows);
       const keys=Object.keys(rows[0]);samples.push(Object.fromEntries(keys.map(k=>[k,rows.reduce((n,r)=>n+Number((r as Record<string,number>)[k]??0),0)/rows.length])));
     }
@@ -59,6 +59,6 @@ try{
   await mkdir('.tools/non-us-hosting',{recursive:true});
   await writeFile('.tools/non-us-hosting/gateway-cpu.json',JSON.stringify(results,null,2));
   console.log(JSON.stringify({...results,'small-fixture':{...(results['small-fixture'] as object),samples:undefined},'expanded-catalog':{...(results['expanded-catalog'] as object),samples:undefined}},null,2));
-}finally{globalThis.fetch=originalFetch;names.forEach((k,i)=>{if(prior[i]===undefined)delete process.env[k];else process.env[k]=prior[i];});}
+}finally{globalThis.fetch=originalFetch;const env:Record<string,string|undefined>=process.env;names.forEach((k,i)=>{if(prior[i]===undefined)delete env[k];else env[k]=prior[i];});}
 }
 main().catch(()=>{console.error('Offline benchmark validation failed; no network fallback.');process.exitCode=1;});

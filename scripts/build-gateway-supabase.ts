@@ -27,9 +27,10 @@ Deno.serve(handler);`;
   const hash=createHash('sha256');for(const p of inputs)hash.update(p).update((await readFile(p,'utf8')).replaceAll('\r\n','\n'));
   const identity={commit:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),sourceDigest:hash.digest('hex'),dirty:!!execFileSync('git',['status','--porcelain'],{encoding:'utf8'}).trim()};
   const result=await build({...options,plugins:[{name:'identity',setup(b){b.onLoad({filter:/gateway[\\/]build-info\.ts$/},()=>({contents:`export const GATEWAY_BUILD=${JSON.stringify(identity)};`,loader:'ts'}));}}]});
-  await writeFile(out+'/index.ts',result.outputFiles[0].contents);
+  const output=result.outputFiles![0].contents;
+  await writeFile(out+'/index.ts',output);
   await writeFile(out+'/expected.json',JSON.stringify(await runtimeSelfTest(engineCases),null,2));
-  const report={identity,diagnosticUntil,bytes:result.outputFiles[0].contents.length,inputs,externalImports:Object.values(result.metafile!.outputs)[0].imports,sourceMaps:false};
+  const report={identity,diagnosticUntil,bytes:output.length,inputs,externalImports:Object.values(result.metafile!.outputs)[0].imports,sourceMaps:false};
   await writeFile(out+'/build.json',JSON.stringify(report,null,2));console.log(JSON.stringify({...report,inputs:inputs.length}));
 }
 main().catch(()=>{console.error('Gate A build failed. No environment files loaded.');process.exitCode=1;});

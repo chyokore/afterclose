@@ -23,7 +23,7 @@ test('strict origins, methods, paths, queries and headers reject before diagnost
   for(const Origin of ['https://evil.invalid','https://afterclose-preview.pages.dev.evil.invalid','*']){const r=await handler(request('',{headers:{Origin}}));assert.equal(r.status,403);assert.equal(r.headers.get('Access-Control-Allow-Origin'),null);}
   for(const method of ['POST','PUT','DELETE','OPTIONS'])assert.equal((await handler(request('',{method}))).status,405);
   for(const suffix of ['?asset=BTC','?contract=0x123','?chain=1','?url=https://evil.invalid','?endpoint=price','?forceFunctionRegion=us-east-1','?forceFunctionRegion=eu-central-1&forceFunctionRegion=eu-central-1','/other'])assert.equal((await handler(request(suffix))).status,400);
-  for(const headers of [{Authorization:'rejected'},{'Content-Type':'application/json'}])assert.equal((await handler(request('',{headers}))).status,400);
+  for(const headers of [new Headers({Authorization:'rejected'}),new Headers({'Content-Type':'application/json'})])assert.equal((await handler(new Request(base,{headers:new Headers([...headers,['Origin',PRODUCTION_ORIGIN]])}))).status,400);
   assert.equal(calls,0);
 });
 test('diagnostic permits only two fixed secret-free requests and coalesces repeats',async()=>{
