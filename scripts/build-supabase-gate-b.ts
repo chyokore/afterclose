@@ -16,9 +16,9 @@ async function main() {
   if (armed) await writeFile(out + '/permit.json', JSON.stringify({ permit, expiresAt }));
   const source = `import process from 'node:process';import {Buffer} from 'node:buffer';
 import {createSupabaseGateB} from '../../gateway/supabase-gate-b';
-globalThis.process=process;globalThis.Buffer=Buffer;
-process.env.AFTERCLOSE_DEPLOYMENT_MODE='competition-live';
-for(const name of ['BINANCE_API_KEY','BINANCE_SECRET_KEY']){const v=Deno.env.get(name);if(v)process.env[name]=v;}
+// Supabase disallows setEnv. Supply only the adapter's required values through
+// a private read-only process facade; never mutate or enumerate Deno's env.
+globalThis.process=Object.create(process,{env:{value:Object.freeze({AFTERCLOSE_DEPLOYMENT_MODE:'competition-live',BINANCE_API_KEY:Deno.env.get('BINANCE_API_KEY'),BINANCE_SECRET_KEY:Deno.env.get('BINANCE_SECRET_KEY')})}});globalThis.Buffer=Buffer;
 let active=false;const seen=new Set();const transport=globalThis.fetch.bind(globalThis);
 globalThis.fetch=(input,init)=>{
  const url=new URL(typeof input==='string'?input:input instanceof URL?input.href:input.url);
