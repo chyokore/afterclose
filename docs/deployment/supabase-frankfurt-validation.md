@@ -2,6 +2,8 @@
 
 **GATE A PASS — observed egress VERIFIED_NON_US. Gate B is not authorized.**
 
+Subsequent owner-authorized Gate B work is recorded separately in [Gate B validation](supabase-binance-live-validation.md); this Gate A report retains its original scope.
+
 Completed 2026-10-07. Branch `codex/supabase-frankfurt-validation`, base `4e610ba410bc174da26198d5834ebd2b35afcfc5`. See [machine-readable evidence](supabase-frankfurt-evidence.json). One project and one function exist; two revisions were deployed to remove temporary diagnostics after testing. No merge or frontend integration.
 
 ## Account, costs and resources
