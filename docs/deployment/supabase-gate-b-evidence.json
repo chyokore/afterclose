@@ -1,0 +1,198 @@
+{
+  "status": "SUPABASE GATE B FAILED — DO NOT INTEGRATE",
+  "reason": "Hosted immediate repeat missed per-instance cache; authenticated evidence and receipt equivalence passed.",
+  "branch": "codex/supabase-binance-live",
+  "base": "1fc758cdf744e0e767e4ee2d8a037632cae23f4c",
+  "localPrecheck": {
+    "pass": true,
+    "localRequests": 1,
+    "endpoint": "platforms",
+    "audit": {
+      "endpoint": "platforms",
+      "status": 200,
+      "latencyMs": 1935,
+      "observedAtMs": 1791490637692,
+      "code": "0",
+      "responseTimestamp": 1791490638589
+    },
+    "checkedAt": "2026-10-08T20:17:17.697Z",
+    "tlsVerification": true
+  },
+  "regionPrecheck": {
+    "at": "2026-10-08T20:21:09.288Z",
+    "httpStatus": 200,
+    "runtimeRegion": "eu-central-1",
+    "headerRegion": "eu-central-1",
+    "build": {
+      "commit": "4bfb29849ce4ba3a1b9363eaf5862daeefa30813",
+      "sourceDigest": "4713d14e89afdd390529013d25a1879e992159348fc54119c9cf0b789b6d8cba",
+      "dirty": false
+    },
+    "elapsedMs": 2306.6778,
+    "probes": [
+      {
+        "source": "https://ipwho.is/",
+        "status": 200,
+        "ip": "2a05:d014:61b:270b:3183:7076:2940:544e",
+        "country": "DE",
+        "region": "Hessen",
+        "city": "Frankfurt am Main",
+        "asn": "16509",
+        "provider": "Amazon Data Services Ireland Ltd",
+        "elapsedMs": 30.498452
+      },
+      {
+        "source": "https://ipapi.co/json/",
+        "status": 200,
+        "ip": "2a05:d014:61b:270b:3183:7076:2940:544e",
+        "country": "DE",
+        "region": "Hesse",
+        "city": "Frankfurt am Main",
+        "asn": "AS16509",
+        "provider": "Amazon.com, Inc.",
+        "elapsedMs": 240.88476199999997
+      }
+    ],
+    "binanceRequests": 0,
+    "pass": true
+  },
+  "ownerSecretEntryConfirmed": true,
+  "secretNamesVerified": [
+    "BINANCE_API_KEY",
+    "BINANCE_SECRET_KEY"
+  ],
+  "hosted": {
+    "at": "2026-10-08T20:47:57.961Z",
+    "httpStatus": 200,
+    "region": "eu-central-1",
+    "cors": "https://afterclose-preview.pages.dev",
+    "elapsedMs": 2824.8689999999997,
+    "probe": {
+      "endpoint": "platforms",
+      "status": 200,
+      "latencyMs": 273,
+      "observedAtMs": 1791492477524,
+      "code": "0",
+      "responseTimestamp": 1791492477404
+    },
+    "fullEvaluationAttempted": true,
+    "evaluationLatencyMs": 1040.9553379999998,
+    "build": {
+      "commit": "9a2afb88294ee9334f0add958e5c8f3d3ae07caf",
+      "sourceDigest": "346384cc28f852618a58d43ef9bef6cffa5b01c9190ccc58e0d98969ce0afd28",
+      "dirty": false
+    }
+  },
+  "equivalence": {
+    "verifier": true,
+    "canonicalEquivalent": true,
+    "digestEquivalent": true,
+    "engineId": "reference-truth/v1:0b8daa72d38484ed6c6e4ea5e89213029c3c47f97bfcccdca6a7aa67e6cc669b",
+    "build": {
+      "commit": "9a2afb88294ee9334f0add958e5c8f3d3ae07caf",
+      "sourceDigest": "346384cc28f852618a58d43ef9bef6cffa5b01c9190ccc58e0d98969ce0afd28",
+      "dirty": false
+    },
+    "digest": "a6414ef0546196a9f10c8d8482c34360df4ed146b88874f59876abbbf7d01c60"
+  },
+  "cache": {
+    "httpStatus": 503,
+    "elapsedMs": 351.34540000000015,
+    "region": "eu-central-1",
+    "hit": false,
+    "additionalBinanceCalls": 0,
+    "hostedTimestampRetentionVerified": false
+  },
+  "cleanup": {
+    "at": "2026-10-08T20:50:16.912Z",
+    "results": [
+      {
+        "path": "/validate",
+        "status": 404,
+        "region": "eu-central-1",
+        "body": {
+          "schemaVersion": "afterclose-live-gateway/v1",
+          "status": "LIVE_EVIDENCE_UNAVAILABLE",
+          "reason": "VALIDATION_DISABLED",
+          "deployment": {
+            "provider": "Supabase",
+            "runtimeRegion": "eu-central-1",
+            "mode": "gate-b-validation",
+            "build": {
+              "commit": "9a2afb88294ee9334f0add958e5c8f3d3ae07caf",
+              "sourceDigest": "ad0d623d085ab884146e2af382fffdaaa1ca611fc64dc916921f6dec621f0c69",
+              "dirty": false
+            }
+          }
+        }
+      },
+      {
+        "path": "/diagnostics",
+        "status": 404,
+        "region": "eu-central-1",
+        "body": {
+          "schemaVersion": "afterclose-live-gateway/v1",
+          "status": "LIVE_EVIDENCE_UNAVAILABLE",
+          "reason": "DIAGNOSTICS_DISABLED",
+          "deployment": {
+            "provider": "Supabase",
+            "runtimeRegion": "eu-central-1",
+            "mode": "gate-b-validation",
+            "build": {
+              "commit": "9a2afb88294ee9334f0add958e5c8f3d3ae07caf",
+              "sourceDigest": "ad0d623d085ab884146e2af382fffdaaa1ca611fc64dc916921f6dec621f0c69",
+              "dirty": false
+            }
+          }
+        }
+      },
+      {
+        "path": "/health",
+        "status": 200,
+        "region": "eu-central-1",
+        "body": {
+          "serviceAvailable": true,
+          "deployment": {
+            "provider": "Supabase",
+            "runtimeRegion": "eu-central-1",
+            "mode": "gate-b-validation",
+            "build": {
+              "commit": "9a2afb88294ee9334f0add958e5c8f3d3ae07caf",
+              "sourceDigest": "ad0d623d085ab884146e2af382fffdaaa1ca611fc64dc916921f6dec621f0c69",
+              "dirty": false
+            }
+          }
+        }
+      }
+    ]
+  },
+  "redTeam": {
+    "at": "2026-10-08T20:53:14.047Z",
+    "jsonArtifactsScanned": 14,
+    "findings": {
+      "signedUrl": 0,
+      "signatureValue": 0,
+      "authenticationHeaders": 0,
+      "serviceSecret": 0,
+      "bundleServiceSecret": 0
+    },
+    "notes": "Auth-header field names in server signing source are expected; transport artifacts must contain no header objects or signature values. Runtime env values are not serialized."
+  },
+  "usage": {
+    "plan": "Free",
+    "displayedInvocations": 22,
+    "includedInvocations": 500000,
+    "roundedEgressGb": 0,
+    "overage": 0,
+    "spendCap": true,
+    "paidResourcesAdded": 0,
+    "countersMayLag": true
+  },
+  "scope": {
+    "cloudflareChanged": false,
+    "netlifyChanged": false,
+    "walletSigning": false,
+    "simulation": false,
+    "broadcast": false
+  }
+}
