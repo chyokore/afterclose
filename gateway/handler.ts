@@ -22,11 +22,11 @@ export function gatewayResponse(observation:Parameters<typeof createEvidenceRece
     cache:{scope:"per-instance",successCooldownMs:30000,failureCooldownMs:60000,metadataDiscoveryTtlMs:300000,platformsChainsTtlMs:3600000},
     receipt:r,receiptDigest:envelope.digest,build:GATEWAY_BUILD};
 }
-export function createGateway(options:{clock?:()=>number;observe?:typeof observeCompetition}={}) {
+export function createGateway(options:{clock?:()=>number;observe?:typeof observeCompetition;retryAfterMs?:()=>number}={}) {
   const clock=options.clock??Date.now;
   const ops=cachedOperations(undefined,clock);
   const capture=()=> (options.observe??observeCompetition)(ops).catch(()=>unavailableObservation("provider"));
-  const load=evidenceCache(capture,o=>o.state!=="connected",clock);
+  const load=evidenceCache(capture,o=>o.state!=="connected",clock,()=>options.retryAfterMs?.()??60_000);
   let windowStart=0,requests=0;
   return async function handler(request:Request):Promise<Response>{
     const headers=new Headers({"Cache-Control":"no-store","Vary":"Origin","X-Content-Type-Options":"nosniff","Content-Type":"application/json"});
@@ -42,7 +42,10 @@ export function createGateway(options:{clock?:()=>number;observe?:typeof observe
     if(++requests>120){headers.set("Retry-After","60");return reject(429,"INSTANCE_RATE_LIMIT");}
     const configured=process.env.AFTERCLOSE_DEPLOYMENT_MODE==="competition-live" && deploymentConfiguration().liveAllowed && credentialsConfigured();
     try {
-      const observation=configured?await load():unavailableObservation("configuration");
+      const observation=configured?await load(read=>{
+        headers.set('X-AfterClose-Cache',read.state);
+        if(read.retryAfterMs>0)headers.set('Retry-After',String(Math.ceil(read.retryAfterMs/1000)));
+      }):unavailableObservation("configuration");
       const body=gatewayResponse(observation,clock());
       if(containsCredentialValue(body))return reject(503,"UNSAFE_PROVIDER_RESPONSE");
       const json=measure("responseSerializationMs",()=>JSON.stringify(body));
