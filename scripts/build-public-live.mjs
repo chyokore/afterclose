@@ -1,0 +1,25 @@
+import {build} from 'esbuild';
+import {mkdir,readFile,writeFile,cp} from 'node:fs/promises';
+import {execFileSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
+const fixture=process.argv.includes('--fixture');
+const out=fixture?'.tools/public-live-fixture/dist':'.tools/public-live-release/dist';
+const gateway=fixture?'http://127.0.0.1:3192/api/live-evidence':'https://wakuqrnxjwikvlrxgezg.supabase.co/functions/v1/live-evidence?forceFunctionRegion=eu-central-1';
+const commit=execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim();
+await mkdir(out,{recursive:true});
+const result=await build({entryPoints:['public-live/live.ts'],outfile:out+'/live.js',bundle:true,minify:true,platform:'browser',format:'esm',target:'es2022',metafile:true,sourcemap:false,define:{PUBLIC_GATEWAY_URL:JSON.stringify(gateway),RELEASE_COMMIT:JSON.stringify(commit)}});
+if(Object.keys(result.metafile.inputs).some(p=>!['public-live/live.ts','public-live/session.ts'].includes(p)))throw Error('Unexpected live browser dependency');
+const origin=new URL(gateway).origin;
+await writeFile(out+'/index.html',(await readFile('public-live/index.html','utf8')).replace('__GATEWAY_ORIGIN__',origin));
+await cp('public-live/live.css',out+'/live.css');
+await cp('static-preview/dist',out+'/lab',{recursive:true});
+const lab=await readFile(out+'/lab/index.html','utf8');
+await writeFile(out+'/lab/index.html',lab.replace('<nav aria-label="Main">','<nav aria-label="Main"><a href="../">LIVE EVIDENCE</a>').replace('SYNTHETIC DEMONSTRATION — NOT LIVE MARKET DATA','SYNTHETIC SCENARIO · SYNTHETIC DEMONSTRATION — NOT LIVE MARKET DATA'));
+// One compatible HTTP policy; each document's meta policy narrows Live vs Lab.
+await writeFile(out+'/_headers',`/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: no-referrer\n  X-Robots-Tag: noindex, nofollow\n  Content-Security-Policy: default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src ${origin}; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-ancestors 'none'\n`);
+await writeFile(out+'/404.html','<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AfterClose — Not found</title><h1>Page not found</h1><p>No substitute evidence is shown.</p><a href="/">Live Evidence</a> · <a href="/lab/">Synthetic Scenario Lab</a></html>');
+const files=['index.html','live.js','live.css','404.html','_headers','lab/index.html','lab/assets/preview.js','lab/assets/preview.css','lab/404.html'];
+const hashes={};for(const f of files)hashes[f]=createHash('sha256').update(await readFile(out+'/'+f)).digest('hex');
+await writeFile(out+'/release.json',JSON.stringify({commit,fixture,files:hashes},null,2));
+await writeFile(out+'/../wrangler.json',JSON.stringify({name:'afterclose-preview',pages_build_output_dir:'./dist',compatibility_date:'2026-10-09'}));
+console.log(JSON.stringify({out,commit,fixture,inputs:Object.keys(result.metafile.inputs),files:files.length+1}));

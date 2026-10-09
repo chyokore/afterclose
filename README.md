@@ -4,12 +4,12 @@
 
 Tokenized stocks can trade when their underlying equity reference is stale, missing or based on a different unit. AfterClose makes those gaps in evidence visible before anyone interprets a price difference.
 
-This is a read-only hackathon research application. The [public synthetic fallback](https://afterclose-preview.pages.dev/) remains frozen. **Competition LIVE EVIDENCE runs locally at `/live`; no live hosted deployment or wallet execution exists.** See the [live evidence record](docs/competition/live-evidence.md), [judging scorecard](docs/competition/judging-scorecard.md) and [90-second path](docs/competition/90-second-demo-path.md).
+This is a read-only hackathon research application. The [public demo](https://afterclose-preview.pages.dev/) is the judge entry for Live Evidence and the separate [12-case synthetic Scenario Lab](https://afterclose-preview.pages.dev/lab/#/lab/fresh-evidence). Check the [release record](docs/deployment/public-live-release.md) for deployment status, source commit and validation. No wallet or execution capability exists. Use the [release branch](https://github.com/chyokore/afterclose/tree/codex/cloudflare-live-integration) for this README; main is not automatically merged.
 
 ## One-minute demonstration
 
-1. Open `/live` on the locally running application. Inspect rediscovered NVDAon, separate provider/observation timestamps, evidence classification and **WAIT** explanation. Expand provenance and copy its verifiable receipt.
-2. Open `/demo` using the prominent scenario-lab link. Compare stale-reference, fresh-evidence and missing-multiplier scenarios.
+1. Open the public demo and select **Refresh Live Evidence** once. Inspect rediscovered NVDAon, separate provider/observation timestamps, evidence classification and **WAIT** explanation. Expand the receipt, copy its SHA-256, verify its integrity and download it.
+2. Open **Scenario Lab**. Compare stale-reference, market-closed and fresh-evidence scenarios, explicitly labeled synthetic.
 3. Explain the distinction: a successful API response is not a fresh equity quote; a passing synthetic review case is not evidence of a profitable real trade.
 
 WAIT is an evidence-quality result, not a token safety rating or a buy/sell recommendation.
@@ -33,7 +33,9 @@ The Binance-discovered identity was corroborated by the official Ondo asset page
 
 | Layer | Responsibility |
 | --- | --- |
-| Next.js App Router | Server-rendered live dashboard, refresh control, loading/error UI and a separate scenario route |
+| Cloudflare Pages | Static public Live Evidence frontend and isolated synthetic lab; no server runtime or browser credentials |
+| Supabase Frankfurt | Fixed public read-only gateway, authenticated provider requests, exact production/staging CORS, per-isolate cache and cooldown |
+| Next.js App Router | Retained local development dashboard at `/live` and `/demo`; not the public hosting runtime |
 | Binance Web3 client | Server-only authenticated GET requests to platforms, tokens, search, price, underlying-market and supported chains; pinned official host, TLS verification, timeouts and Zod validation |
 | Ondo page adapter | Read-only issuer metadata; exact decimal string, matching contract, no invented effective timestamp |
 | Nasdaq schedule | Manually reviewed public calendar, New York DST, holidays and bounded hours coverage; not live security status |
@@ -52,6 +54,30 @@ Binance's five RWA endpoints have returned HTTP 200/code 0 in recorded live work
 The live engine remains WAIT. Two independent equity providers, current multiplier applicability, authoritative market/security status, liquidity and executable quote evidence remain unresolved. Thresholds are conservative research defaults, not calibrated trading advice.
 
 ## Local setup
+
+For the credential-free static frontend build (Node 24 with installed dependencies):
+
+```sh
+npm ci
+node scripts/build-static-preview.mjs
+node scripts/build-public-live.mjs
+```
+
+The deployable files are in `.tools/public-live-release/dist`. They call only the public Frankfurt gateway, which accepts the exact deployed production and staging origins; localhost is intentionally not authorized. `--fixture` builds a separate local QA artifact, never a deployable live artifact. The local fixture server requires the developer's ignored sanitized capture file and is not part of the judging setup. For local live-provider development, use the existing Next.js path below.
+
+The public page never auto-fetches. It coalesces an in-flight request, persists a 45-second tab-session cooldown across navigation, respects Retry-After and waits at least 60 seconds after failure. No polling or automatic retry exists. These controls do not create a global rate limiter. The gateway requires no browser Authorization header, API key or privileged Supabase credential; provider credentials remain server-only. CORS is a browser boundary, not protection against non-browser callers. The fixed route cannot proxy arbitrary URLs or assets.
+
+### Receipt verification
+
+The browser recomputes SHA-256 over canonical receipt JSON. This is content integrity, not an independent engine run or provider authentication. Download the envelope and run the existing canonical verifier:
+
+```sh
+node --conditions=react-server --import tsx scripts/verify-evidence-receipt.ts afterclose-evidence-receipt.json DISPLAYED_SHA256
+```
+
+It checks schema, canonical bytes, digest and deterministic engine reproduction. Historical committed receipts are evidence records only, never live fallbacks. If the gateway fails, the page displays **LIVE EVIDENCE TEMPORARILY UNAVAILABLE** and offers the separate synthetic lab.
+
+Submission preparation: [owner evidence outline](docs/submission/developer-experience-evidence.md), [3–4 minute video script](docs/submission/demo-script.md), [submission checklist and unresolved track eligibility](docs/submission/checklist.md). No report, video or form submission is claimed complete.
 
 Use **Node.js 24.x** and npm. The lockfile is committed.
 
@@ -82,7 +108,7 @@ For a production live build, use `npm run build:live-safe`, then `npm start`. Th
 ```sh
 npm test
 npm run lint
-npm run build
+npm run build:live-safe
 npm start
 ```
 
