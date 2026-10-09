@@ -1,3 +1,5 @@
+> Historical local-application milestone. For the deployed static frontend and current verification path, use the [judge proof index](../submission/proof-index.md).
+
 # Competition live evidence
 
 Reviewed 2026-10-06. This milestone runs locally at `/live`. It is not deployed. The existing [synthetic preview](https://afterclose-preview.pages.dev/) remains unchanged.

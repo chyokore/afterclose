@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Binance hosted authentication diagnosis
 
 Prompt 23, 2026-10-07. Branch `codex/binance-hosted-auth-diagnosis`, created from `f673d05daafbb082f7870ee03c05668779e3d779`. Documentation-only diagnosis; no application source, deployed package, runtime, region, CORS, cache, provider request logic or architecture changed. No merge.

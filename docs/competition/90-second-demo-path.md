@@ -1,3 +1,5 @@
+> Historical local-application milestone. For the deployed static frontend and current verification path, use the [judge proof index](../submission/proof-index.md).
+
 # A 90-second judge path
 
 Target duration, not a measured user-study result. No video has been recorded. Start the full application locally using Node 24 and authorized server credentials, with `NODE_USE_SYSTEM_CA=1` on the existing Windows setup. Open `/live`. The public Pages link is still the separate synthetic fallback.

@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Supabase Frankfurt Gate B validation
 
 Current status, 2026-10-09: **SUPABASE GATEWAY VERIFIED — READY FOR CLOUDFLARE INTEGRATION**. The subsequent [Prompt 27 cache repair](supabase-cache-repair.md) replaced the validation-only root with the canonical bounded capture/cache flow. Both hosted first and immediate repeat requests returned HTTP 200 from separate workers, with genuine evidence and independently verified receipts. Safe cross-worker cache misses are accepted; same-worker timestamp retention is verified locally. Cloudflare remains unchanged.

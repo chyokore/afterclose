@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Cloudflare live integration after gateway verification
 
 Preferred architecture B keeps `https://afterclose-preview.pages.dev/` as the judge entry. Its existing deployed content is unchanged in Prompt 21. Local `gateway-preview/` demonstrates the integration and copies the original static bundle byte-for-byte under `lab/`; it is not a new public deployment.

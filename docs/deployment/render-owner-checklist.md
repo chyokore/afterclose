@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Owner checklist — later authorization only
 Do not execute this checklist until the owner approves the reviewed architecture. This milestone did not create a service, connect GitHub or transfer secrets.
 

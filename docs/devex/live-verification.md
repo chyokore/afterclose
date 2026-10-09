@@ -2,7 +2,7 @@
 
 ## Environment and scope
 
-Confirmed origin is `https://github.com/chyokore/afterclose.git`, starting from commit `c8ceff90a0efc181a01561d0e7011581889d4c01`. Working tree was clean. `.env.local` exists, is ignored and contains nonempty API key and secret. Checked only booleans using Next.js environment loading; values were never printed. No Noctive resources were accessed.
+Confirmed origin is `https://github.com/chyokore/afterclose.git`, starting from commit `c8ceff90a0efc181a01561d0e7011581889d4c01`. Working tree was clean. `.env.local` exists, is ignored and contains nonempty API key and secret. Checked only booleans using Next.js environment loading; values were never printed.
 
 The existing server-only client was used with the configured credentials and the official fixed host. Added sanitized response auditing: HTTP status when available, total request latency, numeric provider code, response timestamp, and allowlisted transport error codes. No auth headers, signatures, raw errors or arbitrary provider messages are logged.
 
@@ -59,7 +59,7 @@ Proxy checks returned only configuration flags, never values. HTTP_PROXY, HTTPS_
 
 **Established failure stage:** hostname resolution. TCP connectivity, TLS validation and HTTP/API behavior remain unassessed because DNS did not supply an address. This is not an API authentication rejection. No provider 401/403 or error body was received. The root cause of the DNS failure (resolver outage, routing, upstream resolution, or network policy) is not established by these tests.
 
-HTTPS was not restored, so `npm run test:api` was not repeated in this follow-up. No new RWA response, BSC contract, price or timestamp was obtained. Credentials were neither rotated nor exposed. No Noctive resources were accessed and no trading functionality was added.
+HTTPS was not restored, so `npm run test:api` was not repeated in this follow-up. No new RWA response, BSC contract, price or timestamp was obtained. Credentials were neither rotated nor exposed. No trading functionality was added.
 
 **Next diagnostic action:** compare `nslookup web3.binance.com` with a known-working hostname on the same configured resolver, then ask the network administrator to check resolver reachability and its response for the Binance hostname. A comparison on another user-approved network can isolate the current network without permanently changing DNS settings. No such comparison or network change was performed in this run.
 
@@ -87,7 +87,7 @@ The requested `npm run test:api` was executed with the existing server-only clie
 
 Authentication remains **unverified, not rejected**. No Binance error body or successful response was received. No actual token metadata, contract, provider, multiplier, currency, market status, price or timestamp was discovered. No new live-response provenance audit was possible; earlier documentation findings must not be mistaken for observed fields.
 
-The live integration and verified-token UI remain blocked on successful retrieval. No speculative adapter was presented as verified, and no fabricated data was supplied to the engine. The Reference Truth Engine, its tests, Binance client and existing UI were preserved unchanged; unavailable evidence continues to prevent review, and the synthetic demo remains isolated and labeled. No trades, signing of transactions or broadcasts were performed. No Noctive resources were accessed.
+The live integration and verified-token UI remain blocked on successful retrieval. No speculative adapter was presented as verified, and no fabricated data was supplied to the engine. The Reference Truth Engine, its tests, Binance client and existing UI were preserved unchanged; unavailable evidence continues to prevent review, and the synthetic demo remains isolated and labeled. No trades, signing of transactions or broadcasts were performed.
 
 Integration friction is still local DNS/transport, not demonstrated API rejection or documentation ambiguity. No new documentation defect can be inferred from this failed connection. AI assistance: Codex inspected sanitized environment and network indicators, ran the requested diagnostics, and recorded actual outcomes without printing credentials or authentication headers.
 
@@ -140,7 +140,7 @@ Envelope response timestamps were 1790439328282 (platforms), 1790439329128 (toke
 
 Official reference: [Node.js 24 CLI system-CA support](https://r2.nodejs.org/docs/latest-v24.x/api/cli.html#node_use_system_ca1). The primary nodejs.org CLI page was inaccessible to the web reader; official Node documentation search and local --help confirmed support.
 
-AI assistance: Codex compared default and system trust, inspected the verified certificate chain, ran the existing read-only API diagnostic, and recorded actual results. No application code, engine rules, tests, credentials or trust-store settings changed. No Noctive resources or transactions were involved.
+AI assistance: Codex compared default and system trust, inspected the verified certificate chain, ran the existing read-only API diagnostic, and recorded actual results. No application code, engine rules, tests, credentials or trust-store settings changed. No transactions were performed.
 
 Documentation validation: git diff --check passed and both modified documents were scanned against local credential values with zero matches. .env.local remains ignored. Tests, lint and build were not rerun because no code or configuration files changed; the live diagnostic and verified TLS comparison are the validation evidence for this documentation-only change.
 

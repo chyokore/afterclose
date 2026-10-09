@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Cloudflare small-migration rehearsal
 
 **DEPLOYMENT STATUS: NOT DEPLOYED**
@@ -112,7 +114,7 @@ The final scan covers Git-visible source/configuration/scripts/docs, the complet
 
 For a fresh repeat, preserve or move aside the generated `.tools/cloudflare-migration` directory first; the helper's fixed staging path is intended for one source snapshot. Never reuse old dependencies/output after changing the lockfile. Run the two rendered component checks with `node --import tsx scripts/check-ui-states.ts`. The runtime inspector helper uses the ws version already locked transitively with Wrangler; it installs nothing.
 
-Final credential-pattern scan: **1,290 text files scanned, 0 findings; 5 binary files skipped**. Scope includes generated code/assets, all captured local Worker source maps, staged source/configuration and rehearsal logs. Loopback ports 3187, 3188 and 9239 had no listeners after completion. No staged `.env.local` exists. No Cloudflare account/project/deployment/Access policy/payment/DNS/tunnel or other hosted resource was created; no source was uploaded to a hosting provider. No wallet was connected and no transaction broadcast. Noctive was untouched.
+Final credential-pattern scan: **1,290 text files scanned, 0 findings; 5 binary files skipped**. Scope includes generated code/assets, all captured local Worker source maps, staged source/configuration and rehearsal logs. Loopback ports 3187, 3188 and 9239 had no listeners after completion. No staged `.env.local` exists. No Cloudflare account/project/deployment/Access policy/payment/DNS/tunnel or other hosted resource was created; no source was uploaded to a hosting provider. No wallet was connected and no transaction broadcast.
 
 ### Exact changed-file manifest (19 files)
 

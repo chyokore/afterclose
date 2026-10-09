@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Extracted gateway CPU sizing
 
 2026-10-07, Windows, Node v24.21.0. Reproduce with `node --conditions=react-server --import tsx scripts/benchmark-gateway-cpu.ts`. Source gateway, engine and receipt are unchanged from the diagnostic base. No Next server or React rendering participates. This is not the earlier full-Next ~243 ms benchmark.

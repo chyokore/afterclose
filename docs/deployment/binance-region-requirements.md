@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Binance Web3 region requirements
 
 Verified 2026-10-07 against [Binance's official service restrictions](https://web3.binance.com/en/dev-docs/web3-api-prohibited-regions), modified 2026-10-01.

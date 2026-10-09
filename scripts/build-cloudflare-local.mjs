@@ -4,6 +4,11 @@ import { spawn } from 'node:child_process';
 const stage=resolve('.tools/cloudflare-migration');
 mkdirSync(stage,{recursive:true});
 for(const item of ['src','cloudflare','package.json','package-lock.json','tsconfig.json','next.config.ts','postcss.config.mjs','open-next.config.ts','wrangler.json']) cpSync(item,join(stage,item),{recursive:true});
+// This historical rehearsal already isolates files/environment and denies network.
+// OpenNext invokes the staged build script; avoid recursively staging another build.
+const stagedPackage=JSON.parse(readFileSync(join(stage,'package.json'),'utf8'));
+stagedPackage.scripts.build='next build';
+writeFileSync(join(stage,'package.json'),JSON.stringify(stagedPackage,null,2));
 function links(from,to){mkdirSync(to,{recursive:true});for(const e of readdirSync(from,{withFileTypes:true})){const a=join(from,e.name),b=join(to,e.name);if(statSync(a).isDirectory())links(a,b);else {try{linkSync(a,b);}catch(err){if(err.code!=='EEXIST')throw err;}}}}
 links(resolve('node_modules'),join(stage,'node_modules'));
 const env=Object.fromEntries(['SystemRoot','WINDIR','TEMP','TMP','PATH','PATHEXT','COMSPEC'].filter(k=>process.env[k]).map(k=>[k,process.env[k]]));

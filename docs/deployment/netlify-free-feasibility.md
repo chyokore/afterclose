@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Zero-cost live gateway feasibility
 
 Reviewed 2026-10-07. Scope: research, extraction, local rehearsal and benchmark only. **CONDITIONAL GO** for architecture B. Netlify's documented credit-based Free plan passes the financial requirement. The local implementation passes; hosted packaging, runtime/region connectivity and cold-start behavior remain unverified until a separately authorized deployment. No Netlify account or project was created. Render and the deployed Cloudflare preview were untouched.

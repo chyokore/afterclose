@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Later owner-authorized Netlify gateway deployment
 
 **NOT executed. No account/project exists from this milestone.** Decision: CONDITIONAL GO. This checklist is reviewable preparation, not deployment authorization.

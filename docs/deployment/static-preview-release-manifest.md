@@ -1,10 +1,12 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # AfterClose static preview release manifest
 
 **Frozen locally; NOT DEPLOYED.** Verified 2026-10-05. Deployment requires a separate owner decision using [the owner checklist](OWNER-DEPLOYMENT-CHECKLIST.md).
 
 - Source commit: `070bcb248d5b380dbf6a6a7ebb7ac7753c7d1771`
 - Branch: `codex/static-synthetic-preview`
-- Output: `C:\Users\HP 840 G3\OneDrive\Documents\ChatGPT\AfterClose\static-preview\dist`
+- Output: `static-preview/dist` relative to the AfterClose repository root.
 - Files: **6**; total: **488,751 bytes** (477.30 KiB).
 - Rebuilt from the clean approved commit using Node **24.21.0**, existing dependencies and `scripts/rehearse-static.mjs build`. Every file's size and SHA-256 matches the previous committed `docs/qa/static-preview/results.json` exactly.
 - Server/runtime functions: **0**; API routes: **0**; Worker entry points: **0**. Static `_headers` is delivery metadata. Browser JavaScript evaluates synthetic fixtures locally.
@@ -68,7 +70,7 @@ Each direct route is `/#/lab/<id>`.
 Run from the repository with the existing installed dependencies. These commands build/test locally and do not deploy:
 
 ```powershell
-$releaseNode = '.\.tools\node-v24.21.0-win-x64\node.exe'
+$releaseNode = (Get-Command node -ErrorAction Stop).Source # Node 24.x on PATH
 & $releaseNode scripts/rehearse-static.mjs build
 & $releaseNode --conditions=react-server --import tsx --test --test-concurrency=1 tests/*.test.ts
 & $releaseNode --import tsx --test static-preview/model.test.ts
@@ -80,6 +82,6 @@ $releaseNode = '.\.tools\node-v24.21.0-win-x64\node.exe'
 Get-ChildItem -LiteralPath static-preview/dist -Recurse -Force -File | Get-FileHash -Algorithm SHA256
 ```
 
-Require success for every command and exact hash/file-count/size agreement. Any regression blocks deployment approval. No new dependency is required. Browser reruns regenerate local screenshots; this release rerun left tracked evidence unchanged.
+Require success for every command and exact hash/file-count/size agreement when reproducing the pinned historical source, not the newer release. The optional browser command additionally requires Playwright 1.63.0 installed under `.tools/static-browser-qa` and local Microsoft Edge; these are not installed by the root `npm ci`. Browser reruns regenerate local screenshots; preserve committed evidence before any rerun. For portable current reproduction use [the current guide](../reproduction.md).
 
 Mode A's procedure is prepared but its account onboarding, payment acceptance and pre-upload Access gates must be verified by the owner. Mode B's procedure is prepared but public-access approval is absent. Neither mode is enabled. The [rollback procedure](OWNER-DEPLOYMENT-CHECKLIST.md#rollback--take-offline) removes hosted serving while preserving this release locally.

@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Owner checklist: conditional Supabase Frankfurt validation
 
 This is a future plan, not deployment authorization or a runnable finished port. Prompt 24 executed none of these account/deployment actions. See [decision and sources](non-us-hosting-matrix.md). Primary: Supabase Free. Fallback: Vercel Hobby `fra1`, only after separate plan-eligibility and egress checks.

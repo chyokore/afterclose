@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Zero-cost restricted hosting feasibility
 
 Date: October 5, 2026. **NOT DEPLOYED.** Baseline: `eac2f459fc6c9e582a65dfe0b1fa26f0e9960cdf`, branch `codex/restricted-synthetic-preview`, confirmed clean before work. Feasibility work is isolated on `codex/zero-cost-hosting-feasibility`. The existing Vercel documents, app source, engine, dependency manifest and lockfile are preserved.
@@ -34,7 +36,7 @@ Evidence notation: **D** documented fact from linked official sources; **L** loc
 - `server-only` protects preview mode, dashboard loader, Binance client/wrappers and Ondo reader. Live code imports `node:crypto` (`createHmac`, `randomUUID`) even though synthetic execution never invokes live providers.
 - No application filesystem reads/writes, database, persistent disk or background jobs at runtime. Build and test scripts use filesystem/child processes locally. Next's generated framework output requires an adapter for Workers; Node's `next start` is not itself a Worker entrypoint.
 - Two live transport sites use `fetch`: signed Binance reads and Ondo HTML retrieval. Both have adapter guards. Equity adapter is unavailable-only; calendar/engine are pure. Synthetic mode needs no outbound provider network or provider credential. No remote font/image/analytics import exists in app source.
-- Server environment: `AFTERCLOSE_PREVIEW_MODE`; local-live credentials `BINANCE_API_KEY`, `BINANCE_SECRET_KEY`, optional pinned `BINANCE_WEB3_BASE_URL`; Vercel markers are used only to reject missing mode there. `NEXT_PUBLIC_BSC_CHAIN_ID` is legacy/unneeded.
+- Server environment: `AFTERCLOSE_PREVIEW_MODE`; local-live credentials `BINANCE_API_KEY`, `BINANCE_SECRET_KEY`, optional pinned `BINANCE_WEB3_BASE_URL`; Vercel markers are used only to reject missing mode there. No public application environment variables are required.
 - Output is a `.next` Node/server/RSC build with browser JS/CSS. Dashboard/lab/404 render dynamically. Captured data in tests/docs/ignored tools is not public content or a synthetic fixture input.
 
 A. **Static export: not as-is.** Request-time mode validation, forced dynamic rendering, query-selected server scenarios and RSC refresh require a server. A static redesign would change behavior and is outside scope.

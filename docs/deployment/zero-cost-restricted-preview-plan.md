@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Zero-cost restricted preview — conditional future plan
 
 **NOT DEPLOYED. No hosted resource is authorized by this document.** October 5, 2026.
@@ -9,7 +11,7 @@ This preserves the existing Vercel plan. It describes a possible $0 Cloudflare W
 - Approve a separate small local migration/rehearsal: supported patched Next.js/OpenNext pair; host entry rejects any binding other than `AFTERCLOSE_PREVIEW_MODE=synthetic` before Next runs; missing/invalid-binding workerd tests; no change to engine or local-live semantics.
 - Repeat tests, lint, TypeScript, production build, workerd route/RSC/adversarial tests and fetch counters. Measure bundle/startup behavior and CPU with official profiling; do not infer CPU from wall time. If the 10 ms free CPU budget is not defensible, stop rather than buy Workers Paid or redesign the app under this approval.
 - Owner must review official Free eligibility/terms and the documented requirement to enter payment details directly with Cloudflare. No card details or credentials are requested through chat. No paid plan, trial, R2, Images or other metered add-on is permitted.
-- Confirm the precise owner email and dedicated account scope at a future approval checkpoint. Do not affect unrelated projects/accounts, including Noctive.
+- Confirm the precise owner email and dedicated account scope at a future approval checkpoint. Keep account operations scoped to AfterClose.
 
 ## Exact proposed sequence — every step unperformed
 
@@ -49,7 +51,7 @@ Cloudflare documents account-wide default protection for newly created Workers, 
 
 No database, R2/KV/D1, image optimization, tunnel, custom domain or persistent filesystem is required. No app-level auth secret is required when platform Access is the gate. Platform administration login is not an app binding.
 
-Explicitly excluded: `BINANCE_API_KEY`, `BINANCE_SECRET_KEY`, `BINANCE_WEB3_BASE_URL`, equity/Ondo API credentials, wallet private keys/seed/signing credentials, transaction/RPC secrets, local env files, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_API_KEY`, `CLOUDFLARE_OAUTH_TOKEN`, local CA material and rehearsal preloads. Management credentials must never be embedded in application output. Legacy `NEXT_PUBLIC_BSC_CHAIN_ID` is not required.
+Explicitly excluded: `BINANCE_API_KEY`, `BINANCE_SECRET_KEY`, `BINANCE_WEB3_BASE_URL`, equity/Ondo API credentials, wallet private keys/seed/signing credentials, transaction/RPC secrets, local env files, `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_API_KEY`, `CLOUDFLARE_OAUTH_TOKEN`, local CA material and rehearsal preloads. Management credentials must never be embedded in application output. No public application environment variables are required.
 
 ## Shutdown
 

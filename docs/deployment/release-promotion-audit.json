@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-09",
+  "candidateBranch": "codex/release-promotion-audit",
+  "defaultBranch": "main",
+  "defaultBranchCommit": "4f33b77717aa72db8281beeeb0c60a0a61639f8b",
+  "verifiedReleaseCommit": "89b30a64b479bd4f19d85dd80becd6d6de55eef1",
+  "deployedRuntimeCommit": "8eba2c989e881dbd2db83402c5cdd4a6602c8030",
+  "releaseCommitsAhead": 27,
+  "mainOnlyCommits": 0,
+  "subsequentReleaseFixesFound": 0,
+  "identityCleanup": { "referencesRemoved": 12, "documentsChanged": 8, "remainingCurrentTreeMatches": 0, "historyRewritten": false },
+  "tests": { "releaseBaselinePassed": 190, "gatewayPackagePassed": 3, "failed": 0, "skipped": 0 },
+  "typescript": "passed",
+  "eslint": "passed",
+  "builds": {
+    "nextIsolated": "passed",
+    "environmentFilesCopied": 0,
+    "buildProviderFetchAttempts": 0,
+    "staticScenarioLab": "passed",
+    "staticPublicFrontend": "passed",
+    "historicalLocalReplay": "passed",
+    "legacyGatewayPackageAndPrototype": "passed",
+    "supabaseBundle": "passed",
+    "supabaseSourceDigestUnchanged": "57b9d8f2cf1d63e919aa479f165ccf93eceea0944607f625857434f2411f5a0e",
+    "candidateArtifactsDeployed": false,
+    "note": "Local builds used the audit working tree with release baseline HEAD; runtime source is unchanged. Candidate build identity is not a new hosted release."
+  },
+  "historicalReceipt": {
+    "path": "docs/deployment/public-live-production-receipt.json",
+    "sha256": "683861e0d9d33248f8bfc36cb7f309f51a3cb4771260c58ce6cde74c347d8351",
+    "canonicalReproduction": "passed",
+    "decision": "WAIT",
+    "localReplayMatches": true
+  },
+  "credentialScans": {
+    "exactFilesIncludingBinary": 494,
+    "exactFindings": 0,
+    "patternTextFiles": 465,
+    "patternSkippedBinary": 30,
+    "patternFindings": 0,
+    "browserFiles": 41,
+    "browserSecretNames": 0,
+    "browserAuthenticationMaterial": 0,
+    "reachableHistoryBlobs": 368,
+    "historyExactFindings": 0,
+    "historyPatternHits": 2,
+    "historyPatternClassification": "Two versions of fixed offline benchmark dummy constants, mocked fetch, no environment loading; not real credentials.",
+    "historicalIdentityBearingBlobs": 22
+  },
+  "sideEffects": { "mainChanged": false, "merged": false, "forcePushed": false, "deployed": false, "secretsChanged": false, "formsSubmitted": false, "liveProviderRequests": 0 },
+  "limitations": [
+    "Historical Git blobs retain earlier identity text; rewriting history requires separate approval and is not proposed.",
+    "No full dependency-advisory or provider-license certification is claimed.",
+    "Original per-isolate rate-limit and provider-authenticity limitations are unchanged.",
+    "Main promotion requires fresh ancestry checks and separate owner approval."
+  ]
+}

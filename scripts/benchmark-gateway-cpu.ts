@@ -13,7 +13,7 @@ const originalFetch=globalThis.fetch;
 const names=['BINANCE_API_KEY','BINANCE_SECRET_KEY','AFTERCLOSE_DEPLOYMENT_MODE','AFTERCLOSE_PREVIEW_MODE','BINANCE_WEB3_BASE_URL','NODE_ENV'] as const;
 const prior=names.map(k=>process.env[k]);
 names.forEach(k=>delete process.env[k]);
-Object.assign(process.env,{BINANCE_API_KEY:'offline-benchmark-key',BINANCE_SECRET_KEY:'offline-benchmark-secret',AFTERCLOSE_DEPLOYMENT_MODE:'competition-live',NODE_ENV:'production'});
+Object.assign(process.env,{BINANCE_API_KEY:'test-only-key',BINANCE_SECRET_KEY:'test-only-secret',AFTERCLOSE_DEPLOYMENT_MODE:'competition-live',NODE_ENV:'production'});
 const stats=(v:number[])=>{const a=[...v].sort((a,b)=>a-b);return {median:a[Math.ceil(a.length*.5)-1],p90:a[Math.ceil(a.length*.9)-1],max:a.at(-1)};};
 const results:Record<string,unknown>={mode:'OFFLINE SYNTHETIC SIZING ONLY',node:process.version,providerCalls:0,batches:30,requestsPerBatch:10};
 let fakeWait=0,requestCount=0,catalog=fixture.tokens;

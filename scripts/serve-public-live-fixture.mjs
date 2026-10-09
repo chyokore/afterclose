@@ -3,8 +3,12 @@ import {createServer} from 'node:http';
 import {readFile,appendFile} from 'node:fs/promises';
 import {resolve,extname,sep} from 'node:path';
 const root=resolve('.tools/public-live-fixture/dist');
-const fixture=JSON.parse(await readFile('.tools/supabase-live/first.json','utf8')).body;
-if(!fixture?.receipt)throw Error('Verified local QA capture missing');
+// Reproduce from committed, explicitly historical AfterClose evidence on a fresh clone.
+const envelope=JSON.parse(await readFile('docs/deployment/public-live-production-receipt.json','utf8'));
+const release=JSON.parse(await readFile('docs/deployment/public-live-evidence.json','utf8'));
+const fixture={schemaVersion:'afterclose-live-gateway/v1',status:'LIVE_EVIDENCE',reason:null,
+ receipt:envelope.receipt,receiptDigest:envelope.digest,build:release.production.health.body.build};
+if(!fixture.receipt||!fixture.receiptDigest)throw Error('Committed historical QA receipt missing');
 createServer(async(req,res)=>{
  try{
   const pathname=new URL(req.url,'http://localhost').pathname;

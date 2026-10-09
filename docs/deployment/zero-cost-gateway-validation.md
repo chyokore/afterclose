@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Prompt 21 validation record
 
 Date: 2026-10-07. Branch `codex/zero-cost-live-gateway`, based on `ff7f2680d934543b3beab241e8a8e951e49f0199`. The final commit is the commit containing this record; use `git rev-parse HEAD`. Build identity embeds the actual checkout commit and dirty state, plus a source fingerprint. No artifact is represented as deployed.

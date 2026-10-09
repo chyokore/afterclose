@@ -9,6 +9,7 @@ Official requirements checked October 9, 2026: [BNB Chain tokenized-stocks hacka
 - Video URL: **OWNER TO ADD — recording not completed**. [Script](demo-script.md).
 - Developer Experience Report: **OWNER TO WRITE/REVIEW**. [Evidence outline](developer-experience-evidence.md) is not a firsthand report.
 - Deployment/test evidence: [release record](../deployment/public-live-release.md).
+- Concise judge proof: [historical receipt, offline verifier and 12-case lab](proof-index.md).
 
 ## Project description
 

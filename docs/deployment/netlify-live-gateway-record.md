@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Netlify live gateway deployment record
 
 Prompt 22, 2026-10-07. **DEPLOYED, LIVE EVIDENCE BLOCKED — REVIEW REQUIRED.** The function runs and fails closed, but hosted Binance calls returned non-zero provider codes. This is not ready for Cloudflare integration. Cloudflare and Render remain unchanged.

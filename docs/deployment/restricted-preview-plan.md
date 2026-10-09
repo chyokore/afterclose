@@ -1,6 +1,8 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Restricted synthetic preview — approval plan
 
-Prepared October 5, 2026 from starting commit `4f33b77717aa72db8281beeeb0c60a0a61639f8b`. This plan supersedes the live-provider instructions in `docs/deployment.md` for this milestone. Noctive is outside scope and was not accessed.
+Prepared October 5, 2026 from starting commit `4f33b77717aa72db8281beeeb0c60a0a61639f8b`. This plan supersedes the live-provider instructions in `docs/deployment.md` for this milestone.
 
 ## Proposed destination and restriction
 
@@ -38,7 +40,7 @@ Next.js preset, repository/export root, Node **24.x**, `npm ci`, `npm run build`
 | `NODE_ENV` | `production`, framework-managed for build/start |
 | `VERCEL`, `VERCEL_ENV` | Platform-managed; never spoof/override. Presence with missing preview mode rejects live access. |
 
-No other app variables are required. In particular do **not** upload `BINANCE_API_KEY`, `BINANCE_SECRET_KEY`, `BINANCE_WEB3_BASE_URL`, independent equity/Ondo provider credentials, wallet private keys/seed phrases, RPC/transaction API secrets, `VERCEL_TOKEN`, local certificates, `NODE_USE_SYSTEM_CA`, `NODE_EXTRA_CA_CERTS`, `NODE_TLS_REJECT_UNAUTHORIZED`, `NODE_OPTIONS`, `.env.local`, or any `NEXT_PUBLIC_*` secret. `NEXT_PUBLIC_BSC_CHAIN_ID` is unused and unnecessary. Any host-management authentication stays outside the app environment. Rehearsal-only `AFTERCLOSE_NETWORK_AUDIT` and preload settings are not hosting configuration.
+No other app variables are required. In particular do **not** upload `BINANCE_API_KEY`, `BINANCE_SECRET_KEY`, `BINANCE_WEB3_BASE_URL`, independent equity/Ondo provider credentials, wallet private keys/seed phrases, RPC/transaction API secrets, `VERCEL_TOKEN`, local certificates, `NODE_USE_SYSTEM_CA`, `NODE_EXTRA_CA_CERTS`, `NODE_TLS_REJECT_UNAUTHORIZED`, `NODE_OPTIONS`, `.env.local`, or any `NEXT_PUBLIC_*` secret. No public application environment variables are required. Any host-management authentication stays outside the app environment. Rehearsal-only `AFTERCLOSE_NETWORK_AUDIT` and preload settings are not hosting configuration.
 
 ## Route and data-access audit
 

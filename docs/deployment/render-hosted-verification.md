@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Hosted verification — after separate owner authorization
 Not executed on Render during readiness work. Record timestamp, reviewed commit, public URL and counts-only security results. Any failed security/cost gate means take the live service offline.
 

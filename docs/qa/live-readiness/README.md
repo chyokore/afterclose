@@ -4,7 +4,7 @@
 
 ## Reproducible checks
 
-Use Node 24.21.0 from the repository root. The Windows rehearsal invoked the bundled executable directly.
+Use Node 24.21.0 from the repository root. The Windows rehearsal invoked the bundled executable directly. These are historical checks with optional local browser tooling and ignored evidence directories; they are not a fresh-clone recipe. Use [current reproduction](../../reproduction.md) for the credential-free 190-test baseline and builds. The browser harness requires the Playwright installation referenced in its source and local Microsoft Edge. Exact-value scanning requires existing owner credentials; it intentionally fails without them. Build the static lab before its output tests on a fresh clone.
 
 ```text
 npm ci --include=dev --ignore-scripts --no-audit --no-fund

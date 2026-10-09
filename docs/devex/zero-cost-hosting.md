@@ -6,7 +6,7 @@ October 5, 2026. **NOT DEPLOYED.**
 
 The owner has Vercel Hobby and does not want a paid subscription simply to submit the hackathon before knowing its outcome. Vercel Hobby was not automatically selected because the owner requested an independent $0 eligibility/access-control investigation. This does **not** mean Vercel Authentication necessarily requires payment: the existing Vercel plan already documents a conditional Free path and remains unchanged. No decision about hackathon commercial eligibility was invented.
 
-Started from clean branch `codex/restricted-synthetic-preview` at `eac2f459fc6c9e582a65dfe0b1fa26f0e9960cdf`. Created `codex/zero-cost-hosting-feasibility`. No merge, engine edit, app migration or root dependency upgrade. Prior Vercel documents are preserved byte-for-byte. Noctive was not accessed.
+Started from clean branch `codex/restricted-synthetic-preview` at `eac2f459fc6c9e582a65dfe0b1fa26f0e9960cdf`. Created `codex/zero-cost-hosting-feasibility`. No merge, engine edit, app migration or root dependency upgrade. Prior Vercel documents are preserved byte-for-byte.
 
 ## Research and findings
 
@@ -157,6 +157,6 @@ Validation: 88 canonical tests, 15 static model/parity tests (12 scenario parity
 
 Official hosting research supports Cloudflare Pages static-only delivery for $0 without Functions, with script-free Workers Static Assets also technically possible. Pages Access must cover production and preview aliases separately; do not confuse its preview toggle with full protection. Managed Access adds authentication infrastructure, not an AfterClose Worker, but Zero Trust Free onboarding still documents payment details. GitHub Pages is a suitable public technical fallback subject to public-source Free eligibility; native private-site access requires Enterprise Cloud. No organizer-authored hackathon rules were found in the repository, so the public-URL/repository/video/credential requirement is **UNRESOLVED**. Privacy remains unchanged.
 
-See [the static feasibility report](../deployment/static-preview-feasibility.md) for source links, architecture, reproduction, access limitations and the owner-review recommendation. No deployment/account/project/policy/payment/DNS/tunnel operation occurred; no wallet connection or transaction was made. Noctive was untouched.
+See [the static feasibility report](../deployment/static-preview-feasibility.md) for source links, architecture, reproduction, access limitations and the owner-review recommendation. No deployment/account/project/policy/payment/DNS/tunnel operation occurred; no wallet connection or transaction was made.
 
 Final credential-pattern scan: **110 text files, zero findings, 15 binary image files skipped**, covering source, generated output and QA records. The static preview is ready for local owner review; deployment and the required final judging access model remain separately unapproved/unresolved. Local QA listeners are closed.

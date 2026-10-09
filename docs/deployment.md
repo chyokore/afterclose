@@ -1,6 +1,6 @@
-# Restricted-preview override
+# Historical Node-host readiness
 
-For the current milestone, use [the synthetic-only approval plan](deployment/restricted-preview-plan.md). The live-provider credential and connectivity instructions below are historical and MUST NOT be used for the restricted preview. No hosted action is approved.
+This September 26 runbook describes an earlier AfterClose architecture. The current public release uses a static Cloudflare Pages frontend and a Supabase Frankfurt gateway: see [release evidence](deployment/public-live-release.md) and [current reproduction](reproduction.md). No command in this historical runbook authorizes deployment. `npm run build` now invokes the isolated safe builder; a local production-mode live server also requires `AFTERCLOSE_DEPLOYMENT_MODE=competition-live`, with the legacy preview mode unset. The browser needs no application environment variables.
 
 # Deployment readiness — not deployed
 
@@ -18,7 +18,7 @@ For another Node host, run `npm ci`, `npm run build`, then `npm start` behind th
 
 Required secret names: `BINANCE_API_KEY`, `BINANCE_SECRET_KEY`.
 
-Optional names: `BINANCE_WEB3_BASE_URL`, `NEXT_PUBLIC_BSC_CHAIN_ID`, `NODE_USE_SYSTEM_CA`.
+Optional names: `BINANCE_WEB3_BASE_URL`, `NODE_USE_SYSTEM_CA`.
 
 Set secrets privately in the approved host's environment manager. Restrict them to the approved environment; do not make credentials available to untrusted pull-request builds. Vercel supports [sensitive environment variables](https://vercel.com/docs/environment-variables/sensitive-environment-variables). Never put secret values in Git, public variables, project screenshots or logs. Do not upload `.env.local`, `.tools`, cached builds or local CA certificates.
 

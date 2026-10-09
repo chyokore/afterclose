@@ -1,5 +1,5 @@
 # Environment-variable contract
-Audit date: 2026-10-06. Names only; owner values are never printed. Scope: tracked and new source, scripts, tests, configuration, examples and deployment docs; ignored credential inputs are inspected only by in-memory scanners.
+Audit date: 2026-10-09. Names only; owner values are never printed. Scope: tracked and new source, scripts, tests, configuration, examples and deployment docs; ignored credential inputs are inspected only by in-memory scanners. Current public frontend requires no environment variables. Historical host markers below are retained for the local Next.js application and older AfterClose rehearsals, not instructions to configure the current static site.
 
 | Names | Classification | Contract |
 |---|---|---|
@@ -8,11 +8,11 @@ Audit date: 2026-10-06. Names only; owner values are never printed. Scope: track
 | AFTERCLOSE_PREVIEW_MODE | NON-SECRET SERVER | Legacy synthetic rehearsal guard. Leave absent for competition live. Never an override of failed production configuration. |
 | BINANCE_WEB3_BASE_URL | NON-SECRET SERVER | Optional legacy setting; only exact approved Binance origin/path accepted. Leave absent on host. |
 | NODE_ENV | NON-SECRET SERVER | Framework runtime detection; production server sets production. |
-| RENDER, VERCEL, VERCEL_ENV | NON-SECRET SERVER | Host detection also enforces production restrictions. Vercel names unused for proposed Render host. |
-| NODE_VERSION, PORT | NON-SECRET SERVER | Render runtime selection and listening port; no secret content. |
+| SB_REGION | HOST-SUPPLIED SERVER | Supabase's runtime region; the gateway rejects any value other than eu-central-1 before provider work. Do not spoof or set it manually. |
+| RENDER, VERCEL, VERCEL_ENV, NETLIFY | HOST-SUPPLIED SERVER | Legacy Next.js host detection and local-gateway origin restrictions. Not required by Pages/Supabase. |
+| NODE_VERSION, PORT | HISTORICAL HOST CONFIGURATION | Runtime selection and listening port in older Node-host runbooks. Not current Pages/Supabase application inputs. |
 | NEXT_TELEMETRY_DISABLED | NON-SECRET SERVER | Build/runtime telemetry control. |
-| NEXT_PUBLIC_BSC_CHAIN_ID | UNUSED | Legacy example only; application fixes chain 56 in validated schemas. Remove no static branch assets. No active public environment configuration needed. |
-| NODE_USE_SYSTEM_CA | LOCAL ONLY | Windows local TLS trust integration. Does not disable certificate validation. Not proposed for Render. |
+| NODE_USE_SYSTEM_CA | LOCAL ONLY | Existing local system trust integration when required by Node. Does not disable certificate validation; not a hosted runtime setting. |
 | NODE_OPTIONS, AFTERCLOSE_NETWORK_AUDIT | LOCAL ONLY | Test/build preload and audit path; no production override flags. |
 | PATH, PATHEXT, SystemRoot, WINDIR, TEMP, TMP, COMSPEC | LOCAL ONLY | OS process bootstrap allowlist for isolated builders; no environment wholesale copy to builder. |
 | CI, WRANGLER_SEND_METRICS, CLOUDFLARE_LOAD_DEV_VARS_FROM_DOT_ENV, XDG_CONFIG_HOME | LOCAL ONLY | Existing Cloudflare rehearsal tooling only. No Cloudflare changes. |

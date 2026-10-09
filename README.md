@@ -2,9 +2,11 @@
 
 **Understand the gap before the decision.**
 
+AfterClose is an entirely independent project. Start with the [judge proof index](docs/submission/proof-index.md) for a genuine historical observation, its verifiable receipt and the separate synthetic lab. For fresh-clone commands, use [reproduction instructions](docs/reproduction.md).
+
 Tokenized stocks can trade when their underlying equity reference is stale, missing or based on a different unit. AfterClose makes those gaps in evidence visible before anyone interprets a price difference.
 
-This is a read-only hackathon research application. The [public demo](https://afterclose-preview.pages.dev/) is the judge entry for Live Evidence and the separate [12-case synthetic Scenario Lab](https://afterclose-preview.pages.dev/lab/#/lab/fresh-evidence). Check the [release record](docs/deployment/public-live-release.md) for deployment status, source commit and validation. No wallet or execution capability exists. Use the [release branch](https://github.com/chyokore/afterclose/tree/codex/cloudflare-live-integration) for this README; main is not automatically merged.
+This is a read-only hackathon research application. The [public demo](https://afterclose-preview.pages.dev/) is the judge entry for Live Evidence and the separate [12-case synthetic Scenario Lab](https://afterclose-preview.pages.dev/lab/#/lab/fresh-evidence). Check the [release record](docs/deployment/public-live-release.md) for deployment status, source commit and validation. No wallet or execution capability exists. The [verified release branch](https://github.com/chyokore/afterclose/tree/codex/cloudflare-live-integration) preserves deployed-release evidence; repository cleanup is prepared on the [review branch](https://github.com/chyokore/afterclose/tree/codex/release-promotion-audit). Main is not automatically merged.
 
 ## One-minute demonstration
 
@@ -63,7 +65,7 @@ node scripts/build-static-preview.mjs
 node scripts/build-public-live.mjs
 ```
 
-The deployable files are in `.tools/public-live-release/dist`. They call only the public Frankfurt gateway, which accepts the exact deployed production and staging origins; localhost is intentionally not authorized. `--fixture` builds a separate local QA artifact, never a deployable live artifact. The local fixture server requires the developer's ignored sanitized capture file and is not part of the judging setup. For local live-provider development, use the existing Next.js path below.
+The deployable files are in `.tools/public-live-release/dist`. They call only the public Frankfurt gateway, which accepts the exact deployed production and staging origins; localhost is intentionally not authorized. `--fixture` builds a separately labeled historical-receipt replay from committed evidence for credential-free local QA; never deploy that artifact. See [reproduction](docs/reproduction.md). For local live-provider development, use the existing Next.js path below.
 
 The public page never auto-fetches. It coalesces an in-flight request, persists a 45-second tab-session cooldown across navigation, respects Retry-After and waits at least 60 seconds after failure. No polling or automatic retry exists. These controls do not create a global rate limiter. The gateway requires no browser Authorization header, API key or privileged Supabase credential; provider credentials remain server-only. CORS is a browser boundary, not protection against non-browser callers. The fixed route cannot proxy arbitrary URLs or assets.
 
@@ -96,7 +98,8 @@ Environment variable names only:
 | `BINANCE_API_KEY` | Required server-only Binance credential for live RWA access |
 | `BINANCE_SECRET_KEY` | Required server-only signing secret |
 | `BINANCE_WEB3_BASE_URL` | Optional server configuration; only the documented pinned host is accepted |
-| `NEXT_PUBLIC_BSC_CHAIN_ID` | Non-secret legacy configuration; runtime schemas enforce BSC 56 |
+| `AFTERCLOSE_DEPLOYMENT_MODE` | Set `competition-live` for a local Next.js production-mode live server, or `synthetic` for offline rehearsal |
+| `AFTERCLOSE_PREVIEW_MODE` | Optional legacy local `synthetic` mode; leave unset with `competition-live` |
 | `NODE_USE_SYSTEM_CA` | Optional local Node trust configuration where an existing system CA is required |
 
 There is no Ondo API key or independent equity provider key configured by this application. Do not prefix secret names with `NEXT_PUBLIC_`. The development machine's existing system trust was necessary for verified TLS; do not copy local certificates to a host or disable certificate validation. See the recorded [TLS diagnostics](docs/devex/live-verification.md).
@@ -111,6 +114,8 @@ npm run lint
 npm run build:live-safe
 npm start
 ```
+
+`npm run build` also uses the isolated safe builder. A production-mode Next.js server fails closed unless a valid deployment mode is set; the static Cloudflare frontend uses no environment variables. For the full 190-test release baseline, run `npm run test:release`.
 
 `npm run test:api` is a separate read-only live Binance diagnostic. It loads the local environment securely. Missing credentials cause skipped requests, not a successful connectivity result. Automated tests use synthetic responses and captured historical structures; those tests do not establish current API availability.
 
@@ -131,7 +136,7 @@ The public Cloudflare Pages frontend and Supabase Frankfurt gateway are deployed
 - A gateway cache miss can make six fixed Binance requests and one issuer-page request. Cache/cooldown are per worker; there is no distributed rate limiter or shared cache. Browser safeguards reduce accidental requests but cannot coordinate arbitrary callers. This is a bounded competition demonstration, not a high-traffic service.
 - No fallback live prices. Network and schema failures are visible, actionable states.
 
-Research: [issuer/session evidence](docs/research/issuer-multiplier-and-session.md), [execution feasibility](docs/research/binance-execution-evidence.md), [independent providers](docs/research/underlying-equity-providers.md). This repository is independent of Noctive and uses none of its files, assets or infrastructure.
+Research: [issuer/session evidence](docs/research/issuer-multiplier-and-session.md), [execution feasibility](docs/research/binance-execution-evidence.md), [independent providers](docs/research/underlying-equity-providers.md). AfterClose is an entirely independent project.
 
 ## Historical local synthetic rehearsal
 

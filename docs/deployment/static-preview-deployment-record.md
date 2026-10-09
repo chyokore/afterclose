@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Public static preview deployment
 
 Mode B was explicitly approved by the owner in this chat. Deployed 2026-10-06 at 12:10:39 UTC using Cloudflare Pages Direct Upload.

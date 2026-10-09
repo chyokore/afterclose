@@ -2,7 +2,7 @@
 
 Initial date: **September 26, 2026**.
 
-Latest milestone: [Demo and deployment readiness](demo-readiness.md) improves explanations, failure states, snapshot-age disclosure and accessibility, with desktop/mobile screenshots and a deployment runbook. No public deployment was performed. Current issuer validity, independent equity and execution evidence remain unresolved; live WAIT is preserved.
+Current deployed milestone: [Cloudflare/Supabase public live release](../deployment/public-live-release.md). The [judge proof index](../submission/proof-index.md) links real historical evidence and offline reproduction. Independent equity, issuer applicability and execution evidence remain unresolved; live WAIT is preserved. Earlier diary entries describe their own dates, not current deployment status.
 
 This diary separates user-reported milestones, direct observations, documentation findings and unverified work. It is not a claim of production readiness.
 
@@ -13,6 +13,6 @@ This diary separates user-reported milestones, direct observations, documentatio
 
 AI assistance: OpenAI Codex read the project brief, inspected this repository, consulted official docs, generated the foundation, and ran the recorded checks. No other project files, credentials or infrastructure were used.
 
-Latest milestone (October 5, 2026): [Restricted synthetic preview](restricted-preview.md) adds server-controlled fixture isolation and a reviewable hosted approval plan. No hosted deployment has occurred.
+Historical milestone (October 5, 2026): [Restricted synthetic preview](restricted-preview.md) added server-controlled fixture isolation and a reviewable hosted approval plan. No hosted deployment had occurred at that milestone.
 
 [Zero-cost hosting feasibility](zero-cost-hosting.md) records the October 5 Cloudflare investigation, isolated local experiments and the remaining approval gates. NOT DEPLOYED; the existing Vercel plan is preserved.

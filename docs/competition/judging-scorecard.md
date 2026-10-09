@@ -1,3 +1,5 @@
+> Historical local-application milestone. For the deployed static frontend and current verification path, use the [judge proof index](../submission/proof-index.md).
+
 # Judging scorecard
 
 Official basis: [BNB Hack: Tokenized Stocks Edition](https://www.bnbchain.org/en/hackathons/tokenized-stocks), reviewed October 6, 2026. This is an evidence audit, not a predicted score or an eligibility certification.

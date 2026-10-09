@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # AfterClose owner deployment checklist
 
 **NOT DEPLOYED. Prepared 2026-10-05. These are future owner actions, not authorization to execute.**
@@ -24,7 +26,7 @@ Selecting a paid subscription, upgrading Workers/Zero Trust, or enabling separat
 
 1. Record the owner's explicit approval, chosen mode and chosen unique project name. For A, also obtain the owner's exact email privately; never commit it or a login code.
 2. Open [Cloudflare dashboard](https://dash.cloudflare.com/). Select **Workers & Pages → Pages** and the **Free** offering. Keep the generated `pages.dev` hostname; no custom domain or DNS changes.
-3. Check [release manifest](static-preview-release-manifest.md): six files, 488,751 bytes, every SHA-256 must match. Upload only `C:\Users\HP 840 G3\OneDrive\Documents\ChatGPT\AfterClose\static-preview\dist`, with `index.html` at the upload root. Include `_headers`, `.nojekyll`, `404.html` and both assets. Never upload the repository, `.env`, `.tools`, `.next`, `.open-next`, source code or server configuration. Any mismatch stops release.
+3. Check [release manifest](static-preview-release-manifest.md): six files, 488,751 bytes, every SHA-256 must match. Upload only `static-preview/dist` from the AfterClose repository root, with `index.html` at the upload root. Include `_headers`, `.nojekyll`, `404.html` and both assets. Never upload the repository, `.env`, `.tools`, `.next`, `.open-next`, source code or server configuration. Any mismatch stops release.
 
 ## MODE A — Restricted owner preview
 
@@ -35,8 +37,9 @@ Purpose: owner QA. **Procedure prepared; account setup and protection-before-upl
 3. Create an **empty** Pages project using the existing local Wrangler CLI. From a new empty working folder outside the repository, run the following future-only PowerShell commands (replace `OWNER_CHOSEN_PROJECT`):
 
    ```powershell
-   $releaseRoot = 'C:\Users\HP 840 G3\OneDrive\Documents\ChatGPT\AfterClose'
-   $releaseNode = Join-Path $releaseRoot '.tools\node-v24.21.0-win-x64\node.exe'
+   # Set this to your actual AfterClose clone, before switching to the empty folder.
+   $releaseRoot = (Resolve-Path '<YOUR_AFTERCLOSE_CLONE>').Path
+   $releaseNode = (Get-Command node -ErrorAction Stop).Source # Node 24.x
    $releaseWrangler = Join-Path $releaseRoot 'node_modules\wrangler\bin\wrangler.js'
    & $releaseNode $releaseWrangler login
    & $releaseNode $releaseWrangler pages project create OWNER_CHOSEN_PROJECT --production-branch codex/static-synthetic-preview

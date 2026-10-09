@@ -2,16 +2,21 @@
   "name": "afterclose",
   "version": "0.1.0",
   "private": true,
+  "description": "Independent read-only tokenized-stock evidence research with canonical receipts and a synthetic Scenario Lab.",
+  "repository": { "type": "git", "url": "https://github.com/chyokore/afterclose.git" },
+  "homepage": "https://afterclose-preview.pages.dev/",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "node scripts/build-live-safe.mjs",
     "build:live-safe": "node scripts/build-live-safe.mjs",
     "start": "next start",
     "lint": "eslint",
     "test": "node --conditions=react-server --import tsx --test tests/*.test.ts",
     "test:api": "node --conditions=react-server --import tsx scripts/test-api.ts",
     "build:cloudflare": "opennextjs-cloudflare build",
-    "build:static": "node scripts/build-static-preview.mjs"
+    "build:static": "node scripts/build-static-preview.mjs",
+    "build:public": "node scripts/build-static-preview.mjs && node scripts/build-public-live.mjs",
+    "test:release": "node scripts/build-static-preview.mjs && node --conditions=react-server --import tsx --test tests/*.test.ts static-preview/model.test.ts static-preview/output.test.mjs"
   },
   "dependencies": {
     "@next/env": "16.3.8",

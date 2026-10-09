@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Static synthetic judging preview — feasibility and local build
 
 **DEPLOYMENT STATUS: NOT DEPLOYED**
@@ -107,7 +109,7 @@ Access Free is a separate entitlement/onboarding decision: the [Zero Trust setup
 
 **STATIC PREVIEW READY FOR OWNER REVIEW.** The synthetic product experience fits a six-file client-only artifact and avoids the full Next/OpenNext CPU risk. Prefer Cloudflare Pages static-only if the owner later authorizes hosting, with GitHub Pages as a public fallback where its source/eligibility rules are acceptable. This is readiness for local owner review, not authorization to deploy or remove authentication.
 
-Only the generated static directory should be considered for a future upload after approval. Never upload the repository, `.env.local`, `.tools`, the old Worker configuration or the full `.open-next` output. No deployment command was run, and no hosted account/project/policy/payment/DNS/tunnel/resource was created. No wallet was connected and no transaction was broadcast. Noctive was untouched.
+Only the generated static directory should be considered for a future upload after approval. Never upload the repository, `.env.local`, `.tools`, the old Worker configuration or the full `.open-next` output. No deployment command was run, and no hosted account/project/policy/payment/DNS/tunnel/resource was created. No wallet was connected and no transaction was broadcast.
 
 ### Final credential scan
 

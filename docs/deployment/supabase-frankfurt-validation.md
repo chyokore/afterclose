@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Supabase Frankfurt Gate A validation
 
 **GATE A PASS — observed egress VERIFIED_NON_US. Gate B is not authorized.**

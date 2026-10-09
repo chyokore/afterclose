@@ -1,3 +1,5 @@
+> Historical AfterClose milestone/runbook. Current release: [Cloudflare + Supabase](public-live-release.md); current judge path: [proof index](../submission/proof-index.md). Historical commands are not authorization to deploy or alter accounts.
+
 # Non-US gateway hosting decision
 
 Research date: 2026-10-07. Base: `521f0485a7492f17b410522c27540d6eeee2563c`. No deployment or account change occurred.

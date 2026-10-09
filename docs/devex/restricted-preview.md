@@ -23,7 +23,7 @@ Production rehearsal and credential-scan outcomes are recorded below. No browser
 
 ## Approval boundary
 
-**NO HOSTED DEPLOYMENT HAS OCCURRED.** No host project, repo connection, public URL, DNS change, provider-credential upload or hosting purchase was performed. Noctive was not accessed. The [reviewable approval plan](../deployment/restricted-preview-plan.md) distinguishes local evidence from hosted checks that await explicit user approval.
+**NO HOSTED DEPLOYMENT HAS OCCURRED.** No host project, repo connection, public URL, DNS change, provider-credential upload or hosting purchase was performed. The [reviewable approval plan](../deployment/restricted-preview-plan.md) distinguishes local evidence from hosted checks that await explicit user approval.
 
 Credential review: scanned 74 tracked/new non-ignored text files for private-key blocks, GitHub token patterns and nonempty long Binance credential assignments. No findings after fixing a scanner regex that incorrectly crossed blank `.env.example` lines. This is a bounded pattern scan, not a guarantee against every secret format. No local credential file values were printed. `git diff --check` passed.
 
