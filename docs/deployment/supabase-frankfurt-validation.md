@@ -4,6 +4,8 @@
 
 Subsequent owner-authorized [Gate B validation](supabase-binance-live-validation.md) verified Frankfurt Binance authentication and live receipt equivalence, but did not demonstrate the required hosted cache hit. Gate B status: FAILED — DO NOT INTEGRATE. This Gate A report retains its original scope.
 
+Later [Prompt 27 cache repair](supabase-cache-repair.md) resolved the fresh-worker failure and verified safe stateless fallback. Current gateway status: READY FOR CLOUDFLARE INTEGRATION; frontend integration has not been performed.
+
 Completed 2026-10-07. Branch `codex/supabase-frankfurt-validation`, base `4e610ba410bc174da26198d5834ebd2b35afcfc5`. See [machine-readable evidence](supabase-frankfurt-evidence.json). One project and one function exist; two revisions were deployed to remove temporary diagnostics after testing. No merge or frontend integration.
 
 ## Account, costs and resources

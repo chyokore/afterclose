@@ -1,0 +1,537 @@
+{
+  "receipt": {
+    "schemaVersion": "afterclose-evidence-receipt/v1",
+    "mode": "live",
+    "evaluatedAtMs": 1791546269535,
+    "asset": {
+      "symbol": "NVDAon",
+      "name": "NVIDIA (Ondo)",
+      "underlying": "NVDA",
+      "company": "Nvidia Corp",
+      "chain": 56,
+      "contract": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+      "decimals": "18",
+      "issuer": "ondo"
+    },
+    "observation": {
+      "mode": "live",
+      "state": "connected",
+      "failure": null,
+      "token": {
+        "binanceChainId": "56",
+        "tokenContractAddress": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+        "platformId": "ondo",
+        "tokenSymbol": "NVDAon",
+        "tokenName": "NVIDIA (Ondo)",
+        "underlyingTicker": "NVDA",
+        "assetType": 1,
+        "underlyingName": "Nvidia Corp",
+        "decimals": "18",
+        "tokenToShareRatio": "1.0017152487959898",
+        "statusInfo": {
+          "marketStatus": "premarket",
+          "openState": true
+        },
+        "tokenPrice": "234.788373381281298685532872077264",
+        "referencePrice": "234.38634248952968"
+      },
+      "quote": {
+        "binanceChainId": "56",
+        "tokenContractAddress": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+        "platformId": "ondo",
+        "tokenPrice": "234.386342489529673353",
+        "referencePrice": "233.985",
+        "tokenPriceUpdatedAt": 1791546266327
+      },
+      "market": {
+        "binanceChainId": "56",
+        "tokenContractAddress": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+        "platformId": "ondo",
+        "statusInfo": {
+          "marketStatus": "premarket",
+          "openState": true
+        },
+        "marketData": {
+          "referencePrice": "233.699148"
+        }
+      },
+      "discovery": "MATCH",
+      "searchCompany": "Nvidia Corp",
+      "audits": [
+        {
+          "endpoint": "platforms",
+          "status": 200,
+          "latencyMs": 290,
+          "code": "0",
+          "responseTimestamp": 1791546268814,
+          "observedAtMs": 1791546268942
+        },
+        {
+          "endpoint": "tokens",
+          "status": 200,
+          "latencyMs": 539,
+          "code": "0",
+          "responseTimestamp": 1791546268845,
+          "observedAtMs": 1791546269193
+        },
+        {
+          "endpoint": "search",
+          "status": 200,
+          "latencyMs": 617,
+          "code": "0",
+          "responseTimestamp": 1791546269155,
+          "observedAtMs": 1791546269271
+        },
+        {
+          "endpoint": "price",
+          "status": 200,
+          "latencyMs": 245,
+          "code": "0",
+          "responseTimestamp": 1791546269403,
+          "observedAtMs": 1791546269519
+        },
+        {
+          "endpoint": "underlying-market",
+          "status": 200,
+          "latencyMs": 258,
+          "code": "0",
+          "responseTimestamp": 1791546269407,
+          "observedAtMs": 1791546269532
+        },
+        {
+          "endpoint": "chain-list",
+          "status": 200,
+          "latencyMs": 276,
+          "code": "0",
+          "responseTimestamp": 1791546268813,
+          "observedAtMs": 1791546268931
+        }
+      ],
+      "chains": [
+        {
+          "binanceChainId": "56",
+          "name": "BNB Smart Chain",
+          "shortName": "BSC"
+        }
+      ],
+      "issuer": {
+        "availability": "reported",
+        "value": "1.0017152487959898",
+        "observedAtMs": 1791546269090,
+        "source": "https://app.ondo.finance/assets/nvdaon",
+        "effectiveAtMs": null,
+        "validUntilMs": null,
+        "verification": "unverified"
+      }
+    },
+    "fields": [
+      {
+        "id": "token-price",
+        "label": "Token price (USD per token)",
+        "raw": "234.386342489529673353",
+        "normalized": 234.38634248952968,
+        "provider": "Binance Web3 RWA",
+        "source": "/api/v1/dex/market/rwa/price",
+        "asset": "NVDAon",
+        "chain": 56,
+        "contract": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+        "providerAtMs": 1791546266327,
+        "providerTimeSemantics": "tokenPriceUpdatedAt: provider token-price update, Unix milliseconds",
+        "observedAtMs": 1791546269519,
+        "observationAgeMs": 16,
+        "providerDataAgeMs": 3208,
+        "latencyMs": 245,
+        "classification": "LIVE",
+        "derived": false,
+        "usedByEngine": true,
+        "limitation": "USD units from Binance documentation; normalized Number is engine parsing, not per-share normalization."
+      },
+      {
+        "id": "identity",
+        "label": "Token contract",
+        "raw": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+        "normalized": null,
+        "provider": "Binance Web3 RWA",
+        "source": "/api/v1/dex/market/rwa/tokens",
+        "asset": "NVDAon",
+        "chain": 56,
+        "contract": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+        "providerAtMs": null,
+        "providerTimeSemantics": "No identity effective timestamp",
+        "observedAtMs": 1791546269193,
+        "observationAgeMs": 342,
+        "providerDataAgeMs": null,
+        "latencyMs": 539,
+        "classification": "UNDATED_PROVIDER_REPORT",
+        "derived": false,
+        "usedByEngine": true,
+        "limitation": "Discovery comparison: MATCH. Provider-reported identity, not on-chain attestation."
+      },
+      {
+        "id": "decimals",
+        "label": "Token decimals",
+        "raw": "18",
+        "normalized": 18,
+        "provider": "Binance Web3 RWA",
+        "source": "/api/v1/dex/market/rwa/tokens",
+        "asset": "NVDAon",
+        "chain": 56,
+        "contract": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+        "providerAtMs": null,
+        "providerTimeSemantics": "No metadata effective timestamp",
+        "observedAtMs": 1791546269193,
+        "observationAgeMs": 342,
+        "providerDataAgeMs": null,
+        "latencyMs": 539,
+        "classification": "UNDATED_PROVIDER_REPORT",
+        "derived": false,
+        "usedByEngine": true,
+        "limitation": "Reported token unit scale."
+      },
+      {
+        "id": "price-reference",
+        "label": "Token-derived price reference (USD/share)",
+        "raw": "233.985",
+        "normalized": null,
+        "provider": "Binance Web3 RWA",
+        "source": "/api/v1/dex/market/rwa/price",
+        "asset": "NVDAon",
+        "chain": 56,
+        "contract": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+        "providerAtMs": null,
+        "providerTimeSemantics": "No separate reference event time supplied",
+        "observedAtMs": 1791546269519,
+        "observationAgeMs": 16,
+        "providerDataAgeMs": null,
+        "latencyMs": 245,
+        "classification": "UNDATED_PROVIDER_REPORT",
+        "derived": false,
+        "usedByEngine": false,
+        "limitation": "Derived by Binance from token infrastructure; never an independent equity quote. Token timestamp is not reassigned to this field."
+      },
+      {
+        "id": "market-reference",
+        "label": "Token-derived underlying-market reference (USD/share)",
+        "raw": "233.699148",
+        "normalized": null,
+        "provider": "Binance Web3 RWA",
+        "source": "/api/v1/dex/market/rwa/underlying-market",
+        "asset": "NVDAon",
+        "chain": 56,
+        "contract": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+        "providerAtMs": null,
+        "providerTimeSemantics": "Reference event time absent",
+        "observedAtMs": 1791546269532,
+        "observationAgeMs": 3,
+        "providerDataAgeMs": null,
+        "latencyMs": 258,
+        "classification": "UNDATED_PROVIDER_REPORT",
+        "derived": false,
+        "usedByEngine": false,
+        "limitation": "Not an independent NVDA market price."
+      },
+      {
+        "id": "ratio",
+        "label": "Binance reported shares/token",
+        "raw": "1.0017152487959898",
+        "normalized": null,
+        "provider": "Binance Web3 RWA",
+        "source": "/api/v1/dex/market/rwa/tokens",
+        "asset": "NVDAon",
+        "chain": 56,
+        "contract": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+        "providerAtMs": null,
+        "providerTimeSemantics": "Effective date and validity interval absent",
+        "observedAtMs": 1791546269193,
+        "observationAgeMs": 342,
+        "providerDataAgeMs": null,
+        "latencyMs": 539,
+        "classification": "UNDATED_PROVIDER_REPORT",
+        "derived": false,
+        "usedByEngine": false,
+        "limitation": "Not admitted as a verified current multiplier."
+      },
+      {
+        "id": "market-status",
+        "label": "Binance raw market status",
+        "raw": "premarket",
+        "normalized": null,
+        "provider": "Binance Web3 RWA",
+        "source": "/api/v1/dex/market/rwa/underlying-market",
+        "asset": "NVDAon",
+        "chain": 56,
+        "contract": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+        "providerAtMs": null,
+        "providerTimeSemantics": "Status event time absent",
+        "observedAtMs": 1791546269532,
+        "observationAgeMs": 3,
+        "providerDataAgeMs": null,
+        "latencyMs": 258,
+        "classification": "UNDATED_PROVIDER_REPORT",
+        "derived": false,
+        "usedByEngine": false,
+        "limitation": "Provider RWA status is not an authoritative exchange/security status feed."
+      },
+      {
+        "id": "issuer-multiplier",
+        "label": "Ondo reported shares/token",
+        "raw": "1.0017152487959898",
+        "normalized": null,
+        "provider": "Ondo Finance",
+        "source": "https://app.ondo.finance/assets/nvdaon",
+        "asset": "NVDAon",
+        "chain": 56,
+        "contract": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+        "providerAtMs": null,
+        "providerTimeSemantics": "Effective date unavailable",
+        "observedAtMs": 1791546269090,
+        "observationAgeMs": 445,
+        "providerDataAgeMs": null,
+        "latencyMs": null,
+        "classification": "UNDATED_PROVIDER_REPORT",
+        "derived": false,
+        "usedByEngine": false,
+        "limitation": "No effective date or validity interval; current applicability remains unverified."
+      }
+    ],
+    "transportVerified": true,
+    "freshness": {
+      "status": "LIVE",
+      "providerDataAgeMs": 3208,
+      "observationAgeMs": 16,
+      "reason": "Both clocks satisfy the research freshness policy; this does not establish execution readiness."
+    },
+    "freshnessPolicy": {
+      "version": "afterclose-freshness/v1",
+      "observationMaxMs": 30000,
+      "token": {
+        "maxMs": 60000,
+        "historicalMs": 86400000
+      },
+      "equity": {
+        "maxMs": 60000,
+        "historicalMs": 86400000
+      },
+      "session": {
+        "maxMs": 60000,
+        "historicalMs": 86400000
+      },
+      "multiplier": {
+        "maxMs": 86400000,
+        "historicalMs": 604800000
+      }
+    },
+    "evidenceStatus": "PARTIAL",
+    "discovery": "MATCH",
+    "multiplier": {
+      "status": "UNVERIFIED",
+      "reportedValue": "1.0017152487959898",
+      "effectiveAtMs": null,
+      "validUntilMs": null,
+      "currentApplicability": "UNVERIFIED",
+      "normalizedTokenPrice": null
+    },
+    "independentReference": {
+      "status": "UNAVAILABLE",
+      "reason": "No independent NVDA provider with confirmed timestamps and public-display entitlement is connected."
+    },
+    "calendarReview": {
+      "mode": "live",
+      "market": "XNAS",
+      "timezone": "America/New_York",
+      "source": "https://www.nasdaqtrader.com/Trader.aspx?id=Calendar",
+      "hoursSource": "https://www.nasdaq.com/market-activity/stock-market-holiday-schedule",
+      "observedAtMs": 1791290088000,
+      "validFromDate": "2026-01-01",
+      "validUntilDate": "2026-12-06",
+      "holidays": [
+        "2026-01-01",
+        "2026-01-19",
+        "2026-02-16",
+        "2026-04-03",
+        "2026-05-25",
+        "2026-06-19",
+        "2026-07-03",
+        "2026-09-07",
+        "2026-11-26",
+        "2026-12-25"
+      ],
+      "earlyCloses": [
+        "2026-11-27",
+        "2026-12-24"
+      ]
+    },
+    "session": {
+      "scheduled": {
+        "market": "XNAS",
+        "timezone": "America/New_York",
+        "calendarDate": "2026-10-09",
+        "session": "premarket",
+        "availability": "available",
+        "scope": "published-schedule",
+        "mode": "live",
+        "source": "https://www.nasdaqtrader.com/Trader.aspx?id=Calendar",
+        "hoursSource": "https://www.nasdaq.com/market-activity/stock-market-holiday-schedule",
+        "observedAtMs": 1791290088000,
+        "evaluatedAtMs": 1791546269535,
+        "validFromDate": "2026-01-01",
+        "validUntilDate": "2026-12-06",
+        "authoritativeStatus": "unverified",
+        "reason": "Published schedule only. Live exchange status, security halts and fresh equity quotes are not verified."
+      },
+      "calendarEvent": "STANDARD",
+      "authoritative": "UNKNOWN"
+    },
+    "execution": {
+      "quote": "UNAVAILABLE",
+      "route": null,
+      "simulation": "NOT_RUN",
+      "liquidity": null,
+      "priceImpact": null,
+      "slippage": null,
+      "reason": "RWA RFQ needs owner-supplied wallet context; no wallet or genuine transaction context provided. No transaction endpoint called."
+    },
+    "engine": {
+      "id": "reference-truth/v1:0b8daa72d38484ed6c6e4ea5e89213029c3c47f97bfcccdca6a7aa67e6cc669b",
+      "input": {
+        "mode": "live",
+        "available": true,
+        "observedAt": {
+          "kind": "afterclose-observation",
+          "unixMs": 1791546269535
+        },
+        "token": {
+          "id": "56:0xa9ee28c80f960b889dfbd1902055218cba016f75",
+          "name": "NVIDIA (Ondo)",
+          "symbol": "NVDAon",
+          "chainId": 56,
+          "contract": "0xa9ee28c80f960b889dfbd1902055218cba016f75",
+          "decimals": 18,
+          "issuer": {
+            "id": "ondo",
+            "name": "Ondo Finance"
+          },
+          "underlyingId": "NVDA",
+          "provenance": {
+            "mode": "live",
+            "provider": {
+              "id": "binance-web3",
+              "name": "Binance Web3"
+            },
+            "source": "/api/v1/dex/market/rwa/tokens"
+          }
+        },
+        "underlying": null,
+        "tokenPrice": {
+          "tokenId": "56:0xa9ee28c80f960b889dfbd1902055218cba016f75",
+          "observedAt": {
+            "kind": "afterclose-observation",
+            "unixMs": 1791546269519
+          },
+          "provenance": {
+            "mode": "live",
+            "provider": {
+              "id": "binance-web3",
+              "name": "Binance Web3"
+            },
+            "source": "/api/v1/dex/market/rwa/price"
+          },
+          "priceAt": {
+            "kind": "provider-price",
+            "unixMs": 1791546266327
+          },
+          "currency": "USD",
+          "price": 234.38634248952968
+        },
+        "references": [],
+        "multiplier": null,
+        "session": null,
+        "liquidity": null,
+        "quote": null,
+        "order": null
+      },
+      "policy": {
+        "maxTokenAgeMs": 60000,
+        "maxReferenceAgeMs": 60000,
+        "maxObservationAgeMs": 30000,
+        "maxMultiplierAgeMs": 86400000,
+        "minLiquidityNotional": 10000,
+        "maxSlippageBps": 50,
+        "maxProviderDisagreementBps": 25,
+        "minGapBps": 50,
+        "minIndependentProviders": 2,
+        "reviewSessions": [
+          "regular"
+        ]
+      },
+      "result": {
+        "decision": "WAIT",
+        "mode": "live",
+        "findings": [
+          {
+            "code": "MISSING_EVIDENCE",
+            "message": "underlying: required evidence is missing.",
+            "severity": "blocking"
+          },
+          {
+            "code": "MISSING_EVIDENCE",
+            "message": "multiplier: required evidence is missing.",
+            "severity": "blocking"
+          },
+          {
+            "code": "MISSING_EVIDENCE",
+            "message": "session: required evidence is missing.",
+            "severity": "blocking"
+          },
+          {
+            "code": "MISSING_EVIDENCE",
+            "message": "order: required evidence is missing.",
+            "severity": "blocking"
+          },
+          {
+            "code": "MISSING_LIQUIDITY",
+            "message": "Liquidity evidence is missing.",
+            "severity": "blocking"
+          },
+          {
+            "code": "MISSING_QUOTE",
+            "message": "An executable quote for this exact proposed order is missing.",
+            "severity": "blocking"
+          },
+          {
+            "code": "MISSING_CORROBORATION",
+            "message": "Too few distinct independent reference providers.",
+            "severity": "blocking"
+          },
+          {
+            "code": "GAP_UNAVAILABLE",
+            "message": "A comparable normalized price gap cannot be established.",
+            "severity": "blocking"
+          }
+        ],
+        "tokenPriceAgeMs": 3208,
+        "referenceAgesMs": [],
+        "observationAgeMs": 0,
+        "normalizedTokenPrice": null,
+        "referenceConsensusPrice": null,
+        "normalizedGapBps": null,
+        "providerDisagreementBps": null,
+        "session": "unknown",
+        "execution": "DISABLED"
+      },
+      "blockerCodes": [
+        "MISSING_EVIDENCE",
+        "MISSING_EVIDENCE",
+        "MISSING_EVIDENCE",
+        "MISSING_EVIDENCE",
+        "MISSING_LIQUIDITY",
+        "MISSING_QUOTE",
+        "MISSING_CORROBORATION",
+        "GAP_UNAVAILABLE"
+      ]
+    },
+    "evaluationId": "ac-0c67dd2ea3ea0f4cf663e4a27af2fdbdc076d07db20a15f53ac58954855fa4a5"
+  },
+  "canonicalJson": "{\"asset\":{\"chain\":56,\"company\":\"Nvidia Corp\",\"contract\":\"0xa9ee28c80f960b889dfbd1902055218cba016f75\",\"decimals\":\"18\",\"issuer\":\"ondo\",\"name\":\"NVIDIA (Ondo)\",\"symbol\":\"NVDAon\",\"underlying\":\"NVDA\"},\"calendarReview\":{\"earlyCloses\":[\"2026-11-27\",\"2026-12-24\"],\"holidays\":[\"2026-01-01\",\"2026-01-19\",\"2026-02-16\",\"2026-04-03\",\"2026-05-25\",\"2026-06-19\",\"2026-07-03\",\"2026-09-07\",\"2026-11-26\",\"2026-12-25\"],\"hoursSource\":\"https://www.nasdaq.com/market-activity/stock-market-holiday-schedule\",\"market\":\"XNAS\",\"mode\":\"live\",\"observedAtMs\":1791290088000,\"source\":\"https://www.nasdaqtrader.com/Trader.aspx?id=Calendar\",\"timezone\":\"America/New_York\",\"validFromDate\":\"2026-01-01\",\"validUntilDate\":\"2026-12-06\"},\"discovery\":\"MATCH\",\"engine\":{\"blockerCodes\":[\"MISSING_EVIDENCE\",\"MISSING_EVIDENCE\",\"MISSING_EVIDENCE\",\"MISSING_EVIDENCE\",\"MISSING_LIQUIDITY\",\"MISSING_QUOTE\",\"MISSING_CORROBORATION\",\"GAP_UNAVAILABLE\"],\"id\":\"reference-truth/v1:0b8daa72d38484ed6c6e4ea5e89213029c3c47f97bfcccdca6a7aa67e6cc669b\",\"input\":{\"available\":true,\"liquidity\":null,\"mode\":\"live\",\"multiplier\":null,\"observedAt\":{\"kind\":\"afterclose-observation\",\"unixMs\":1791546269535},\"order\":null,\"quote\":null,\"references\":[],\"session\":null,\"token\":{\"chainId\":56,\"contract\":\"0xa9ee28c80f960b889dfbd1902055218cba016f75\",\"decimals\":18,\"id\":\"56:0xa9ee28c80f960b889dfbd1902055218cba016f75\",\"issuer\":{\"id\":\"ondo\",\"name\":\"Ondo Finance\"},\"name\":\"NVIDIA (Ondo)\",\"provenance\":{\"mode\":\"live\",\"provider\":{\"id\":\"binance-web3\",\"name\":\"Binance Web3\"},\"source\":\"/api/v1/dex/market/rwa/tokens\"},\"symbol\":\"NVDAon\",\"underlyingId\":\"NVDA\"},\"tokenPrice\":{\"currency\":\"USD\",\"observedAt\":{\"kind\":\"afterclose-observation\",\"unixMs\":1791546269519},\"price\":234.38634248952968,\"priceAt\":{\"kind\":\"provider-price\",\"unixMs\":1791546266327},\"provenance\":{\"mode\":\"live\",\"provider\":{\"id\":\"binance-web3\",\"name\":\"Binance Web3\"},\"source\":\"/api/v1/dex/market/rwa/price\"},\"tokenId\":\"56:0xa9ee28c80f960b889dfbd1902055218cba016f75\"},\"underlying\":null},\"policy\":{\"maxMultiplierAgeMs\":86400000,\"maxObservationAgeMs\":30000,\"maxProviderDisagreementBps\":25,\"maxReferenceAgeMs\":60000,\"maxSlippageBps\":50,\"maxTokenAgeMs\":60000,\"minGapBps\":50,\"minIndependentProviders\":2,\"minLiquidityNotional\":10000,\"reviewSessions\":[\"regular\"]},\"result\":{\"decision\":\"WAIT\",\"execution\":\"DISABLED\",\"findings\":[{\"code\":\"MISSING_EVIDENCE\",\"message\":\"underlying: required evidence is missing.\",\"severity\":\"blocking\"},{\"code\":\"MISSING_EVIDENCE\",\"message\":\"multiplier: required evidence is missing.\",\"severity\":\"blocking\"},{\"code\":\"MISSING_EVIDENCE\",\"message\":\"session: required evidence is missing.\",\"severity\":\"blocking\"},{\"code\":\"MISSING_EVIDENCE\",\"message\":\"order: required evidence is missing.\",\"severity\":\"blocking\"},{\"code\":\"MISSING_LIQUIDITY\",\"message\":\"Liquidity evidence is missing.\",\"severity\":\"blocking\"},{\"code\":\"MISSING_QUOTE\",\"message\":\"An executable quote for this exact proposed order is missing.\",\"severity\":\"blocking\"},{\"code\":\"MISSING_CORROBORATION\",\"message\":\"Too few distinct independent reference providers.\",\"severity\":\"blocking\"},{\"code\":\"GAP_UNAVAILABLE\",\"message\":\"A comparable normalized price gap cannot be established.\",\"severity\":\"blocking\"}],\"mode\":\"live\",\"normalizedGapBps\":null,\"normalizedTokenPrice\":null,\"observationAgeMs\":0,\"providerDisagreementBps\":null,\"referenceAgesMs\":[],\"referenceConsensusPrice\":null,\"session\":\"unknown\",\"tokenPriceAgeMs\":3208}},\"evaluatedAtMs\":1791546269535,\"evaluationId\":\"ac-0c67dd2ea3ea0f4cf663e4a27af2fdbdc076d07db20a15f53ac58954855fa4a5\",\"evidenceStatus\":\"PARTIAL\",\"execution\":{\"liquidity\":null,\"priceImpact\":null,\"quote\":\"UNAVAILABLE\",\"reason\":\"RWA RFQ needs owner-supplied wallet context; no wallet or genuine transaction context provided. No transaction endpoint called.\",\"route\":null,\"simulation\":\"NOT_RUN\",\"slippage\":null},\"fields\":[{\"asset\":\"NVDAon\",\"chain\":56,\"classification\":\"LIVE\",\"contract\":\"0xa9ee28c80f960b889dfbd1902055218cba016f75\",\"derived\":false,\"id\":\"token-price\",\"label\":\"Token price (USD per token)\",\"latencyMs\":245,\"limitation\":\"USD units from Binance documentation; normalized Number is engine parsing, not per-share normalization.\",\"normalized\":234.38634248952968,\"observationAgeMs\":16,\"observedAtMs\":1791546269519,\"provider\":\"Binance Web3 RWA\",\"providerAtMs\":1791546266327,\"providerDataAgeMs\":3208,\"providerTimeSemantics\":\"tokenPriceUpdatedAt: provider token-price update, Unix milliseconds\",\"raw\":\"234.386342489529673353\",\"source\":\"/api/v1/dex/market/rwa/price\",\"usedByEngine\":true},{\"asset\":\"NVDAon\",\"chain\":56,\"classification\":\"UNDATED_PROVIDER_REPORT\",\"contract\":\"0xa9ee28c80f960b889dfbd1902055218cba016f75\",\"derived\":false,\"id\":\"identity\",\"label\":\"Token contract\",\"latencyMs\":539,\"limitation\":\"Discovery comparison: MATCH. Provider-reported identity, not on-chain attestation.\",\"normalized\":null,\"observationAgeMs\":342,\"observedAtMs\":1791546269193,\"provider\":\"Binance Web3 RWA\",\"providerAtMs\":null,\"providerDataAgeMs\":null,\"providerTimeSemantics\":\"No identity effective timestamp\",\"raw\":\"0xa9ee28c80f960b889dfbd1902055218cba016f75\",\"source\":\"/api/v1/dex/market/rwa/tokens\",\"usedByEngine\":true},{\"asset\":\"NVDAon\",\"chain\":56,\"classification\":\"UNDATED_PROVIDER_REPORT\",\"contract\":\"0xa9ee28c80f960b889dfbd1902055218cba016f75\",\"derived\":false,\"id\":\"decimals\",\"label\":\"Token decimals\",\"latencyMs\":539,\"limitation\":\"Reported token unit scale.\",\"normalized\":18,\"observationAgeMs\":342,\"observedAtMs\":1791546269193,\"provider\":\"Binance Web3 RWA\",\"providerAtMs\":null,\"providerDataAgeMs\":null,\"providerTimeSemantics\":\"No metadata effective timestamp\",\"raw\":\"18\",\"source\":\"/api/v1/dex/market/rwa/tokens\",\"usedByEngine\":true},{\"asset\":\"NVDAon\",\"chain\":56,\"classification\":\"UNDATED_PROVIDER_REPORT\",\"contract\":\"0xa9ee28c80f960b889dfbd1902055218cba016f75\",\"derived\":false,\"id\":\"price-reference\",\"label\":\"Token-derived price reference (USD/share)\",\"latencyMs\":245,\"limitation\":\"Derived by Binance from token infrastructure; never an independent equity quote. Token timestamp is not reassigned to this field.\",\"normalized\":null,\"observationAgeMs\":16,\"observedAtMs\":1791546269519,\"provider\":\"Binance Web3 RWA\",\"providerAtMs\":null,\"providerDataAgeMs\":null,\"providerTimeSemantics\":\"No separate reference event time supplied\",\"raw\":\"233.985\",\"source\":\"/api/v1/dex/market/rwa/price\",\"usedByEngine\":false},{\"asset\":\"NVDAon\",\"chain\":56,\"classification\":\"UNDATED_PROVIDER_REPORT\",\"contract\":\"0xa9ee28c80f960b889dfbd1902055218cba016f75\",\"derived\":false,\"id\":\"market-reference\",\"label\":\"Token-derived underlying-market reference (USD/share)\",\"latencyMs\":258,\"limitation\":\"Not an independent NVDA market price.\",\"normalized\":null,\"observationAgeMs\":3,\"observedAtMs\":1791546269532,\"provider\":\"Binance Web3 RWA\",\"providerAtMs\":null,\"providerDataAgeMs\":null,\"providerTimeSemantics\":\"Reference event time absent\",\"raw\":\"233.699148\",\"source\":\"/api/v1/dex/market/rwa/underlying-market\",\"usedByEngine\":false},{\"asset\":\"NVDAon\",\"chain\":56,\"classification\":\"UNDATED_PROVIDER_REPORT\",\"contract\":\"0xa9ee28c80f960b889dfbd1902055218cba016f75\",\"derived\":false,\"id\":\"ratio\",\"label\":\"Binance reported shares/token\",\"latencyMs\":539,\"limitation\":\"Not admitted as a verified current multiplier.\",\"normalized\":null,\"observationAgeMs\":342,\"observedAtMs\":1791546269193,\"provider\":\"Binance Web3 RWA\",\"providerAtMs\":null,\"providerDataAgeMs\":null,\"providerTimeSemantics\":\"Effective date and validity interval absent\",\"raw\":\"1.0017152487959898\",\"source\":\"/api/v1/dex/market/rwa/tokens\",\"usedByEngine\":false},{\"asset\":\"NVDAon\",\"chain\":56,\"classification\":\"UNDATED_PROVIDER_REPORT\",\"contract\":\"0xa9ee28c80f960b889dfbd1902055218cba016f75\",\"derived\":false,\"id\":\"market-status\",\"label\":\"Binance raw market status\",\"latencyMs\":258,\"limitation\":\"Provider RWA status is not an authoritative exchange/security status feed.\",\"normalized\":null,\"observationAgeMs\":3,\"observedAtMs\":1791546269532,\"provider\":\"Binance Web3 RWA\",\"providerAtMs\":null,\"providerDataAgeMs\":null,\"providerTimeSemantics\":\"Status event time absent\",\"raw\":\"premarket\",\"source\":\"/api/v1/dex/market/rwa/underlying-market\",\"usedByEngine\":false},{\"asset\":\"NVDAon\",\"chain\":56,\"classification\":\"UNDATED_PROVIDER_REPORT\",\"contract\":\"0xa9ee28c80f960b889dfbd1902055218cba016f75\",\"derived\":false,\"id\":\"issuer-multiplier\",\"label\":\"Ondo reported shares/token\",\"latencyMs\":null,\"limitation\":\"No effective date or validity interval; current applicability remains unverified.\",\"normalized\":null,\"observationAgeMs\":445,\"observedAtMs\":1791546269090,\"provider\":\"Ondo Finance\",\"providerAtMs\":null,\"providerDataAgeMs\":null,\"providerTimeSemantics\":\"Effective date unavailable\",\"raw\":\"1.0017152487959898\",\"source\":\"https://app.ondo.finance/assets/nvdaon\",\"usedByEngine\":false}],\"freshness\":{\"observationAgeMs\":16,\"providerDataAgeMs\":3208,\"reason\":\"Both clocks satisfy the research freshness policy; this does not establish execution readiness.\",\"status\":\"LIVE\"},\"freshnessPolicy\":{\"equity\":{\"historicalMs\":86400000,\"maxMs\":60000},\"multiplier\":{\"historicalMs\":604800000,\"maxMs\":86400000},\"observationMaxMs\":30000,\"session\":{\"historicalMs\":86400000,\"maxMs\":60000},\"token\":{\"historicalMs\":86400000,\"maxMs\":60000},\"version\":\"afterclose-freshness/v1\"},\"independentReference\":{\"reason\":\"No independent NVDA provider with confirmed timestamps and public-display entitlement is connected.\",\"status\":\"UNAVAILABLE\"},\"mode\":\"live\",\"multiplier\":{\"currentApplicability\":\"UNVERIFIED\",\"effectiveAtMs\":null,\"normalizedTokenPrice\":null,\"reportedValue\":\"1.0017152487959898\",\"status\":\"UNVERIFIED\",\"validUntilMs\":null},\"observation\":{\"audits\":[{\"code\":\"0\",\"endpoint\":\"platforms\",\"latencyMs\":290,\"observedAtMs\":1791546268942,\"responseTimestamp\":1791546268814,\"status\":200},{\"code\":\"0\",\"endpoint\":\"tokens\",\"latencyMs\":539,\"observedAtMs\":1791546269193,\"responseTimestamp\":1791546268845,\"status\":200},{\"code\":\"0\",\"endpoint\":\"search\",\"latencyMs\":617,\"observedAtMs\":1791546269271,\"responseTimestamp\":1791546269155,\"status\":200},{\"code\":\"0\",\"endpoint\":\"price\",\"latencyMs\":245,\"observedAtMs\":1791546269519,\"responseTimestamp\":1791546269403,\"status\":200},{\"code\":\"0\",\"endpoint\":\"underlying-market\",\"latencyMs\":258,\"observedAtMs\":1791546269532,\"responseTimestamp\":1791546269407,\"status\":200},{\"code\":\"0\",\"endpoint\":\"chain-list\",\"latencyMs\":276,\"observedAtMs\":1791546268931,\"responseTimestamp\":1791546268813,\"status\":200}],\"chains\":[{\"binanceChainId\":\"56\",\"name\":\"BNB Smart Chain\",\"shortName\":\"BSC\"}],\"discovery\":\"MATCH\",\"failure\":null,\"issuer\":{\"availability\":\"reported\",\"effectiveAtMs\":null,\"observedAtMs\":1791546269090,\"source\":\"https://app.ondo.finance/assets/nvdaon\",\"validUntilMs\":null,\"value\":\"1.0017152487959898\",\"verification\":\"unverified\"},\"market\":{\"binanceChainId\":\"56\",\"marketData\":{\"referencePrice\":\"233.699148\"},\"platformId\":\"ondo\",\"statusInfo\":{\"marketStatus\":\"premarket\",\"openState\":true},\"tokenContractAddress\":\"0xa9ee28c80f960b889dfbd1902055218cba016f75\"},\"mode\":\"live\",\"quote\":{\"binanceChainId\":\"56\",\"platformId\":\"ondo\",\"referencePrice\":\"233.985\",\"tokenContractAddress\":\"0xa9ee28c80f960b889dfbd1902055218cba016f75\",\"tokenPrice\":\"234.386342489529673353\",\"tokenPriceUpdatedAt\":1791546266327},\"searchCompany\":\"Nvidia Corp\",\"state\":\"connected\",\"token\":{\"assetType\":1,\"binanceChainId\":\"56\",\"decimals\":\"18\",\"platformId\":\"ondo\",\"referencePrice\":\"234.38634248952968\",\"statusInfo\":{\"marketStatus\":\"premarket\",\"openState\":true},\"tokenContractAddress\":\"0xa9ee28c80f960b889dfbd1902055218cba016f75\",\"tokenName\":\"NVIDIA (Ondo)\",\"tokenPrice\":\"234.788373381281298685532872077264\",\"tokenSymbol\":\"NVDAon\",\"tokenToShareRatio\":\"1.0017152487959898\",\"underlyingName\":\"Nvidia Corp\",\"underlyingTicker\":\"NVDA\"}},\"schemaVersion\":\"afterclose-evidence-receipt/v1\",\"session\":{\"authoritative\":\"UNKNOWN\",\"calendarEvent\":\"STANDARD\",\"scheduled\":{\"authoritativeStatus\":\"unverified\",\"availability\":\"available\",\"calendarDate\":\"2026-10-09\",\"evaluatedAtMs\":1791546269535,\"hoursSource\":\"https://www.nasdaq.com/market-activity/stock-market-holiday-schedule\",\"market\":\"XNAS\",\"mode\":\"live\",\"observedAtMs\":1791290088000,\"reason\":\"Published schedule only. Live exchange status, security halts and fresh equity quotes are not verified.\",\"scope\":\"published-schedule\",\"session\":\"premarket\",\"source\":\"https://www.nasdaqtrader.com/Trader.aspx?id=Calendar\",\"timezone\":\"America/New_York\",\"validFromDate\":\"2026-01-01\",\"validUntilDate\":\"2026-12-06\"}},\"transportVerified\":true}",
+  "digest": "fc7bd8ca5b3112e69725674830501e6b8c74769805b2beebd24ab44fba815402"
+}

@@ -1,0 +1,189 @@
+{
+  "status": "SUPABASE GATEWAY VERIFIED — READY FOR CLOUDFLARE INTEGRATION",
+  "branch": "codex/supabase-cache-repair",
+  "base": "be4f3fbc560ea76ea54d060eca063875d5adaf68",
+  "build": {
+    "commit": "39480fbd2776d2c0c0665b87668b077e154a8065",
+    "sourceDigest": "0eaec54a7c6367bf0e855f215c884ea4f7d9c48d6c76d503ee385c7cb9ac1286",
+    "dirty": false
+  },
+  "rootCause": "The Gate B validation-only public root returned application configuration 503 when a fresh worker had no captured observation; the repair permits a bounded genuine evaluation on cache miss.",
+  "preflight": {
+    "checkedAtMs": 1791546227921,
+    "pass": true,
+    "commit": "39480fbd2776d2c0c0665b87668b077e154a8065",
+    "results": [
+      {
+        "path": "/health",
+        "status": 200,
+        "region": "eu-central-1",
+        "cors": "https://afterclose-preview.pages.dev",
+        "body": {
+          "serviceAvailable": true,
+          "deploymentMode": "competition-live",
+          "runtimeRegion": "eu-central-1",
+          "build": {
+            "commit": "39480fbd2776d2c0c0665b87668b077e154a8065",
+            "sourceDigest": "0eaec54a7c6367bf0e855f215c884ea4f7d9c48d6c76d503ee385c7cb9ac1286",
+            "dirty": false
+          }
+        }
+      },
+      {
+        "path": "/diagnostics",
+        "status": 404,
+        "region": "eu-central-1",
+        "cors": "https://afterclose-preview.pages.dev",
+        "body": {
+          "schemaVersion": "afterclose-live-gateway/v1",
+          "status": "LIVE_EVIDENCE_UNAVAILABLE",
+          "reason": "DIAGNOSTICS_DISABLED"
+        }
+      },
+      {
+        "path": "",
+        "status": 403,
+        "region": "eu-central-1",
+        "cors": null,
+        "body": {
+          "schemaVersion": "afterclose-live-gateway/v1",
+          "status": "LIVE_EVIDENCE_UNAVAILABLE",
+          "reason": "ORIGIN_NOT_ALLOWED"
+        }
+      }
+    ]
+  },
+  "hosted": {
+    "pass": true,
+    "reports": [
+      {
+        "request": "first",
+        "status": 200,
+        "elapsedMs": 2174.4084,
+        "region": "eu-central-1",
+        "cache": "MISS",
+        "binanceCalls": 6,
+        "equivalence": true,
+        "digest": "fc7bd8ca5b3112e69725674830501e6b8c74769805b2beebd24ab44fba815402",
+        "observedAtMs": 1791546269519,
+        "providerAtMs": 1791546266327,
+        "evaluatedAtMs": 1791546269535,
+        "freshness": {
+          "status": "LIVE",
+          "providerDataAgeMs": 3208,
+          "observationAgeMs": 16,
+          "reason": "Both clocks satisfy the research freshness policy; this does not establish execution readiness."
+        },
+        "verdict": "WAIT",
+        "completeness": "PARTIAL"
+      },
+      {
+        "request": "repeat",
+        "status": 200,
+        "elapsedMs": 1958.8926999999999,
+        "region": "eu-central-1",
+        "cache": "MISS",
+        "binanceCalls": 6,
+        "equivalence": true,
+        "digest": "0be6bf4400510a64727c20f9b5adbb6e455ca18259d1fc797e1cdc62ce800675",
+        "observedAtMs": 1791546271852,
+        "providerAtMs": 1791546266327,
+        "evaluatedAtMs": 1791546271858,
+        "freshness": {
+          "status": "LIVE",
+          "providerDataAgeMs": 5531,
+          "observationAgeMs": 6,
+          "reason": "Both clocks satisfy the research freshness policy; this does not establish execution readiness."
+        },
+        "verdict": "WAIT",
+        "completeness": "PARTIAL"
+      }
+    ]
+  },
+  "hostedLogs": [
+    {
+      "executionId": "dbf45cc4-6660-4d1f-83cb-b303cbbe49f0",
+      "timestampUs": 1791546271865000,
+      "event": {
+        "event": "afterclose-request",
+        "status": 200,
+        "cache": "MISS",
+        "binanceCalls": 6,
+        "region": "eu-central-1"
+      }
+    },
+    {
+      "executionId": "288f84f6-9862-4d0a-bdf3-63ed1b43ac0a",
+      "timestampUs": 1791546269542000,
+      "event": {
+        "event": "afterclose-request",
+        "status": 200,
+        "cache": "MISS",
+        "binanceCalls": 6,
+        "region": "eu-central-1"
+      }
+    }
+  ],
+  "localRuntimeSmoke": {
+    "runtimeSmoke": "PASS",
+    "fixtureOnly": true,
+    "firstCache": "MISS",
+    "repeatCache": "HIT",
+    "firstBinanceCalls": 6,
+    "repeatBinanceCalls": 0,
+    "readOnlyEnvironment": "PASS"
+  },
+  "regressions": {
+    "runner": "Node test runner with tsx (repository has no Vitest)",
+    "passed": 166,
+    "failed": 0,
+    "typeScript": "PASS",
+    "eslint": "PASS"
+  },
+  "security": {
+    "at": "2026-10-09T11:46:21.967Z",
+    "jsonArtifactsScanned": 11,
+    "findings": {
+      "signedUrl": 0,
+      "signatureValue": 0,
+      "authenticationHeaders": 0,
+      "serviceSecret": 0,
+      "bundleServiceSecret": 0
+    },
+    "notes": "Auth-header field names in server signing source are expected; transport artifacts must contain no header objects or signature values. Runtime env values are not serialized."
+  },
+  "exactCredentialFindings": 0,
+  "providerCalls": {
+    "first": 6,
+    "repeat": 6,
+    "total": 12,
+    "issuer": 2,
+    "retries": 0
+  },
+  "usage": {
+    "plan": "Free",
+    "displayedInvocations": 33,
+    "includedInvocations": 500000,
+    "roundedEgressGb": 0,
+    "spendCapEnabled": true,
+    "overage": 0,
+    "countersLag": true
+  },
+  "scope": {
+    "cloudflareChanged": false,
+    "netlifyChanged": false,
+    "paidResourcesAdded": false,
+    "sharedInfrastructureAdded": false,
+    "credentialsChanged": false,
+    "walletSigning": false,
+    "tradingSimulation": false,
+    "broadcast": false,
+    "merged": false
+  },
+  "remainingRisks": [
+    "Budgets and cache are per worker, not global.",
+    "Cold workers can each use six calls; no provider-wide aggregate quota guarantee.",
+    "Platform/provider availability and cold-start latency.",
+    "Canonical evidence remains PARTIAL / WAIT."
+  ]
+}

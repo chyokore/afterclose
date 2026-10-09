@@ -1,6 +1,8 @@
 # Supabase Frankfurt Gate B validation
 
-Status: **SUPABASE GATE B FAILED — DO NOT INTEGRATE**. Frankfurt authentication, the single live evaluation, canonical receipt verification, and local equivalence passed. The required immediate hosted repeat returned a cache miss; a hosted cache hit with preserved observation timestamps and naturally increased age was not demonstrated. This is a cache/readiness failure, **not an authentication failure**. No more provider calls were made to force a hit.
+Current status, 2026-10-09: **SUPABASE GATEWAY VERIFIED — READY FOR CLOUDFLARE INTEGRATION**. The subsequent [Prompt 27 cache repair](supabase-cache-repair.md) replaced the validation-only root with the canonical bounded capture/cache flow. Both hosted first and immediate repeat requests returned HTTP 200 from separate workers, with genuine evidence and independently verified receipts. Safe cross-worker cache misses are accepted; same-worker timestamp retention is verified locally. Cloudflare remains unchanged.
+
+The original Prompt 26 report below is retained as historical evidence. Its original status was **SUPABASE GATE B FAILED — DO NOT INTEGRATE**: authentication and receipt verification passed, but a hosted cache hit was not demonstrated. Prompt 27 diagnosed and repaired the actual fresh-worker 503 rather than requiring cross-worker shared memory.
 
 Branch `codex/supabase-binance-live`, base `1fc758cdf744e0e767e4ee2d8a037632cae23f4c`. Project `afterclose-frankfurt` (`wakuqrnxjwikvlrxgezg`). Cloudflare and Netlify unchanged.
 
@@ -83,4 +85,4 @@ Cloudflare frontend and Netlify were not modified or connected. Wallet signing, 
 
 Validation: 95 canonical, receipt, gateway, CORS, client-security and Supabase adapter tests; read-only runtime startup smoke check; ESLint; TypeScript; exact credential and transport-artifact scans. Original observation timestamps remain in the committed receipt. No further provider call is authorized by these test commands.
 
-Final readiness: authentication and evidence pipeline proven in Frankfurt; complete Gate B acceptance **not achieved** because the hosted cache hit/age check remains unverified. Keep public integration disabled.
+Original Prompt 26 readiness: authentication and evidence pipeline proven in Frankfurt, but its cache acceptance was not achieved. This historical decision is superseded by the [successful Prompt 27 repair](supabase-cache-repair.md); integration still requires the next authorized milestone.
