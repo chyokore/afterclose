@@ -101,9 +101,9 @@ Environment variable names only:
 
 There is no Ondo API key or independent equity provider key configured by this application. Do not prefix secret names with `NEXT_PUBLIC_`. The development machine's existing system trust was necessary for verified TLS; do not copy local certificates to a host or disable certificate validation. See the recorded [TLS diagnostics](docs/devex/live-verification.md).
 
-For a production live build, use `npm run build:live-safe`, then `npm start`. The builder excludes environment files and provider credentials, denies outbound requests, and writes `.next` only after a successful isolated build. Runtime reads the existing server credentials. Persistent Turbopack filesystem caches are disabled: an exact binary scan found local credential values in ordinary-build cache files during this milestone, and those files were removed. Run both `scripts/scan-credentials.mjs` and `scripts/scan-known-credentials.mjs` against generated output before publishing any future deployment.
+For the retained local Next.js production-mode build, use `npm run build:live-safe`, then `npm start`. The builder excludes environment files and provider credentials, denies outbound requests, and writes `.next` only after a successful isolated build. Runtime reads the existing server credentials. Persistent Turbopack filesystem caches are disabled: a previous exact binary scan found local credential values in ordinary-build cache files, and those files were removed. Run both `scripts/scan-credentials.mjs` and `scripts/scan-known-credentials.mjs` against generated output before publishing any future deployment. This Next.js build is not the Cloudflare Pages artifact.
 
-## Validate and run the production build
+## Validate and run the local Next.js build
 
 ```sh
 npm test
@@ -118,7 +118,7 @@ Ages and engine decisions are evaluated at a snapshot. A client-side notice asks
 
 ## Demo and deployment status
 
-Local demonstration is supported; **public deployment has not been approved or performed**. The app needs a Node server, not static-only hosting. [Deployment readiness](docs/deployment.md) covers Vercel and a standard Node host, environment isolation, outbound access, quotas, licensing and approval gates. It is a runbook, not a claim that a hosted environment was tested.
+The public Cloudflare Pages frontend and Supabase Frankfurt gateway are deployed and verified. [Current release evidence](docs/deployment/public-live-release.md) records staging-first promotion, exact source/artifact identities, browser checks and rollback. The older [Node deployment readiness](docs/deployment.md) is retained as historical research; it does not describe the public static frontend architecture.
 
 [Demo/visual QA record](docs/qa/demo-readiness.md) includes reproducible desktop/mobile checks and known inspection limits. [Developer Experience diary](docs/devex/README.md) records actual work, including failed attempts and AI assistance.
 
@@ -128,13 +128,13 @@ Local demonstration is supported; **public deployment has not been approved or p
 - Issuer public-page structure is fragile; changes fail closed. An observed ratio is not current applicability, and BSC display scaling still needs reconciliation.
 - Published schedules do not establish live exchange status, absence of security halts or quote availability.
 - No wallet, signed transaction, approval, swap, RFQ submission, simulation or broadcast integration.
-- Each live render can make five Binance requests and one issuer request. No distributed rate limiter or shared cache exists; unrestricted public traffic is not ready without host/provider quota controls.
+- A gateway cache miss can make six fixed Binance requests and one issuer-page request. Cache/cooldown are per worker; there is no distributed rate limiter or shared cache. Browser safeguards reduce accidental requests but cannot coordinate arbitrary callers. This is a bounded competition demonstration, not a high-traffic service.
 - No fallback live prices. Network and schema failures are visible, actionable states.
 
 Research: [issuer/session evidence](docs/research/issuer-multiplier-and-session.md), [execution feasibility](docs/research/binance-execution-evidence.md), [independent providers](docs/research/underlying-equity-providers.md). This repository is independent of Noctive and uses none of its files, assets or infrastructure.
 
-## Restricted synthetic preview
+## Historical local synthetic rehearsal
 
-The [exact restricted-preview plan](docs/deployment/restricted-preview-plan.md) is awaiting approval. **NO HOSTED DEPLOYMENT HAS OCCURRED.** Use server-only `AFTERCLOSE_PREVIEW_MODE=synthetic` for a fictional dashboard and all 12 scenarios. Live adapters reject requests in this mode, even with credentials present. Refresh repeats frozen fixtures. Invalid values fail closed; missing mode on Vercel also fails closed. For the existing local live workflow, leave the flag unset.
+The older [restricted-preview plan](docs/deployment/restricted-preview-plan.md) is historical. The public synthetic-only deployment is preserved as a rollback target, and the current public lab is at `/lab/`. For local Next.js rehearsal, use server-only `AFTERCLOSE_PREVIEW_MODE=synthetic` for a fictional dashboard and all 12 scenarios. Live adapters reject requests in this mode, even with credentials present. Refresh repeats frozen fixtures. Invalid values fail closed; missing mode on Vercel also fails closed. For the existing local live workflow, leave the flag unset.
 
 With Node 24, run `node scripts/rehearse-synthetic.mjs` for an isolated production build/server rehearsal with no env files or provider secrets and server fetch interception. It retains ignored artifacts under `.tools`, binds only loopback, and stops its server after checking routes, RSC refresh and assets. This does not validate hosted authentication. The Vercel config disables Git auto-deploys; no hosting connection is created by that file.

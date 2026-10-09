@@ -1,0 +1,52 @@
+{
+  "captureEvents": [
+    {
+      "dashboardTime": "09 Oct 26 13:35:01",
+      "displayTimezone": "Africa/Lagos (UTC+1)",
+      "event": {
+        "event": "afterclose-request",
+        "status": 200,
+        "cache": "MISS",
+        "binanceCalls": 6,
+        "region": "eu-central-1"
+      }
+    },
+    {
+      "dashboardTime": "09 Oct 26 13:31:36",
+      "displayTimezone": "Africa/Lagos (UTC+1)",
+      "event": {
+        "event": "afterclose-request",
+        "status": 200,
+        "cache": "MISS",
+        "binanceCalls": 6,
+        "region": "eu-central-1"
+      }
+    },
+    {
+      "dashboardTime": "09 Oct 26 13:29:17",
+      "displayTimezone": "Africa/Lagos (UTC+1)",
+      "event": {
+        "event": "afterclose-request",
+        "status": 200,
+        "cache": "MISS",
+        "binanceCalls": 6,
+        "region": "eu-central-1"
+      }
+    },
+    {
+      "dashboardTime": "09 Oct 26 13:23:33",
+      "displayTimezone": "Africa/Lagos (UTC+1)",
+      "event": {
+        "event": "afterclose-request",
+        "status": 200,
+        "cache": "MISS",
+        "binanceCalls": 6,
+        "region": "eu-central-1"
+      }
+    }
+  ],
+  "totalCalls": 24,
+  "agentInitiatedCaptures": 2,
+  "additionalCapturesDuringOwnerCheck": 2,
+  "automaticRetryOrNavigationCallsObserved": 0
+}

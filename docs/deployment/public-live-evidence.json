@@ -1,0 +1,415 @@
+{
+  "staging": {
+    "at": "2026-10-09T12:23:03.394Z",
+    "origin": "https://live-staging.afterclose-preview.pages.dev",
+    "commit": "8eba2c989e881dbd2db83402c5cdd4a6602c8030",
+    "files": [
+      {
+        "path": "index.html",
+        "status": 200,
+        "sha256Matches": true
+      },
+      {
+        "path": "live.js",
+        "status": 200,
+        "sha256Matches": true
+      },
+      {
+        "path": "live.css",
+        "status": 200,
+        "sha256Matches": true
+      },
+      {
+        "path": "404.html",
+        "status": 200,
+        "sha256Matches": true
+      },
+      {
+        "path": "lab/index.html",
+        "status": 200,
+        "sha256Matches": true
+      },
+      {
+        "path": "lab/assets/preview.js",
+        "status": 200,
+        "sha256Matches": true
+      },
+      {
+        "path": "lab/assets/preview.css",
+        "status": 200,
+        "sha256Matches": true
+      },
+      {
+        "path": "lab/404.html",
+        "status": 200,
+        "sha256Matches": true
+      }
+    ],
+    "csp": "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src https://wakuqrnxjwikvlrxgezg.supabase.co; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-ancestors 'none'",
+    "health": {
+      "status": 200,
+      "cors": "https://live-staging.afterclose-preview.pages.dev",
+      "body": {
+        "serviceAvailable": true,
+        "deploymentMode": "competition-live",
+        "runtimeRegion": "eu-central-1",
+        "build": {
+          "commit": "8eba2c989e881dbd2db83402c5cdd4a6602c8030",
+          "sourceDigest": "57b9d8f2cf1d63e919aa479f165ccf93eceea0944607f625857434f2411f5a0e",
+          "dirty": false
+        }
+      }
+    }
+  },
+  "production": {
+    "at": "2026-10-09T12:34:29.341Z",
+    "origin": "https://afterclose-preview.pages.dev",
+    "commit": "8eba2c989e881dbd2db83402c5cdd4a6602c8030",
+    "files": [
+      {
+        "path": "index.html",
+        "status": 200,
+        "sha256Matches": true
+      },
+      {
+        "path": "live.js",
+        "status": 200,
+        "sha256Matches": true
+      },
+      {
+        "path": "live.css",
+        "status": 200,
+        "sha256Matches": true
+      },
+      {
+        "path": "404.html",
+        "status": 200,
+        "sha256Matches": true
+      },
+      {
+        "path": "lab/index.html",
+        "status": 200,
+        "sha256Matches": true
+      },
+      {
+        "path": "lab/assets/preview.js",
+        "status": 200,
+        "sha256Matches": true
+      },
+      {
+        "path": "lab/assets/preview.css",
+        "status": 200,
+        "sha256Matches": true
+      },
+      {
+        "path": "lab/404.html",
+        "status": 200,
+        "sha256Matches": true
+      }
+    ],
+    "csp": "default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src https://wakuqrnxjwikvlrxgezg.supabase.co; font-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-ancestors 'none'",
+    "health": {
+      "status": 200,
+      "cors": "https://afterclose-preview.pages.dev",
+      "body": {
+        "serviceAvailable": true,
+        "deploymentMode": "competition-live",
+        "runtimeRegion": "eu-central-1",
+        "build": {
+          "commit": "8eba2c989e881dbd2db83402c5cdd4a6602c8030",
+          "sourceDigest": "57b9d8f2cf1d63e919aa479f165ccf93eceea0944607f625857434f2411f5a0e",
+          "dirty": false
+        }
+      }
+    }
+  },
+  "stagingScenarios": [
+    {
+      "width": 320,
+      "scenario": "missing-independent",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "scenario": "stale-token",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "scenario": "closed-stale-reference",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "scenario": "missing-multiplier",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "scenario": "stale-reference",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "scenario": "fresh-evidence",
+      "verdict": "PROCEED_TO_REVIEW",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "scenario": "missing-timestamp",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "scenario": "provider-disagreement",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "scenario": "insufficient-liquidity",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "scenario": "high-slippage",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "scenario": "market-closed",
+      "verdict": "MONITOR",
+      "overflow": false
+    },
+    {
+      "width": 320,
+      "scenario": "api-unavailable",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "scenario": "missing-independent",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "scenario": "stale-token",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "scenario": "closed-stale-reference",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "scenario": "missing-multiplier",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "scenario": "stale-reference",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "scenario": "fresh-evidence",
+      "verdict": "PROCEED_TO_REVIEW",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "scenario": "missing-timestamp",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "scenario": "provider-disagreement",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "scenario": "insufficient-liquidity",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "scenario": "high-slippage",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "scenario": "market-closed",
+      "verdict": "MONITOR",
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "scenario": "api-unavailable",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "scenario": "missing-independent",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "scenario": "stale-token",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "scenario": "closed-stale-reference",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "scenario": "missing-multiplier",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "scenario": "stale-reference",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "scenario": "fresh-evidence",
+      "verdict": "PROCEED_TO_REVIEW",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "scenario": "missing-timestamp",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "scenario": "provider-disagreement",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "scenario": "insufficient-liquidity",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "scenario": "high-slippage",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "scenario": "market-closed",
+      "verdict": "MONITOR",
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "scenario": "api-unavailable",
+      "verdict": "WAIT",
+      "overflow": false
+    }
+  ],
+  "productionScenarios": [
+    {
+      "scenario": "missing-independent",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "scenario": "stale-token",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "scenario": "closed-stale-reference",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "scenario": "missing-multiplier",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "scenario": "stale-reference",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "scenario": "fresh-evidence",
+      "verdict": "PROCEED_TO_REVIEW",
+      "overflow": false
+    },
+    {
+      "scenario": "missing-timestamp",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "scenario": "provider-disagreement",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "scenario": "insufficient-liquidity",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "scenario": "high-slippage",
+      "verdict": "WAIT",
+      "overflow": false
+    },
+    {
+      "scenario": "market-closed",
+      "verdict": "MONITOR",
+      "overflow": false
+    },
+    {
+      "scenario": "api-unavailable",
+      "verdict": "WAIT",
+      "overflow": false
+    }
+  ],
+  "clipboard": {
+    "embeddedBrowser": "Clipboard API returned success but readback stayed stale; same limitation on Supabase",
+    "ownerVerification": "Owner confirmed the regular-browser pasted digest matches before promotion"
+  },
+  "errorChecks": {
+    "http503": "Local identical UI failure path passed",
+    "retryAfter": "Unit-tested seconds/date, session persistence and no retry",
+    "malformedReceipt": "Unit-tested bad schema/digest rejection"
+  }
+}
