@@ -1,12 +1,26 @@
 # AfterClose
 
-**Understand the gap before the decision.**
+*Understand the gap before the decision.*
 
-AfterClose is an entirely independent project. Start with the [judge proof index](docs/submission/proof-index.md) for a genuine historical observation, its verifiable receipt and the separate synthetic lab. For fresh-clone commands, use [reproduction instructions](docs/reproduction.md).
+Tokenized stocks can trade while their underlying equity markets are closed. A visible price doesn't necessarily mean the reference is current, the liquidity is sufficient, or a trade can be executed at that price.
 
-Tokenized stocks can trade when their underlying equity reference is stale, missing or based on a different unit. AfterClose makes those gaps in evidence visible before anyone interprets a price difference.
+**AfterClose is an evidence-first research and decision-support platform for tokenized stocks on BNB Smart Chain.**
 
-This is a read-only hackathon research application. The [public demo](https://afterclose-preview.pages.dev/) is the judge entry for Live Evidence and the separate [12-case synthetic Scenario Lab](https://afterclose-preview.pages.dev/lab/#/lab/fresh-evidence). Check the [release record](docs/deployment/public-live-release.md) for deployment status, source commit and validation. No wallet or execution capability exists. The [verified release branch](https://github.com/chyokore/afterclose/tree/codex/cloudflare-live-integration) preserves deployed-release evidence; repository cleanup is prepared on the [review branch](https://github.com/chyokore/afterclose/tree/codex/release-promotion-audit). Main is not automatically merged.
+Using live Binance Web3 RWA data, AfterClose examines market evidence, price provenance, freshness, and missing execution information before returning a decision.
+
+Its Reference Truth Engine produces one of three outcomes: **WAIT**, **MONITOR**, or **PROCEED_TO_REVIEW**. Live evaluations include the reasons behind the decision and a verifiable SHA-256 evidence receipt. The separate synthetic lab explains each scenario's result.
+
+AfterClose never invents missing evidence. It is read-only: no wallet connection or trade execution is available.
+
+**Live demo:** [Explore AfterClose](https://afterclose-preview.pages.dev/)
+
+**Judge proof index:** [Historical evidence and receipt verification](https://github.com/chyokore/afterclose/blob/main/docs/submission/proof-index.md)
+
+**Explore:** Live Ondo NVDAon evidence and [12 clearly labeled synthetic scenarios](https://afterclose-preview.pages.dev/lab/#/lab/fresh-evidence).
+
+The recorded live result is **PARTIAL / WAIT**—an intentional evidence-quality outcome. Token data is available, but independent equity references, current multiplier applicability, authoritative market status, sufficient liquidity and executable quotes have not been verified. A visible token price alone is not enough to proceed to review.
+
+Start locally with the [reproduction instructions](docs/reproduction.md). The [release record](docs/deployment/public-live-release.md) preserves deployment details, verified evidence and rollback; the [verified release branch](https://github.com/chyokore/afterclose/tree/codex/cloudflare-live-integration) and [release audit branch](https://github.com/chyokore/afterclose/tree/codex/release-promotion-audit) retain their historical review context.
 
 ## One-minute demonstration
 
@@ -136,7 +150,7 @@ The public Cloudflare Pages frontend and Supabase Frankfurt gateway are deployed
 - A gateway cache miss can make six fixed Binance requests and one issuer-page request. Cache/cooldown are per worker; there is no distributed rate limiter or shared cache. Browser safeguards reduce accidental requests but cannot coordinate arbitrary callers. This is a bounded competition demonstration, not a high-traffic service.
 - No fallback live prices. Network and schema failures are visible, actionable states.
 
-Research: [issuer/session evidence](docs/research/issuer-multiplier-and-session.md), [execution feasibility](docs/research/binance-execution-evidence.md), [independent providers](docs/research/underlying-equity-providers.md). AfterClose is an entirely independent project.
+Research: [issuer/session evidence](docs/research/issuer-multiplier-and-session.md), [execution feasibility](docs/research/binance-execution-evidence.md), [independent providers](docs/research/underlying-equity-providers.md).
 
 ## Historical local synthetic rehearsal
 
